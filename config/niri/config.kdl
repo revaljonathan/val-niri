@@ -1,12 +1,8 @@
+prefer-no-csd
 input {
     keyboard {
         xkb {
             options "caps:escape"
-
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
         numlock
     }
@@ -43,12 +39,7 @@ input {
         // scroll-button-lock
         // middle-emulation
     }
-
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 }
 
@@ -69,7 +60,6 @@ output "eDP-1" {
     mode "1920x1080@60.000"
     scale 1
     transform "normal"
-
     position x=0 y=0
 }
 
@@ -80,7 +70,8 @@ cursor {
   }
 
 layout {
-    gaps 8
+    gaps 5
+    background-color "transparent"
 
     center-focused-column "never"
 
@@ -89,35 +80,25 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
-
        default-column-width { proportion 0.5; }
-
        focus-ring {
-          off
-
-          width 0.1
-
+          on
+          width 2
           active-color "#cba6f7"
         }
-
         border {
-        on
-
+        off
         width 2
         active-color "#cba6f7"
         inactive-color "11111b"
-
         urgent-color "#9b0000"
-
         }
-
     shadow {
         off
            softness 30
            spread 5
            offset x=0 y=5
           }
-
     struts {
         //left 
         // right -6
@@ -127,50 +108,34 @@ layout {
 }
 
 spawn-at-startup "bash" "/home/reval/.local/bin/defbar.sh"
-//spawn-sh-at-startup "swaybg -m fill -i ~/pics/walls/3.png"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-//spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock"
-spawn-at-startup "swaync"
+spawn-at-startup "dunst"
 spawn-at-startup "bash" "/home/reval/.local/bin/gamma.sh"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "wob"
-spawn-at-startup "sh" "-c" "tail -f $XDG_RUNTIME_DIR/wob.sock | wob"
-
-
-
+spawn-at-startup "bash" "/home/reval/.local/bin/sleep.sh"
 
 hotkey-overlay {
     skip-at-startup
 }
 
-prefer-no-csd
 
 screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
     // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="xdg-desktop-portal-gtk"
+    min-width 700
+    min-height 500 
+    max-width 1000
+    max-height 800
+    
     open-floating true
-}
-
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    block-out-from "screen-capture"
 }
 
 window-rule {
@@ -178,12 +143,12 @@ window-rule {
   open-maximized true
 }
 
-
 window-rule {
   match title="LimbusCompany"
   open-maximized true
     default-column-width { proportion 1.0; }
 }
+
 
 window-rule {
   match title="Spotify"
@@ -192,60 +157,53 @@ window-rule {
 }
 
 
+
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
+
     Mod+A { spawn "rofi" "-show" "window"; }
     Mod+S { spawn "~/.local/bin/browse.sh"; }
     Mod+E { spawn "rofimoji"; }
+    Mod+Space { spawn "~/.local/bin/filerofi.sh"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Mod+P { spawn "~/.local/bin/power.sh"; }
-
-    //Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
-
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
-    //XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    //XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Mod+shift+P { spawn "~/.local/bin/ppd.sh"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-   // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    XF86AudioRaiseVolume  { spawn "~/.local/bin/dunstvol.sh" "up"; }
+    XF86AudioLowerVolume  { spawn "~/.local/bin/dunstvol.sh" "down"; }
+    XF86AudioMute         { spawn "~/.local/bin/dunstvol.sh" "mute"; }
+    XF86MonBrightnessUp   { spawn "~/.local/bin/dunstback.sh" "up"; }
+    XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
 
-    // Example for Volume
-    XF86AudioRaiseVolume allow-when-locked=false {
-    spawn "sh" "-c" "current=$(pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}'); [ \"$current\" -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-    }
-    XF86AudioLowerVolume allow-when-locked=false {
-    spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-    }
+    f3  { spawn "~/.local/bin/dunstvol.sh" "up"; }
+    f2  { spawn "~/.local/bin/dunstvol.sh" "down"; }
+    f6  { spawn "~/.local/bin/dunstback.sh" "up"; }
+    f5  { spawn "~/.local/bin/dunstback.sh" "down"; }
 
-    // Example for Backlight
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set +5% | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set 5%- | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-    }
 
+
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
 
     Mod+W repeat=false { toggle-overview; }
-
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
@@ -265,13 +223,6 @@ binds {
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -296,14 +247,6 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
-    // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
-
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
@@ -312,10 +255,6 @@ binds {
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
@@ -327,27 +266,14 @@ binds {
     Mod+Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    //Mod+WheelScrollRight      { focus-column-right; }
-    //Mod+WheelScrollLeft  { focus-column-left; }
-    //Mod+Ctrl+WheelScrollRight { move-column-right; }
-    //Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+WheelScrollDown    cooldown-ms=150   { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-right; }
+    Mod+Shift+WheelScrollUp  cooldown-ms=150  { move-column-left; }
 
-    // Usually scrolling up and down with Shift in applications results in
-    // horizontal scrolling; these binds replicate that.
-    Mod+WheelScrollDown      { focus-column-right; }
-    Mod+WheelScrollUp        { focus-column-left; }
-    Mod+Shift+WheelScrollDown { move-column-right; }
-    Mod+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Ctrl+WheelScrollDown      { set-column-width "-10%"; }
+    Mod+Ctrl+WheelScrollUp        { set-column-width "+10%"; }
    
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
-
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -367,11 +293,6 @@ binds {
     Mod+shift+8 { move-column-to-workspace 8; }
     Mod+shift+9 { move-column-to-workspace 9; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
@@ -380,20 +301,15 @@ binds {
     
    
     Mod+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
 
-    // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -409,8 +325,6 @@ binds {
 
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
-    Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -418,13 +332,9 @@ binds {
     super+X { spawn-sh "hyprpicker | wl-copy"; }
     super+shift+q { screenshot; }
 
-      Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/reval/.local/bin/wp.sh"; }
+    Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/reval/.local/bin/wp.sh"; }
     Mod+B { spawn "/home/reval/.local/bin/barsel.sh"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    //Mod+Shift+E { quit; }
-    //Ctrl+Alt+Delete { quit; }
-
-    // Mod+Shift+P { power-off-monitors; }
 }
