@@ -1,0 +1,202 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    "width": 1900, // Waybar width
+    "spacing": 6, // Gaps between modules (4px)
+    
+    "modules-left": [
+        "niri/workspaces",
+    "group/music",
+        "group/tray",
+        "custom/pac"
+    ],
+
+    "modules-center": [
+    ],
+    "modules-right": [
+      "niri/window",
+    	"clock",
+      "custom/weather",
+      "group/hw"
+    ],
+
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    
+    "sway/window": {
+    "format": "{}",
+    "max-length": 30,
+    "tooltip": true
+},
+
+    
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%A, %d %B %H:%M}",
+        "on-click": "kitty -e calcurse"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": " {temperatureC}°C",
+        "format-icons": ["󰉬", "", "󰉪"]
+    },
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", ""],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip-format": "{percent}%"
+},
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "active": "󰮯",
+        "default": "󰊠",
+        "empty": "󰨐"
+    },
+    // Optional: Hide empty workspaces if desired (requires recent Waybar)
+    "hide-empty": true 
+},
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging":"",
+        "format-plugged": "",
+        //"format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e btop",
+        "tooltip-format": "{capacity}% - {time}"
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "on {essid} {ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "󱛅",
+        "on-click": "nmgui"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "",
+        //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
+        //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        "format-muted": "󰅶" , //{format_source}",
+        //"format-source": " {volume}%",
+        //"format-source-muted": " ",
+        "on-click": "pavucontrol",
+        "tooltip-format": "{volume}%"
+    },
+
+    "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "tooltip-format": "{source_desc} | {source_volume}%"
+},
+
+    "custom/weather": {
+    "format": "{}°C",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
+    "return-type": "json"
+},
+
+"disk": {
+    "interval": 300,
+    "format": "/ {percentage_used}%",
+    "path": "/",
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
+},
+
+
+
+"group/tray": {
+    "orientation": "horizontal",
+    "modules": [
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "network",
+        "battery"
+    ]
+},
+
+"group/hw": {
+    "orientation": "horizontal",
+    "modules": [
+      "memory",
+      "cpu",
+      "temperature"
+    ]
+  },
+
+    "custom/pac": {
+    "exec": "~/.local/bin/pacman.sh",
+    "interval": 3600,
+    "on-click": "kitty -e paru -Syu"
+  },
+
+    "custom/next": {
+    "format": "",
+    "on-click": "playerctl next",
+    "tooltip": "play next"
+  },
+
+    "custom/before": {
+    "format": " ",
+    "on-click": "playerctl previous",
+    "tooltip": "play before"
+  },
+
+
+       "custom/spotify": {
+	    "exec": "~/.local/bin/spotify.sh",
+	    "interval": 8,
+	    "on-click": "playerctl -p spotify play-pause",
+	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
+"on-scroll-down": "playerctl -p spotify volume 0.05-"
+	},
+
+    "group/music": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/spotify",
+      "custom/before",
+      "custom/next"
+    ]
+  },
+}
