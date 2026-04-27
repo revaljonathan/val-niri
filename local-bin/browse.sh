@@ -4,16 +4,16 @@ PREDEFINED=(
     "github.com"
     "Wikipedia"
     "Youtube"
-    "Arch Wiki "
+    "Arch Wiki"
     "Deepseek"
+    "GPT"
+    "Claude"
 )
 
 CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
     -dmenu \
-    -columns 2 \
-    -lines 4 \
     -p "Search" \
-    -theme-str 'window {width: 350px;}' \
+    -theme-str 'window {width: 250px;}' \
     -i \
     -kb-accept-entry "Return")
 
@@ -29,5 +29,7 @@ case "$CHOICE" in
 "Youtube"*) brave "https://www.youtube.com/" ;;
 "Arch Wiki"*) brave "https://wiki.archlinux.org/title/Main_page" ;;
 "Deepseek"*) brave "https://chat.deepseek.com/" ;;
+"GPT"*) brave "https://chatgpt.com/" ;;
+"Claude"*) brave "https://claude.ai/new" ;;
 *) brave "https://www.google.com/search?q=$(urlencode "$CHOICE")" ;;
 esac

@@ -5,11 +5,6 @@ options="Shutdown\nReboot\nLock\nSuspend now\nDo not suspend\nAllow suspend\nLog
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power" \
     -theme-str '
     window { width: 300px; }
-    element selected {
-      background-color: #ffffff;
-      text-color: #ffffff;
-      accent-color: #fca7ea;
-    }
   ')
 
 case "$chosen" in
