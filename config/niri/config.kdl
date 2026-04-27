@@ -48,7 +48,7 @@ gestures {
 }
 
 overview {
-  backdrop-color "#1e1e2e";
+  backdrop-color "#1e1e2e00";
 }
 
 workspace "1" { }
@@ -57,7 +57,7 @@ workspace "3" { }
 workspace "4" { }
 
 output "eDP-1" {
-    mode "1920x1080@60.000"
+    mode "1920x1200@165.000"
     scale 1
     transform "normal"
     position x=0 y=0
@@ -173,6 +173,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
+    Mod+g { spawn-sh "rofi -show calc"; }
 
     Mod+A { spawn "rofi" "-show" "window"; }
     Mod+S { spawn "~/.local/bin/browse.sh"; }
@@ -261,15 +262,15 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    Mod+Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Alt+WheelScrollDown      cooldown-ms=50 { focus-workspace-down; }
+    Mod+Alt+WheelScrollUp        cooldown-ms=50 { focus-workspace-up; }
+    Mod+Shift+Alt+WheelScrollDown cooldown-ms=50 { move-column-to-workspace-down; }
+    Mod+Shift+Alt+WheelScrollUp   cooldown-ms=50 { move-column-to-workspace-up; }
 
-    Mod+WheelScrollDown    cooldown-ms=150   { focus-column-right; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
-    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-right; }
-    Mod+Shift+WheelScrollUp  cooldown-ms=150  { move-column-left; }
+    Mod+WheelScrollDown    cooldown-ms=50   { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=50 { focus-column-left; }
+    Mod+Shift+WheelScrollDown cooldown-ms=50 { move-column-right; }
+    Mod+Shift+WheelScrollUp  cooldown-ms=50  { move-column-left; }
 
     Mod+Ctrl+WheelScrollDown      { set-column-width "-10%"; }
     Mod+Ctrl+WheelScrollUp        { set-column-width "+10%"; }
