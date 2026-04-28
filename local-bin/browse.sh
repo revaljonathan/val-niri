@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
 
 PREDEFINED=(
-    "github.com"
+    "github"
     "Wikipedia"
     "Youtube"
     "Arch Wiki"
     "Deepseek"
     "GPT"
     "Claude"
+    "Gemini"
 )
 
 CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
     -dmenu \
     -p "Search" \
-    -theme-str 'window {width: 250px;}' \
     -i \
+    -theme-str '
+    window {width: 350px;}
+    listview {
+        columns: 2;
+        lines: 6;
+    }
+    ' \
     -kb-accept-entry "Return")
 
 [ -z "$CHOICE" ] && exit 0
@@ -31,5 +38,6 @@ case "$CHOICE" in
 "Deepseek"*) brave "https://chat.deepseek.com/" ;;
 "GPT"*) brave "https://chatgpt.com/" ;;
 "Claude"*) brave "https://claude.ai/new" ;;
+"Gemini"*) brave "https://gemini.google.com/app" ;;
 *) brave "https://www.google.com/search?q=$(urlencode "$CHOICE")" ;;
 esac
