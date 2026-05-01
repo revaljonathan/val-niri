@@ -47,6 +47,7 @@ gestures {
     hot-corners { off; }
 }
 
+
 overview {
   backdrop-color "#1e1e2e00";
 }
@@ -83,7 +84,7 @@ layout {
        default-column-width { proportion 0.5; }
        focus-ring {
           on
-          width 2
+          width 1
           active-color "#cba6f7"
         }
         border {
@@ -107,14 +108,15 @@ layout {
     }
 }
 
-spawn-at-startup "bash" "/home/reval/.local/bin/defbar.sh"
+spawn-at-startup "/home/reval/.local/bin/defbar.sh"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "dunst"
-spawn-at-startup "bash" "/home/reval/.local/bin/gamma.sh"
+spawn-at-startup "/home/reval/.local/bin/gamma.sh"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "bash" "/home/reval/.local/bin/sleep.sh"
+spawn-at-startup "/home/reval/.local/bin/sleep.sh"
+spawn-at-startup "/home/reval/.local/bin/todo-daemon"
 
 hotkey-overlay {
     skip-at-startup
@@ -128,14 +130,10 @@ animations {
     // slowdown 3.0
 }
 
+
+
 window-rule {
-    match app-id="xdg-desktop-portal-gtk"
-    min-width 700
-    min-height 500 
-    max-width 1000
-    max-height 800
-    
-    open-floating true
+    draw-border-with-background false
 }
 
 window-rule {
@@ -144,11 +142,34 @@ window-rule {
 }
 
 window-rule {
+    match title="Zen browser"
+    open-maximized true
+}
+
+window-rule {
   match title="LimbusCompany"
   open-maximized true
     default-column-width { proportion 1.0; }
 }
 
+window-rule {
+    // Match the GTK portal window
+    match app-id="xdg-desktop-portal-gtk"
+    
+    min-width 900
+    min-height 500 
+    max-width 1200
+    max-height 800
+    
+    // Optionally force it to open floating if it isn't already
+    open-floating true
+}
+layer-rule {
+    match namespace="dunst"
+    background-effect {
+        blur true
+    }
+}
 
 window-rule {
   match title="Spotify"
@@ -172,14 +193,15 @@ layer-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
+    Mod+D { spawn "rofi" "-show" "drun"; }
     Mod+g { spawn-sh "rofi -show calc"; }
+    Mod+T { spawn-sh "~/.local/bin/todo.sh"; }
 
     Mod+A { spawn "rofi" "-show" "window"; }
     Mod+S { spawn "~/.local/bin/browse.sh"; }
     Mod+E { spawn "rofimoji"; }
     Mod+Space { spawn "~/.local/bin/filerofi.sh"; }
-    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme-str 'window {width: 800px;}' | cliphist decode | wl-copy"; }
     Mod+P { spawn "~/.local/bin/power.sh"; }
     Mod+shift+P { spawn "~/.local/bin/ppd.sh"; }
 
