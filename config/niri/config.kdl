@@ -84,7 +84,7 @@ layout {
        default-column-width { proportion 0.5; }
        focus-ring {
           on
-          width 1
+          width 2
           active-color "#cba6f7"
         }
         border {

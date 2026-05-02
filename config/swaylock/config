@@ -8,7 +8,7 @@ clock
 timestr=%H:%M:%S
 datestr=%a, %e of %B
 
-image=/home/reval/pics/walls/cat_leaves.png
+image=/home/reval/pics/walls/11.png
 color=1e1e2e
 bs-hl-color=f5e0dc
 caps-lock-bs-hl-color=f5e0dc

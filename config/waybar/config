@@ -17,30 +17,24 @@
     ],
     "modules-right": [
       "custom/separator",
-    	"clock",
+        "cpu",
+        "memory",
+        "temperature",
       "custom/separator",
       "custom/weather",
-      "custom/separator",
-      "custom/pac",
       "custom/separator",
     	"battery",
     	"custom/separator",
        "pulseaudio#microphone",
         "pulseaudio",
-        "custom/separator",
-        "network",
         "backlight",
         "custom/separator",
-        //"disk",
-        "cpu",
-        //"custom/separator",
-        "memory",
-        //"custom/separator",
-        "temperature",
-        // "backlight",
-        // "custom/separator",
+        "network",
         "custom/separator",
-        "custom/spotify"
+        "custom/spotify",
+        "custom/separator",
+        "clock",
+
     ],
 
     "custom/separator": {
@@ -71,7 +65,8 @@
     },
     "temperature": {
         // "thermal-zone": 2,
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",       
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": " {temperatureC}°C",
@@ -150,13 +145,6 @@
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
 
-    "custom/pac": {
-    "exec": "~/.local/bin/pacman.sh",
-    "interval": 3600,
-    "on-click": "kitty -e paru -Syu"
-  },
-
-
 
 
 
@@ -167,4 +155,6 @@
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},
+
+  },
 }

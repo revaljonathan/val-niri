@@ -1,124 +1,219 @@
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15;
+    font-size: 15px;
     border: none;
-    border-radius: 7px;
+    border-radius: 0;
     min-height: 0;
 }
-
 window#waybar {
-    background: transparent;
-    color: #cdd6f4;
+    background-color: transparent;
+    color: #65bcff;
 }
-
-/* Islands */
+tooltip {
+    background-color: #1e1e2e;
+    border: 1px solid #6c7086;
+    color: #c8d3f5;
+    border-radius: 10px;
+}
+tooltip label {
+    color: #c8d3f5;
+}
 .modules-left,
 .modules-center,
 .modules-right {
     background: transparent;
+    padding: 4px 6px;
 }
 
-/* Every top-level module gets the island pill look */
-#workspaces,
-#custom-spotify,
-#tray,
-#window,
-#clock,
-#custom-weather,
-#custom-pac,
-#music,
-#hw {
-    background: #1e1e2e;
-    color: #cdd6f4;
-    padding: 2px 12px;
-    margin: 1px 4px;
-    border-radius: 12px;
-}
-
-/* Grouped modules share one island — override children so they don't double-up */
-#tray widget,
-#tray image,
-#tray music,
-#backlight,
-#pulseaudio,
-#pulseaudio.microphone,
-#network,
-#battery,
-#memory,
 #cpu,
-#temperature {
-    background: transparent;
-    color: #cdd6f4;
-    padding: 0 6px;
-    margin: 0;
+#temperature,
+#pulseaudio,
+#pulseaudio-microphone,
+#backlight {
     border-radius: 0;
-}
-
-/* Workspaces */
-#workspaces button {
-    background: transparent;
-    color: #cdd6f4;
-    padding: 2px 1px;
-    margin: 0 2px;
-    border-radius: 999px;
-    transition: all 0.2s ease;
-}
-
-#workspaces button:hover {
-    background: #313244;
-    color: #cdd6f4;
-    box-shadow: none;
-}
-
-#workspaces button.active {
-    background: #cba6f7;
-    color: #1e1e2e;
-    border-radius: 999px;
+    margin: 0;
     padding: 2px 6px;
 }
 
-#workspaces button.urgent {
-    background: #f38ba8;
-    color: #1e1e2e;
-}
-
-#workspaces button.occupied {
-    background: #313244;
-    color: #cba6f7;
-}
-
-/* Battery states */
-#battery.warning {
-    color: #fab387;
-}
-
-#battery.critical {
-    color: #f38ba8;
-}
-
-#battery.charging {
-    color: #a6e3a1;
-}
-
-/* Temperature critical */
-#temperature.critical {
-    color: #f38ba8;
-}
-
-/* Spotify */
-
-/* Weather */
-#custom-weather {
-    color: #cdd6f4;
-}
-
-/* Clock */
-#clock {
-    color: #cdd6f4;
-}
-
-/* Window title */
+/* ── Standalone module pills (non-grouped) ─────────────────── */
+#workspaces,
+#clock,
+#memory,
+#disk,
+#battery,
+#network,
+#custom-spotify,
+#custom-weather,
+#custom-pacman,
+#custom-separator,
 #window {
-    color: #cdd6f4;
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 10px;
+    margin: 3px 2px;
 }
 
+/* ── group/cpu island (cpu + temperature) ──────────────────── */
+/* The group box itself gets the pill background */
+#.module-group {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 4px;
+    margin: 3px 2px;
+}
+/* Children inside the group box: transparent, no extra radius/margin */
+#cpu.module-group > box > #cpu,
+#cpu.module-group > box > #temperature {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 2px 6px;
+}
+
+/* ── group/hw island (mic + speaker + backlight) ───────────── */
+#hw.module-group {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 4px;
+    margin: 3px 2px;
+}
+#hw.module-group > box > #pulseaudio,
+#hw.module-group > box > #pulseaudio-microphone,
+#hw.module-group > box > #backlight {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 2px 6px;
+}
+
+/* ── group/music island ─────────────────────────────────────── */
+#music.module-group {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 4px;
+    margin: 3px 2px;
+}
+#music.module-group > box > #custom-spotify,
+#music.module-group > box > #custom-before,
+#music.module-group > box > #custom-next {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 2px 6px;
+}
+
+/* ── Prevent standalone pill styles bleeding onto grouped modules ── */
+/* These reset any pill styling when the module is OUTSIDE a group  */
+
+
+/* ── Workspaces ────────────────────────────────────────────── */
+#workspaces {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0 4px;
+}
+#workspaces button {
+    background: transparent;
+    color: #cba6f7;
+    opacity: 0.75;
+    padding: 0px 6px;
+    margin: 2 0px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    box-shadow: none;
+    min-width: 0;
+}
+#workspaces button:hover {
+    background: transparent;
+    color: #cba6f7;
+    box-shadow: none;
+}
+#workspaces button.empty {
+    color: #9399b2;
+}
+#workspaces button.active {
+    color: #cba6f7;
+    opacity: 1;
+    background-color: #585b70;   /* dark pink tint */
+    border-radius: 20px;
+    padding: 1px 15px;
+}
+#workspaces button.urgent {
+    color: #fab387;
+    border-bottom: 2px solid #fab387;
+}
+#workspaces button:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ── Foreground colors ─────────────────────────────────────── */
+#window        { color: #b4f9f8; }
+#clock         { color: #f9e2af; }
+#cpu           { color: #fab387; }
+#memory        { color: #b4befe; }
+#temperature   { color: #fab387; }
+#temperature.critical { color: #f38ba8; }
+#disk          { color: #65bcff; }
+#backlight     { color: #89b4fa; }
+#battery       { color: #a6e3a1; }
+#battery.charging,
+#battery.plugged { color: #a6e3a1; }
+#battery.warning:not(.charging) { color: #eba0ac; }
+#battery.critical:not(.charging) {
+    color: #fab387;
+    animation: blink 0.5s step-end infinite alternate;
+}
+@keyframes blink {
+    to { color: transparent; }
+}
+#network            { color: #f2cdcd; }
+#network.disconnected { color: #f2cdcd; }
+#pulseaudio         { color: #89b4fa; }
+#pulseaudio.muted   { color: #89b4fa; }
+#pulseaudio-microphone { color: #89b4fa; }
+#pulseaudio-microphone.muted { color: #f38ba8; }
+#custom-spotify  { color: #94e2d5; }
+#custom-weather  { color: #89dceb; }
+#custom-pacman   { color: #7aa2f7; }
+#custom-next     { color: #4fd6be; }
+#custom-before   { color: #4fd6be; }
+#custom-separator {
+    color: #4a6668;
+    background: transparent;
+    padding: 0 2px;
+    margin: 0;
+}
+
+
+/* ── group/cpu island ──────────────────────────────────────── */
+#cpu {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 4px;
+    margin: 3px 2px;
+}
+#cpu * {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0px 6px;
+}
+
+/* ── group/hw island ───────────────────────────────────────── */
+#hw {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 0px 4px;
+    margin: 3px 2px;
+}
+#hw * {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0px 6px;
+}
+scrollbar {
+    background: transparent;
+}
