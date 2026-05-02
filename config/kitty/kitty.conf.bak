@@ -47,7 +47,7 @@ window_padding_width 8 8 8 8
 
 
 include current-theme.conf
-cursor #f2cdcd
+# cursor #f2cdcd
 
 map ctrl+shift+left neighboring_window left
 map ctrl+shift+right neighboring_window right
@@ -71,3 +71,7 @@ font_size        13
 # END_KITTY_FONTS
 
 
+# BEGIN_KITTY_THEME
+# Tokyo Night Moon
+include current-theme.conf
+# END_KITTY_THEME

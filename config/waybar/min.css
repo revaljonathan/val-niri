@@ -1,0 +1,141 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #65bcff;
+}
+
+tooltip {
+    background-color: #1e1e2e;
+    border: 1px solid #6c7086;
+    color: #c8d3f5;
+    border-radius: 10px;
+}
+tooltip label {
+    color: #c8d3f5;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    padding: 4px 6px;
+}
+
+/* ── The one big island ─────────────────────────────────────── */
+#bar {
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    padding: 2px 12px;
+    margin: 3px 2px;
+}
+
+/* All direct children of the island: transparent, flat */
+#bar > box > * {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 2px 8px;
+}
+
+/* ── Nested groups inside the island ────────────────────────── */
+#hw,
+#music {
+    background: transparent;
+    border-radius: 0;
+    padding: 5;
+    margin: 0;
+}
+
+#hw > box > *,
+#music > box > * {
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 2px 12px;
+}
+
+/* ── Workspaces ─────────────────────────────────────────────── */
+#workspaces {
+    background: transparent;
+    padding: 0 2px;
+}
+#workspaces button {
+    background: transparent;
+    color: #cba6f7;
+    opacity: 0.75;
+    padding: 2px 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    box-shadow: none;
+    min-width: 0;
+}
+#workspaces button:hover {
+    background: transparent;
+    color: #fca7ea;
+    box-shadow: none;
+}
+#workspaces button.empty {
+    color: #9399b2;
+}
+#workspaces button.active {
+    color: #cba6f7;
+    opacity: 1;
+    background-color: #585b70;
+    border-radius: 20px;
+    padding: 1px 15px;
+}
+#workspaces button.urgent {
+    color: #fab387;
+    border-bottom: 2px solid #fab387;
+}
+#workspaces button:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ── Separator ──────────────────────────────────────────────── */
+#custom-sep {
+    color: #4a6668;
+    padding: 0 4px;
+}
+
+/* ── Foreground colors ──────────────────────────────────────── */
+#window                             { color: #b4f9f8; }
+#clock                              { color: #f9e2af; }
+#memory                             { color: #b4befe; }
+#disk                               { color: #65bcff; }
+#backlight                          { color: #89b4fa; }
+#battery                            { color: #a6e3a1; }
+#battery.charging,
+#battery.plugged                    { color: #a6e3a1; }
+#battery.warning:not(.charging)     { color: #eba0ac; }
+#battery.critical:not(.charging) {
+    color: #fab387;
+    animation: blink 0.5s step-end infinite alternate;
+}
+@keyframes blink {
+    to { color: transparent; }
+}
+#network                            { color: #89b4fa; }
+#network.disconnected               { color: #89b4fa; }
+#pulseaudio                         { color: #89b4fa; }
+#pulseaudio.muted                   { color: #89b4fa; }
+#pulseaudio-microphone              { color: #89b4fa; }
+#pulseaudio-microphone.muted        { color: #f38ba8; }
+#custom-spotify                     { color: #94e2d5; }
+#custom-weather                     { color: #89dceb; }
+#custom-pacman                      { color: #7aa2f7; }
+#custom-next                        { color: #4fd6be; }
+#custom-before                      { color: #4fd6be; }
+
+scrollbar {
+    background: transparent;
+}
