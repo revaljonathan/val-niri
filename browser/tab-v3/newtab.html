@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Tab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@200;300&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="newtab.css" />
+</head>
+<body>
+
+  <div id="main-wrap">
+
+    <!-- Clock -->
+    <div id="clock-wrap">
+      <div id="clock">00:00<span id="seconds">:00</span></div>
+      <div id="date">Monday, January 1</div>
+      <div id="greeting">Welcome to the calmer side of the internet.</div>
+    </div>
+
+    <!-- Bookmarks -->
+    <div id="bookmarks-section">
+      <div id="bookmarks-list"></div>
+    </div>
+
+    <!-- Add row (centred by main-wrap) -->
+    <div id="add-row">
+      <span class="tilde-prefix">~/</span>
+      <input id="input-name" class="add-input" placeholder="name" maxlength="30" spellcheck="false" />
+      <input id="input-url"  class="add-input" placeholder="url" spellcheck="false" />
+      <select id="input-cat" class="add-select">
+        <option value="fun">fun</option>
+        <option value="serious">serious</option>
+        <option value="sport">sport</option>
+        <option value="ai">ai</option>
+        <option value="dump">dump</option>
+      </select>
+      <button id="btn-add">+ add</button>
+    </div>
+
+  </div>
+
+  <!-- Edit modal -->
+  <div id="modal-backdrop">
+    <div id="modal">
+      <h2>edit bookmark</h2>
+      <div class="modal-field">
+        <label>name</label>
+        <input id="modal-name" spellcheck="false" />
+      </div>
+      <div class="modal-field">
+        <label>url</label>
+        <input id="modal-url" spellcheck="false" />
+      </div>
+      <div class="modal-field">
+        <label>category</label>
+        <select id="modal-cat" class="modal-select">
+          <option value="fun">fun</option>
+          <option value="serious">serious</option>
+          <option value="sport">sport</option>
+          <option value="ai">ai</option>
+          <option value="dump">dump</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn" id="modal-cancel">cancel</button>
+        <button class="modal-btn" id="modal-save">save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
