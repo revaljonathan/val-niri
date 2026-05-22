@@ -1,0 +1,137 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "height": 32,
+    "width": 1920,
+    "spacing": 0,
+    "margin-top": -5,
+    "margin-bottom": -7,
+
+    "modules-left": [],
+
+    "modules-center": [
+        "group/bar"
+    ],
+
+    "modules-right": [],
+
+    // ── Single big island ────────────────────────────────────
+    "group/bar": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+            "custom/sep",
+            "niri/workspaces",
+            "custom/sep",
+            "group/music",
+            "custom/sep",
+            "group/hw",
+            "network",
+            "custom/sep",
+            "battery"
+        ]
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "niri/window": {
+        "format": "{}",
+        "max-length": 20,
+        "tooltip": true,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%a, %H:%M}"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+    "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{capacity}% {icon}",
+        "format-charging":" {capacity}%",
+        "format-plugged": " {capacity}%",
+        //"format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e btop"
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },    
+    "network": {
+        "max-length": 15,
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "󱛅 ",
+        "on-click": "~/.local/bin/wifi.sh"
+    },
+
+    "pulseaudio": {
+        "format": " ",
+        "format-muted": "󰅶",
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " ",
+        "format-source-muted": "",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "tooltip-format": "{source_desc} | {source_volume}%"
+    },
+
+    "custom/spotify": {
+        "max-length": 30,
+        "exec": "~/.local/bin/spotify.sh",
+        "interval": 5,
+        "on-click": "playerctl next",
+        "on-click-right": "playerctl previous",
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify volume 0.05+",
+        "on-scroll-down": "playerctl -p spotify volume 0.05-"
+    },
+
+    "group/hw": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio#microphone",
+            "pulseaudio",
+            "backlight"
+        ]
+    },
+
+    "group/music": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/spotify",
+            "custom/before",
+            "custom/next"
+        ]
+    }
+}
+
