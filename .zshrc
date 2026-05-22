@@ -1,32 +1,43 @@
-#if [[ "$TERM_PROGRAM" != "vscode" ]]; then
- #   fastfetch 
-#fi
-
 gf () {
-echo "\033[1;35mKernel  $(uname -r)\033[0m"
-echo "\033[1;36m Shell  $(echo $SHELL)"
-echo "\033[1;34m  Disk  $(df -B1G --output=size,used / | awk 'NR==2 {print $2 " GiB | " $1 " GiB"}')"
-echo "\033[0;32m   Upt  $(uptime -p|sed 's/^up //')"
-echo "\033[0;33m  Host  $(hostname)"
-echo ""
+  # Info lines (right column)
+  info=(
+    "\033[1;35mKernel  $(uname -r)\033[0m"
+    "\033[1;36m Shell  $SHELL"
+    "\033[1;34m  Disk  $(df -B1G --output=size,used / | awk 'NR==2 {print $2 " GiB | " $1 " GiB"}')"
+    "\033[0;32m   Upt  $(uptime -p | sed 's/^up //')"
+    "\033[0;33m  Host  $(hostname)"
+    "\033[0;33m  󰮯 \033[0;31m 󰊠 \033[0;32m 󰊠 \033[0;33m 󰊠 \033[0;34m 󰊠 \033[0;35m 󰊠 \033[0;36m 󰊠 \033[0;37m 󰊠  "
+    ""
+  )
+
+  sprite=(
+    " \033[33m   /\_/\  \033[0m  "
+    " \033[33m  ( ^.^ ) \033[0m  "
+    " \033[33m   > \033[31m^ \033[33m<  \033[0m  "
+    " \033[33m  /|   |\ \033[0m  "
+    " \033[33m (_|   |_)\033[0m  "
+    "             "
+    "                    "
+  )
+
+  local max=${#info[@]}
+  for (( i=0; i<max; i++ )); do
+    printf "${sprite[$i]}  ${info[$i]}\n"
+  done
 }
 
-gf 
+gf
 
-#echo -e "\033[38;2;250;179;135m\033[48;2;24;24;37m using \033[1m$(uname -r)\033[22m for $(uptime -p|sed 's/^up // ' )\033[0m"
+
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Created by newuser for 5.9
 
 # BASIC ENV & KEYBIND
-#zmodload zsh/zprof
-#export TERM=xterm-256color
 export LS_COLORS=""
 export BAT_THEME="Catppuccin Mocha"
-# export BAT_THEME="ansi"
 export "MICRO_TRUECOLOR=1"
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export EDITOR=nvim
@@ -39,6 +50,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:/home/reval/.spicetify
 
 bindkey '^[[A' up-line-or-history
 bindkey '^[[B' down-line-or-history
@@ -68,7 +80,6 @@ done
 }
 
 
-# OH MY ZSH
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -88,21 +99,16 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# COMPLETION BEHAVIOR
 zstyle ':completion:*' menu select
 setopt AUTO_MENU
 unsetopt MENU_COMPLETE
 
-# nicer matching
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# AUTOSUGGESTIONS
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-# SYNTAX HIGHLIGHTING
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# FZF
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
@@ -120,6 +126,7 @@ alias zshnew='source ~/.zshrc'
 alias gmn='npx @google/gemini-cli'
 alias yay='paru'
 alias pacget='paru -Sl | awk "{print \$2}" | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
+alias pw='pass.py'
 
 # POWER
 alias sn='shutdown now'
@@ -222,11 +229,8 @@ alias udanraksu='weather semarang'
 eval "$(zoxide init zsh)"
 f() { eval $(thefuck $(fc -ln -1)); }
 
-#zprof
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 
 
