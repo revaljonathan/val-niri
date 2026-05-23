@@ -11,6 +11,7 @@ return {
     "catppuccin/nvim",
     "akinsho/bufferline.nvim",
     "nvim-lualine/lualine.nvim",
+    "nvim-tree/nvim-tree.lua",
     "brenoprata10/nvim-highlight-colors",
     "tpope/vim-fugitive",
     "mbbill/undotree",
