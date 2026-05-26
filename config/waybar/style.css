@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background-color: #181825;
+    background-color: rgba(30, 30, 46, 0.8);
     color: #cdd6f4;
 }
 
@@ -48,9 +48,8 @@ tooltip label {
 
 #workspaces button {
     background: transparent;
-    color: #b4befe;          
-    opacity: 0.6;
-    padding: 5 6px;
+    color: #cdd6f4;          
+    padding: 0 10px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
     transition: color 0.15s ease, border-color 0.15s ease;
@@ -60,14 +59,14 @@ tooltip label {
 
 #workspaces button:hover {
     background: transparent;
-    color: #cba6f7;
+    color: #cdd6f4;
     box-shadow: none;
 }
 
 #workspaces button.active {
-    color: #cba6f7;
-    opacity: 1;
-    border-bottom: 2px solid #cba6f7;
+   color: #1e1e2e;
+    background-color: #cdd6f4;
+    opacity: 0.7;
 }
 
 
@@ -111,7 +110,7 @@ tooltip label {
 
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
-    color: #f5c2e7;
+    color: #fab387;
     padding: 1 2.5px;
 }
 
@@ -133,7 +132,7 @@ tooltip label {
 
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #fab387;
+    color: #89b4fa;
     padding: 1 2.5px;
 }
 
@@ -163,12 +162,12 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #fab387;
+    color: #89b4fa;
     padding: 1 2.5px;
 }
 
 #network.disconnected {
-    color: #fab387;
+    color: #89b4fa;
 }
 
 /* ── Pulseaudio ─────────────────────────────────────────────── */

@@ -1,18 +1,17 @@
-// -*- mode: jsonc -*-
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
-    "spacing": 6, // Gaps between modules (4px)
+    "spacing": 3, // Gaps between modules (4px)
        "margin-top": -4,
-    "margin-bottom": -5,
+    "margin-bottom": -4,
     
     "modules-left": [
         "niri/workspaces",
-        "group/cpu",
-        "memory",
-    	"battery"
+        // "niri/window",
+        // "custom/spotify"
+        "mpris"
     ],
 
     "modules-center": [
@@ -20,9 +19,10 @@
          "custom/weather"
     ],
     "modules-right": [
+    	"battery",
+        "group/cpu",
+        "memory",
         "group/hw",
-        "network",
-        "group/music"
     ],
 
     "custom/separator": {
@@ -32,17 +32,17 @@
     },
     
     "niri/window": {
-    "format": "{}",
-    "max-length": 20,
+    "format": " {title:.40}",
+    "max-length": 40,
     "tooltip": true,
   "separate-outputs": true
 },
 
     
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%A, %d %B %H:%M}",
+               "format-alt": " {:%H:%M}",
     },
     "cpu": {
         "format": " {usage}%",
@@ -51,19 +51,18 @@
     "memory": {
         "format": " {used:0.1f}GiB"
     },
-     "temperature": {
+"temperature": {
         // "thermal-zone": 2,
-  "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
     "input-filename": "temp1_input",       
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": " {temperatureC}°C",
         "format-icons": ["󰉬", "", "󰉪"]
     },
-
     "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}",
     "format-icons": ["", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -76,7 +75,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon} {capacity}% - {time}",
         "format-full": "{capacity}% {icon}",
         "format-charging":" {capacity}%",
         "format-plugged": " {capacity}%",
@@ -91,11 +90,12 @@
     },
     "network": {
         "max-length": 15,
-        "format-wifi": " {essid} ({signalStrength}%)",
+        // "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
-        "format-disconnected": "󱛅 ",
+        "format-disconnected": "󱛅",
         "on-click": "~/.local/bin/wifi.sh"
     },
     "pulseaudio": {
@@ -128,27 +128,10 @@
     "return-type": "json"
 },
 
-    "custom/pacman": {
-        "exec": "~/.local/bin/pacman.sh",
-        "interval": 180,
-        "on-click": "kitty -e paru -Syu"
-    },
-
-
-
-
-"disk": {
-    "interval": 180,
-    "format-alt": " {used} / {total}",
-    "format": " {percentage_used}%",
-    "path": "/"
-},
-
-
-
        "custom/spotify": {
-        "max-length": 40,
+        "max-length": 30,
 	    "exec": "~/.local/bin/spotify.sh",
+    "exec-if": "pgrep spotify",
 	    "interval": 5,
         "on-click": "playerctl next",
         "on-click-right": "playerctl previous",
@@ -165,21 +148,28 @@
         ]
     },
 
+
+"mpris": {
+    "format": "{player_icon} {dynamic}",
+    "max-length": 50,
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "spotify": "",
+        "firefox": "",
+        "chromium": ""
+    },
+    "status-icons": {
+        "paused": "⏸"
+    },
+},
     "group/hw": {
         "orientation": "horizontal",
         "modules": [
             "pulseaudio#microphone",
             "pulseaudio",
-            "backlight"
+            "backlight",
+            "network"
         ]
-    },
-
-    "group/music": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/spotify",
-      "custom/before",
-      "custom/next"
-    ]
-  },
+    }
 }
