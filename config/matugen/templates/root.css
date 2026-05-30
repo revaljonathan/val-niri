@@ -1,0 +1,15 @@
+:root {
+    --color-base: {{colors.background.default.hex}};
+    --color-surface: {{colors.surface.default.hex}};
+    --color-overlay: {{colors.surface_variant.default.hex}};
+    --color-text: {{colors.on_background.default.hex}};
+    --color-subtext: {{colors.on_surface_variant.default.hex}};
+    --color-primary: {{colors.primary.default.hex}};
+    --color-on-primary: {{colors.on_primary.default.hex}};
+    --color-secondary: {{colors.secondary.default.hex}};
+    --color-on-secondary: {{colors.on_secondary.default.hex}};
+    --color-tertiary: {{colors.tertiary.default.hex}};
+    --color-error: {{colors.error.default.hex}};
+    --color-primary-container: {{colors.primary_container.default.hex}};
+    --color-on-primary-container: {{colors.on_primary_container.default.hex}};
+}

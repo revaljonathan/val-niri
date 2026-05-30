@@ -1,5 +1,5 @@
 prefer-no-csd
-
+include "~/.config/niri/colors.kdl"
 
 debug {
     render-drm-device "/dev/dri/renderD129"
@@ -69,15 +69,15 @@ layout {
        default-column-width { proportion 0.5; }
        focus-ring {
           on
-          width 2
-          active-color "#cba6f7"
+          width 1.5
+          // active-color "#cba6f7"
         }
         border {
         off
-        width 2
-        active-color "#cba6f7"
-        inactive-color "11111b"
-        urgent-color "#9b0000"
+        // width 2
+        // active-color "#cba6f7"
+        // inactive-color "11111b"
+        // urgent-color "#9b0000"
         }
     shadow {
         off
@@ -85,9 +85,10 @@ layout {
            spread 5
            offset x=0 y=5
           }
-    struts {
-    }
 }
+
+
+
 
 spawn-at-startup "/home/reval/.local/bin/defbar.sh"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
@@ -118,6 +119,7 @@ window-rule {
 
 window-rule {
   match title="Brave"
+  open-on-workspace "3"
   open-maximized true
 }
 
@@ -133,7 +135,6 @@ window-rule {
 window-rule {
   match title="LimbusCompany"
   open-maximized true
-    default-column-width { proportion 1.0; }
 }
 
 window-rule {
@@ -159,6 +160,29 @@ window-rule {
 //         blur true
 //     }
 // }
+
+layer-rule {
+    match namespace="Zen-browser"
+    background-effect {
+        blur true
+    }
+}
+
+
+layer-rule {
+    match namespace="^rofi$"
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="^notifications$"
+    background-effect {
+        blur true
+    }
+}
+
 
 window-rule {
   match title="Spotify"
@@ -194,6 +218,7 @@ binds {
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     super+P { spawn "~/.local/bin/power.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
+    super+shift+t { spawn "~/.local/bin/tl.sh"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
@@ -337,7 +362,7 @@ binds {
 
 
 
-    super+Shift+V { switch-focus-between-floating-and-tiling; }
+    super+Shift+V {toggle-window-floating; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }

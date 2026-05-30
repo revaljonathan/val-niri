@@ -148,11 +148,15 @@
         ]
     },
 
+"custom/steam": {
+  "exec": "~/.local/bin/steam.sh",
+  "interval": "15"
+},
 
 "mpris": {
-    "format": "{player_icon} {dynamic}",
+    "format": "{player_icon} {artist} - {title}",
     "max-length": 50,
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format-paused": "{status_icon} <i>{artist} - {title}</i>",
     "player-icons": {
         "default": "▶",
         "spotify": "",
@@ -169,7 +173,8 @@
             "pulseaudio#microphone",
             "pulseaudio",
             "backlight",
-            "network"
+            "network",
+            "custom/steam"
         ]
     }
 }

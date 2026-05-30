@@ -1,0 +1,75 @@
+[config]
+fidelity = false 
+contrast = 0.2
+high_contrast = false 
+theme = "dark" 
+default_type = "scheme-rainbow" 
+
+
+[config.custom_colors.accent]
+color = "#fab387"  
+blend = true       
+
+[templates.niri]
+input_path = '~/.config/matugen/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+
+[templates.kitty]
+input_path  = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+# post_hook   = 'sleep 1.2; pkill -SIGUSR1 kitty'
+
+[config.reload_apps_list]
+dunst = true
+
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunst.conf'
+output_path = '~/.config/dunst/dunstrc'
+# post_hook = 'sleep 0.8; pkill dunst; sleep 1; dunst'
+
+[templates.rofi]
+input_path  = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.clipse]
+input_path = "~/.config/matugen/templates/clipse.json"
+output_path = "~/.config/clipse/theme.json"
+
+[templates.waybar]
+input_path  = '~/.config/matugen/templates/waybar-colors.css'
+output_path = '~/.config/waybar/colors.css'
+# post_hook   = 'sleep 1.5; pkill waybar; sleep 1; ~/.local/bin/defbar.sh &'
+
+[templates.chromium]
+input_path  = '~/.config/matugen/templates/root.css'
+output_path = '~/code/tab-v3/color.css'
+
+[templates.spotify]
+input_path = '~/.config/matugen/templates/spicetify.ini'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
+post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
+
+[templates.zathura]
+input_path = '~/.config/matugen/templates/zathurarc'
+output_path = '~/.config/zathura/zathurarc'
+
+[templates.wal-colors-sh]
+input_path = '~/.config/matugen/templates/chrome-ui.sh'
+output_path = '~/.cache/wal/colors.sh'
+
+[templates.swaylock]
+input_path  = '~/.config/matugen/templates/swaylock.conf'
+output_path = '~/.config/swaylock/config'

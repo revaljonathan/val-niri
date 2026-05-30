@@ -18,37 +18,14 @@ configuration {
   window-format: "{n} {t}";
     drun-display-format: "{name}";   
 }
-@theme "mocha"
 
-* {
-    bg0:     #181825;
-    bg1:     #181825;
-    bg2:     #313244;
-    bg3:     #45475a;
-    fg0:     #cdd6f4;
-    fg1:     #bac2de;
-    fg2:     #6c7086;
-    red:     #f38ba8;
-    green:   #a6e3a1;
-    yellow:  #f9e2af;
-    blue:    #89b4fa;
-    magenta: #cba6f7;
-    cyan:    #94e2d5;
-    peach:   #fab387;
-
-    accent:  @peach;
-    urgent:  @yellow;
-
-    /* Semantic aliases */
-    background-color:   transparent;
-    text-color:         @fg0;
-}
+@import "~/.config/rofi/colors.rasi"
 
 window {
     width:            520px;
-    background-color: @bg0;
+    background-color: @surface-dim;
     border:           1px;
-    border-color:     @fg2;
+    border-color:     @on-surface-variant;
     border-radius:    0px;
     padding:          0;
 }
@@ -62,7 +39,7 @@ mainbox {
 
 /* ── Input bar ────────────────────────────────────────────────────────── */
 inputbar {
-    background-color: @bg0;
+    background-color: transparent;
     padding:          1px 10px;
     margin:           0 0 10px 0;
     children:         [ prompt, entry ];
@@ -71,15 +48,15 @@ inputbar {
 
 prompt {
     background-color: transparent;
-    text-color:       @accent;
+    text-color:       @tertiary;
     font:             "JetBrains Mono Bold 12";
 }
 
 entry {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @on-surface;
     placeholder:      "Search…";
-    placeholder-color: @fg2;
+    placeholder-color: @on-surface;
     font:             "JetBrains Mono 12";
     cursor:           text;
 }
@@ -87,19 +64,20 @@ entry {
 
 
 button {
-    background-color: @bg2;
-    text-color:       @fg0;
+    background-color: @surface-dim;
+    text-color:       @on-surface;
     border-radius:    1px;
     cursor:           pointer;
 }
 
 button selected {
-    background-color: @accent;
-    text-color:       @bg0;
+    background-color: @tertiary;
+    text-color:       @surface-dim;
 }
 
 /* ── List view ────────────────────────────────────────────────────────── */
 listview {
+scrollbar: false;
     background-color: transparent;
     lines:            8;
     spacing:          4px;
@@ -109,15 +87,15 @@ listview {
 scrollbar {
     width:            4px;
     handle-width:     4px;
-    background-color: @bg2;
-    handle-color:     @accent;
+    background-color: @surface-dim;
+    handle-color:     @surface-dim;
     border-radius:    0px;
 }
 
 /* ── List elements ────────────────────────────────────────────────────── */
 element {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @on-surface;
     border-radius:    0px;
     padding:          8px 10px;
     spacing:          8px;
@@ -127,35 +105,40 @@ element {
 
 element normal.normal {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @on-surface;
 }
 
 element normal.urgent {
     background-color: transparent;
-    text-color:       @urgent;
+    text-color:       @error;
 }
 
 element normal.active {
     background-color: transparent;
-    text-color:       @cyan;
+    text-color:       @primary;
 }
 
 element selected.normal {
-    background-color: @fg2;
-    text-color:       @bg0;
-    border-color:     @accent;
+    background-color: @on-surface-variant;
+    text-color:       @surface;
+    border-color:     @on-surface;
+}
+
+element alternate.normal {
+    background-color: transparent; 
+    text-color: @on-surface;      
 }
 
 element selected.urgent {
-    background-color: @bg3;
-    text-color:       @urgent;
-    border-color:     @urgent;
+    background-color: @on-surface;
+    text-color:       @surface-dim;
+    border-color:     @on-surface-variant;
 }
 
 element selected.active {
-    background-color: @bg3;
-    text-color:       @cyan;
-    border-color:     @cyan;
+    background-color: @surface-dim;
+    text-color:       @on-surface;
+    border-color:     @on-surface;
 }
 
 element-icon {
@@ -172,9 +155,8 @@ element-text {
     font:             "JetBrains Mono 12";
 }
 
-/* ── Message ──────────────────────────────────────────────────────────── */
 message {
-    background-color: @bg2;
+    background-color: @surface-dim;
     border-radius:    0px;
     padding:          8px 12px;
     margin:           0 0 10px 0;
@@ -182,6 +164,6 @@ message {
 
 textbox {
     background-color: transparent;
-    text-color:       @fg2;
+    text-color:       @on-surface;
     font:             "JetBrains Mono 1i";
 }
