@@ -1,0 +1,108 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 36, // Waybar height (to be removed for auto height)
+    "width": 1920, // Waybar width
+    "spacing": 5, // Gaps between modules (4px)
+    "margin-top": -4,
+    "margin-bottom": -2,
+
+    "modules-left": [
+        "mpris",
+        "custom/weather"
+    ],
+
+    "modules-center": [
+        "clock",
+        "niri/workspaces"
+    ],
+
+    "modules-right": [
+        "battery",
+        "pulseaudio",
+        "backlight",
+        "network"
+    ],
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%H:%M}"
+    },
+
+    "backlight": {
+        "device": "intel_backlights",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        //"format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e upower -d"
+    },
+
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+    "network": {
+        "max-length": 15,
+        // "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": " {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "󱛅",
+        "on-click": "~/.local/bin/wifi.sh"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": " {volume}%",
+        //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
+        //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        "format-muted": "󰅶", //{format_source}",
+        //"format-source": " {volume}%",
+        //"format-source-muted": " ",
+        "on-click": "pavucontrol"
+    },
+
+
+    "custom/weather": {
+        "format": "{}°C",
+        "tooltip": true,
+        "interval": 5400,
+        "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
+        "return-type": "json"
+    },
+
+
+    "mpris": {
+        "format": "{player_icon} {title} - {artist}",
+        "max-length": 40,
+        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "firefox": "",
+            "chromium": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+        }
+    }
+  }

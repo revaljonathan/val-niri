@@ -10,7 +10,7 @@ image=/home/reval/pics/walls/11.png
 color=121318
 bs-hl-color=ffb4ab
 caps-lock-bs-hl-color=ffb4ab
-caps-lock-key-hl-color=e5bad8
+caps-lock-key-hl-color=e3bada
 
 inside-color=121318
 inside-clear-color=121318
@@ -18,11 +18,11 @@ inside-caps-lock-color=121318
 inside-ver-color=121318
 inside-wrong-color=121318
 
-key-hl-color=e5bad8
+key-hl-color=e3bada
 
 layout-bg-color=00000000
 layout-border-color=00000000
-layout-text-color=e8e6ed
+layout-text-color=e7e6ed
 
 line-color=00000000
 line-clear-color=00000000
@@ -32,13 +32,13 @@ line-wrong-color=00000000
 
 ring-color=45464f
 ring-clear-color=ffb4ab
-ring-caps-lock-color=7c5a74
-ring-ver-color=b9c3ff
+ring-caps-lock-color=7b5a76
+ring-ver-color=b6c4ff
 ring-wrong-color=c32220
 
 separator-color=00000000
 
-text-color=e8e6ed
+text-color=e7e6ed
 text-clear-color=ffb4ab
-text-caps-lock-color=7c5a74
-text-ver-color=b9c3ff
+text-caps-lock-color=7b5a76
+text-ver-color=b6c4ff

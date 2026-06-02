@@ -9,7 +9,7 @@
 
 
 window#waybar {
-    background-color: alpha(@base, 0.90);
+    background-color: alpha(@base, 0.60);
     color: @text;
     transition: background-color 0.3s ease;
 }
@@ -25,6 +25,7 @@ window#waybar.hidden {
     padding: 0 4px;
 }
 
+
 #workspaces,
 #clock,
 #battery,
@@ -39,24 +40,33 @@ window#waybar.hidden {
 #custom-weather,
 #custom-spotify,
 #custom-steam {
-    padding: 0 3px;
+    padding: 0 10px;
     color: @text;
-    background-color: transparent;
+    background-color: alpha(@base, 0.90);
+    border-radius: 8px;
+    margin: 4px 0;
 }
 
 
 #custom-separator-open,
 #custom-separator-close {
-    color: alpha(@tertiary, 0.80);
+    color: alpha(@secondary, 0.80);
     padding: 1 2px;
+    background-color: transparent;
+    margin: 0;
 }
 
+
+#workspaces {
+    padding: 0 4px;
+}
 
 #workspaces button {
     padding: 0 7px;
     color: @text;
     background-color: transparent;
     box-shadow: none;
+    border-radius: 6px;
 }
 
 #workspaces button.empty {
@@ -70,8 +80,8 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    background: linear-gradient(to right,@primary, @tertiary);
-    margin: 4 0px;
+    background: linear-gradient(to right, @primary, @tertiary);
+    margin: 4px 2px;
     color: @base;
 }
 
@@ -92,7 +102,7 @@ window#waybar.hidden {
 
 
 #battery {
-    padding: 0 8px;
+    padding: 0 12px;
 }
 
 #battery.charging,
@@ -110,11 +120,11 @@ window#waybar.hidden {
 }
 
 #cpu {
-    padding: 0 4px 0 2px;
+    padding: 0 10px;
 }
 
 #temperature {
-    padding: 0 0px 0 2px;
+    padding: 0 10px;
 }
 
 #temperature.critical {
@@ -122,11 +132,11 @@ window#waybar.hidden {
 }
 
 #memory {
-    padding: 0 8px;
+    padding: 0 12px;
 }
 
 #pulseaudio {
-    padding: 0 4px;
+    padding: 0 10px;
 }
 
 #pulseaudio.muted {
@@ -134,7 +144,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.microphone {
-    padding: 0 4px;
+    padding: 0 10px;
 }
 
 #pulseaudio.microphone.source-muted {
@@ -142,11 +152,11 @@ window#waybar.hidden {
 }
 
 #backlight {
-    padding: 0 4px;
+    padding: 0 10px;
 }
 
 #network {
-    padding: 0 4px;
+    padding: 0 10px;
 }
 
 #network.disconnected {
@@ -154,12 +164,12 @@ window#waybar.hidden {
 }
 
 #custom-steam {
-    padding: 0 6px;
+    padding: 0 10px;
 }
 
 
 #mpris {
-    padding: 0 6px;
+    padding: 0 10px;
     font-style: normal;
 }
 
@@ -169,7 +179,7 @@ window#waybar.hidden {
 
 
 #custom-weather {
-    padding: 0 6px;
+    padding: 0 10px;
 }
 
 

@@ -1,9 +1,9 @@
 [global]
 separator_color= frame
 transparency = 20
-frame_color = "#96959f"
+frame_color = "#95959f"
 frame_width = 0
-highlight = "#e5bad8"
+highlight = "#e3bada"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -19,12 +19,12 @@ format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
 
 
 [urgency_low]
-    background = "#222228BF"
-    foreground = "#e8e6ed"
+    background = "#222328BF"
+    foreground = "#e7e6ed"
 
 [urgency_normal]
-    background = "#222228BF"
-    foreground = "#e8e6ed"
+    background = "#222328BF"
+    foreground = "#e7e6ed"
 
 [urgency_critical]
     background = "#c32220BF"
