@@ -1749,3 +1749,4 @@
 2026/06/02 19:47:10 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
 2026/06/02 19:47:16 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
 2026/06/02 19:47:51 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
+2026/06/02 19:55:32 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
