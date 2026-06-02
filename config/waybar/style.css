@@ -1,237 +1,259 @@
-/* ── Waybar base ───────────────────────────────────────────── */
 * {
-    font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15px;
     border: none;
-    border-radius: 7;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", "MesloLGS NF", monospace;
+    font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: 0.5s;
 }
 
-/* ── Tooltip ───────────────────────────────────────────────── */
+/* Workspace buttons */
+#workspaces button {
+    padding: 0 8px;
+    color: #7f849c;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.2);
+    border-radius: 4px;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.15);
+    border-radius: 4px;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.2);
+    border-radius: 4px;
+}
+
+/* Common module styling */
+#clock,
+#network,
+#custom-separator,
+#custom-separator-open,
+#mpris,
+#battery,
+#memory,
+#cpu,
+#temperature,
+#pulseaudio,
+#backlight,
+#custom-weather,
+#pulseaudio-microphone {
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Hover effects */
+#clock:hover,
+#network:hover,
+#battery:hover,
+#memory:hover,
+#cpu:hover,
+#temperature:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#pulseaudio-microphone:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#custom-separator {
+    color: #6c7086;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#custom-separator-open {
+    color: #6c7086;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Left modules */
+.modules-left {
+    padding-left: 8px;
+}
+
+#clock {
+    color: #89b4fa;
+    font-weight: bold;
+}
+
+#network {
+    color: #94e2d5;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* Center modules */
+.modules-center {
+    padding: 0 10px;
+}
+
+/* Workspaces styling */
+#workspaces {
+    background: rgba(30, 30, 46, 0.6);
+    border-radius: 8px;
+    padding: 2px 6px;
+    margin: 2px 0;
+}
+
+/* Right modules */
+.modules-right {
+    padding-right: 8px;
+}
+
+#mpris {
+    color: #cba6f7;
+    font-style: italic;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #94e2d5;
+}
+
+#memory {
+    color: #f9e2af;
+}
+
+#cpu {
+    color: #74c7ec;
+}
+
+#temperature {
+    color: #f38ba8;
+}
+
+#temperature.critical {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.3);
+}
+
+#pulseaudio {
+    color: #cba6f7;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#pulseaudio-microphone {
+    color: #89dceb;
+}
+
+#pulseaudio-microphone.source-muted {
+    color: #6c7086;
+}
+
+#backlight {
+    color: #f9e2af;
+}
+
+#custom-weather {
+    color: #94e2d5;
+    padding-right: 8px;
+}
+
+/* Group styling */
+#group-cpu {
+    background: rgba(49, 50, 68, 0.5);
+    border-radius: 8px;
+    padding: 0 4px;
+    margin: 0 2px;
+}
+
+/* Tooltip styling */
 tooltip {
-    background-color: #1e1e2e;
-    border: 1px solid #3a5456;
-    color: #cdd6f4;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid #313244;
+    border-radius: 8px;
+    padding: 8px 12px;
 }
 
 tooltip label {
     color: #cdd6f4;
 }
 
-/* ── Generic module wrapper ────────────────────────────────── */
-.modules-left,
-.modules-center,
-.modules-right {
-    padding: 0 2px;
+/* Tray styling */
+#tray {
+    margin: 0 8px;
 }
 
-/* ── Separator ─────────────────────────────────────────────── */
-#custom-separator {
-    color: #9399b2;
-    padding: 0.5 0.5px;
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#custom-pac {
-  color: #94e2d5;
-  padding: 1 2.5px;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
 }
 
-/* ── Workspaces ────────────────────────────────────────────── */
-#workspaces {
-    background: transparent;
+/* Custom separators in groups */
+#custom-spacer {
+    color: #313244;
+    font-size: 12px;
+    margin: 0 2px;
 }
 
-#workspaces button {
-    background: transparent;
-    color: #cdd6f4;          
-    padding: 0 10px;
-    border-bottom: 2px solid transparent;
-    border-radius: 0;
-    transition: color 0.15s ease, border-color 0.15s ease;
-    box-shadow: none;
-    min-width: 0;
+/* Module icons spacing */
+#clock > label,
+#network > label,
+#battery > label,
+#memory > label,
+#cpu > label,
+#temperature > label,
+#pulseaudio > label,
+#backlight > label {
+    margin: 0 2px;
 }
 
-#workspaces button:hover {
-    background: transparent;
-    color: #cdd6f4;
-    box-shadow: none;
-}
-
+/* Glowing effect for active elements */
+#clock:hover,
 #workspaces button.active {
-   color: #1e1e2e;
-    background-color: #cdd6f4;
-    opacity: 0.7;
+    text-shadow: 0 0 2px rgba(137, 180, 250, 0.5);
 }
 
-
-#workspaces button.empty {
-    color: #555;
+/* Status line separators */
+.modules-left,
+.modules-right,
+.modules-center {
+    border-style: solid;
+    border-color: #313244;
 }
 
-#workspaces button.urgent {
-    color: #ff966c;
-    border-bottom: 2px solid #ff966c;
-}
-
-/* hide the default focus box-shadow Waybar adds */
-#workspaces button:focus {
-    box-shadow: none;
-    background: transparent;
-}
-
-/* ── Window title ──────────────────────────────────────────── */
+/* Window title (if used) */
 #window {
-    color: #f2cdcd;
-    padding: 1 2.5px;
-}
-
-/* ── Clock ─────────────────────────────────────────────────── */
-#clock {
-    color: #f9e2af;
-    padding: 1 2.5px;
-}
-
-/* ── CPU ────────────────────────────────────────────────────── */
-#cpu {
-    color: #f5c2e7;
-    padding: 1 2.5px;
-}
-
-/* nerdfont icon inherits color — override to orange */
-#cpu label:first-child {
-    color: #ff966c;
-}
-
-/* ── Memory ─────────────────────────────────────────────────── */
-#memory {
-    color: #fab387;
-    padding: 1 2.5px;
-}
-
-/* ── Temperature ────────────────────────────────────────────── */
-#temperature {
-    color: #f5c2e7;
-    padding: 1 2.5px;
-}
-
-#temperature.critical {
-    color: #f38ba8;
-}
-
-#disk {
-    color: #fca7ea;
-    padding: 1 2.5px;
-}
-
-
-/* ── Backlight ──────────────────────────────────────────────── */
-#backlight {
-    color: #89b4fa;
-    padding: 1 2.5px;
-}
-
-/* ── Battery ────────────────────────────────────────────────── */
-#battery {
-    color: #a6e3a1;
-    padding: 1 2.5px;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: #a6e3a1;           /* soft green when charging */
-}
-
-#battery.warning:not(.charging) {
-    color: #f38ba8;
-}
-
-#battery.critical:not(.charging) {
-    color: #f38ba8;
-    animation: blink 0.5s step-end infinite alternate;
-}
-
-@keyframes blink {
-    to { color: transparent; }
-}
-
-/* ── Network ────────────────────────────────────────────────── */
-#network {
-    color: #89b4fa;
-    padding: 1 2.5px;
-}
-
-#network.disconnected {
-    color: #89b4fa;
-}
-
-/* ── Pulseaudio ─────────────────────────────────────────────── */
-#pulseaudio {
-    color: #89b4fa;
-    padding: 1 2.5px;
-}
-
-#pulseaudio.muted {
-  padding: 1 2.5px;
-  color: #89b4fa;
-}
-
-#pulseaudio.microphone {
-  padding: 1 2.5px;
-  color: #89b4fa;
-}
-
-#pulseaudio.microphone#muted {
-  padding: 1 2.5px;
-  color: #89b4fa
-}
-
-
-/* ── Spotify ────────────────────────────────────────────────── */
-#custom-spotify {
-    color: #94e2d5;
-    padding: 1 2.5px;
-}
-
-#custom-next {
-  color: #94e2d5;
-  padding: 1 4.5px;
-
-}
-
-#custom-before {
-  color: #94e2d5;
-  padding: 1 4.5px;
-
-}
-
-#custom-weather {
-    color: #b4befe;
-    padding: 1 2.5px;
-   }
-
-
-/* ── Icon color override ─────────────────────────────────────
-   Waybar renders nerd font icons as text inside the label.
-   We target the Pango markup span or use a CSS trick to
-   recolor just the icon glyph by wrapping it with the
-   niri/window label selector. Since icons are inline text,
-   the cleanest approach is to set the module color to the
-   icon color and override text with a span in the format
-   string — OR just set both to a blend and rely on the
-   format strings to use <span> markup.
-
-   If you want to split icon vs text color, update each
-   module's "format" in config.jsonc to use Pango markup:
-     "format": "<span color='#ff966c'></span> {usage}%"
-   Then the CSS below keeps text at pink and icons at orange. */
-
-/* ── Scrollbar (if any) ─────────────────────────────────────── */
-scrollbar {
-    background: transparent;
+    color: #cdd6f4;
+    font-weight: bold;
+    margin: 0 10px;
 }

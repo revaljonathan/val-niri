@@ -9,8 +9,8 @@
 @import "colors.css";
 
 window#waybar {
-     /* background-color: @base; */
-    background-color: transparent;
+     background-color: alpha(@base, 0.65);
+    /* background-color: transparent; */
     color: @text;
 }
 tooltip {
@@ -26,7 +26,7 @@ tooltip label {
 .modules-center,
 .modules-right {
     background: transparent;
-    padding: 4px 6px;
+    padding: 12px 6px;
 }
 
 #cpu,
@@ -49,7 +49,8 @@ tooltip label {
 #custom-spotify,
 #custom-weather,
 #custom-pacman,
-#custom-separator,
+#custom-separator-open,
+#custom-separator-close,
 #window {
     background-color: @base;
     border-radius: 0px;
@@ -63,7 +64,6 @@ tooltip label {
     padding: 2px 4px;
     margin: 3px 2px;
 }
-/* Children inside the group box: transparent, no extra radius/margin */
 #cpu.module-group > box > #cpu,
 #cpu.module-group > box > #temperature {
     background: transparent;
@@ -80,6 +80,7 @@ tooltip label {
 }
 #hw.module-group > box > #pulseaudio,
 #hw.module-group > box > #pulseaudio-microphone,
+#hw.module-group > box > #custom-steam,
 #hw.module-group > box > #backlight {
     background: transparent;
     border-radius: 0;
@@ -87,23 +88,7 @@ tooltip label {
     padding: 2px 6px;
 }
 
-#music.module-group {
-    background-color: @base;
-    border-radius: 0px;
-    padding: 2px 4px;
-    margin: 3px 2px;
-}
-#music.module-group > box > #custom-spotify,
-#music.module-group > box > #custom-before,
-#music.module-group > box > #custom-next {
-    background: transparent;
-    border-radius: 0;
-    margin: 0;
-    padding: 2px 6px;
-}
 
-/* ── Prevent standalone pill styles bleeding onto grouped modules ── */
-/* These reset any pill styling when the module is OUTSIDE a group  */
 
 
 #workspaces {
@@ -128,13 +113,13 @@ tooltip label {
     box-shadow: none;
 }
 #workspaces button.empty {
-    color: @primary;
-    opacity: 0.5;
+    color: @text;
+    opacity: 0.35;
 }
 #workspaces button.active {
     color: @base;
     opacity: 1;
-    background: linear-gradient(to right,@primary, @primary);
+    background: linear-gradient(to right,@primary, @tertiary);
     border-radius: 0px;
     padding: 0px 15px;
 }
@@ -147,7 +132,6 @@ tooltip label {
     background: transparent;
 }
 
-/* ── Foreground colors ─────────────────────────────────────── */
 #window        { color: @text; }
 #clock         { color: @text; }
 #cpu           { color: @text; }
@@ -177,8 +161,10 @@ tooltip label {
 #custom-weather  { color: @text; }
 #custom-pacman   { color: @text; }
 #custom-next     { color: @text; }
+#custom-steam   {color: @text; }
 #custom-before   { color: @text; }
-#custom-separator {
+#custom-separator-close { color: @text; }
+#custom-separator-open {
     color: @text;
     background: transparent;
     padding: 0 2px;
@@ -186,9 +172,7 @@ tooltip label {
 }
 
 
-/* ── group/cpu island ──────────────────────────────────────── */
 #cpu {
-    /* background: linear-gradient(to right,#ff996c, @text); */
     background-color: @base;
     border-radius: 0px;
     padding: 2px 4px;
@@ -201,9 +185,7 @@ tooltip label {
     padding: 2px 6px;
 }
 
-/* ── group/hw island ───────────────────────────────────────── */
 #hw {
-        /* background: linear-gradient(to right,#82aaff, @text); */
     background-color: @base;
     border-radius: 0px;
     padding: 2px 4px;
@@ -218,20 +200,3 @@ tooltip label {
 scrollbar {
     background: transparent;
 }
-
-
-/* #battery { */
-/*     background: linear-gradient(to right,#82aaff, @text); */
-/* } */
-/**/
-/* #network { */
-/*         background: linear-gradient(to right,#c099ff, @text); */
-/* } */
-/**/
-/* #memory { */
-/*         background: linear-gradient(to right,#ff996c, @text); */
-/* } */
-
-/* #custom-weather { */
-/*     background: linear-gradient(to right,#86e1fc, @text); */
-/* } */

@@ -1,0 +1,184 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15.35px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+@import "colors.css";
+
+
+window#waybar {
+    background-color: alpha(@base, 0.90);
+    color: @text;
+    transition: background-color 0.3s ease;
+}
+
+window#waybar.hidden {
+    opacity: 0.3;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 4px;
+}
+
+#workspaces,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#pulseaudio.microphone,
+#backlight,
+#mpris,
+#custom-weather,
+#custom-spotify,
+#custom-steam {
+    padding: 0 3px;
+    color: @text;
+    background-color: transparent;
+}
+
+
+#custom-separator-open,
+#custom-separator-close {
+    color: alpha(@tertiary, 0.80);
+    padding: 1 2px;
+}
+
+
+#workspaces button {
+    padding: 0 7px;
+    color: @text;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#workspaces button.empty {
+    color: @text;
+    opacity: 0.35;
+}
+
+#workspaces button:hover {
+    color: @text;
+    background-color: alpha(@text, 0.08);
+}
+
+#workspaces button.active {
+    background: linear-gradient(to right,@primary, @tertiary);
+    margin: 4 0px;
+    color: @base;
+}
+
+#workspaces button.urgent {
+    color: @text;
+    border-bottom: 2px solid alpha(@text, 0.70);
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.4; }
+}
+
+#clock {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+
+#battery {
+    padding: 0 8px;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @text;
+}
+
+#battery.warning:not(.charging) {
+    color: alpha(@text, 0.75);
+}
+
+#battery.critical:not(.charging) {
+    color: @text;
+    animation: blink 1s step-end infinite;
+}
+
+#cpu {
+    padding: 0 4px 0 2px;
+}
+
+#temperature {
+    padding: 0 0px 0 2px;
+}
+
+#temperature.critical {
+    animation: blink 1s step-end infinite;
+}
+
+#memory {
+    padding: 0 8px;
+}
+
+#pulseaudio {
+    padding: 0 4px;
+}
+
+#pulseaudio.muted {
+    color: alpha(@text, 0.40);
+}
+
+#pulseaudio.microphone {
+    padding: 0 4px;
+}
+
+#pulseaudio.microphone.source-muted {
+    color: alpha(@text, 0.40);
+}
+
+#backlight {
+    padding: 0 4px;
+}
+
+#network {
+    padding: 0 4px;
+}
+
+#network.disconnected {
+    color: alpha(@text, 0.40);
+}
+
+#custom-steam {
+    padding: 0 6px;
+}
+
+
+#mpris {
+    padding: 0 6px;
+    font-style: normal;
+}
+
+#mpris label {
+    color: @text;
+}
+
+
+#custom-weather {
+    padding: 0 6px;
+}
+
+
+tooltip {
+    background-color: @base;
+    border: 1px solid alpha(@text, 0.20);
+    color: @text;
+}
+
+tooltip label {
+    color: @text;
+}

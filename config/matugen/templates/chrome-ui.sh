@@ -1,6 +1,6 @@
 wallpaper='{{image}}'
 background='{{colors.outline_variant.default.hex}}'
-foreground='{{colors.surface.default.hex}}'
+foreground='{{colors.on_surface.default.hex}}'
 color0='{{colors.surface.default.hex}}'
 color1='{{colors.surface.default.hex}}'
 color2='{{colors.secondary.default.hex}}'

@@ -51,8 +51,8 @@ output "eDP-1" {
 
 
 cursor {
-    xcursor-theme "catppuccin-mocha-rosewater-cursors"
-    xcursor-size 32
+    xcursor-theme "Bibata-Original-Ice"
+    xcursor-size 35
   }
 
 layout {
@@ -102,20 +102,14 @@ spawn-at-startup "/home/reval/.local/bin/todo-daemon"
 hotkey-overlay {
     skip-at-startup
 }
-
-
 screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
 
 animations {
 }
 
-
-
 window-rule {
     draw-border-with-background false
 }
-
-
 
 window-rule {
   match title="Brave"
@@ -145,6 +139,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="note$"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 800; }
+}
+
+window-rule {
     match app-id="xdg-desktop-portal-gtk"
     
     min-width 900
@@ -154,12 +155,12 @@ window-rule {
     
     open-floating true
 }
-// layer-rule {
-//     match namespace="waybar"
-//     background-effect {
-//         blur true
-//     }
-// }
+layer-rule {
+    match namespace="waybar"
+    background-effect {
+        blur true
+    }
+}
 
 layer-rule {
     match namespace="Zen-browser"
@@ -209,12 +210,12 @@ binds {
     super+D { spawn "rofi" "-show" "drun"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
+    super+n { spawn-sh "~/.local/bin/note.sh"; }
 
     super+A { spawn "rofi" "-show" "window"; }
     super+S { spawn "~/.local/bin/browse.sh"; }
     super+E { spawn "rofimoji"; }
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
-    // super+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme-str 'window {width: 800px;}' | cliphist decode | wl-copy"; }
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     super+P { spawn "~/.local/bin/power.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
@@ -243,6 +244,7 @@ binds {
 
 
     super+W repeat=false { toggle-overview; }
+    super+shift+W { toggle-column-tabbed-display; }
     super+Q repeat=false { close-window; }
 
     super+Left  { focus-column-left; }

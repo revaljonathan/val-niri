@@ -3,8 +3,7 @@ fidelity = false
 contrast = 0.2
 high_contrast = false 
 theme = "dark" 
-default_type = "scheme-rainbow" 
-
+scheme_type = "scheme-rainbow"
 
 [config.custom_colors.accent]
 color = "#fab387"  
