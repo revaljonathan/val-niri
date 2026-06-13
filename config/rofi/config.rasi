@@ -119,7 +119,7 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color: @on-surface-variant;
+    background-color: @secondary;
     text-color:       @surface;
     border-color:     @on-surface;
 }

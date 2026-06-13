@@ -1,0 +1,172 @@
+{
+
+    "layer": "top", // Waybar at top layer
+    "position": "left", // Waybar position (top|bottom|left|right)
+    "width": 30, // Bar thickness — increase if text gets clipped
+    "spacing": 6, // Gaps between modules (4px)
+
+    "modules-left": [
+        "niri/workspaces",
+        "mpris"
+    ],
+
+    "modules-center": [
+        "clock"
+        // "custom/weather"
+    ],
+
+    "modules-right": [
+        "battery",
+        "cpu",
+        "temperature",
+        "group/hw"
+    ],
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "\n{:%H\n%M}"
+    },
+
+    "cpu": {
+        "format": "  \n {usage}%",
+        "on-click": "kitty -e btop",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {used:0.1f}GiB",
+        "on-click": "kitty -e btop"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": " 󰓅 \n{temperatureC}°C",
+        "format-icons": ["󰉬", "", "󰉪"]
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon}\n{capacity}%",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        //"format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e upower -d"
+    },
+
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+    "network": {
+        "max-length": 15,
+        // "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "󱛅",
+        "on-click": "~/.local/bin/wifi.sh"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "",
+        //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
+        //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        "format-muted": "󰅶", //{format_source}",
+        //"format-source": " {volume}%",
+        //"format-source-muted": " ",
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "tooltip-format": "{source_desc} | {source_volume}%"
+    },
+
+    "custom/weather": {
+        "format": "{}°C",
+        "tooltip": true,
+        "interval": 5400,
+        "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
+        "return-type": "json"
+    },
+
+    "custom/spotify": {
+        "max-length": 30,
+        "exec": "~/.local/bin/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "interval": 5,
+        "on-click": "playerctl next",
+        "on-click-right": "playerctl previous",
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify volume 0.05+",
+        "on-scroll-down": "playerctl -p spotify volume 0.05-"
+    },
+
+    "group/cpu": {
+        "orientation": "vertical",
+        "modules": [
+            "cpu",
+            "temperature"
+        ]
+    },
+
+    "custom/steam": {
+        "exec": "~/.local/bin/steam.sh",
+        "on-click-right": "killall steam",
+        "interval": 10
+    },
+
+    "mpris": {
+        "format": "{player_icon} {title} - {artist}",
+        "max-length": 30,
+        "rotate": 90,
+        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "player-icons": {
+            "default": "▶",
+            "spotify": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+        }
+    },
+
+    "group/hw": {
+        "orientation": "vertical",
+        "modules": [
+            "pulseaudio#microphone",
+            "pulseaudio",
+            "backlight",
+            "network",
+            "custom/steam"
+        ]
+    }
+}

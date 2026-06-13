@@ -1,15 +1,15 @@
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15.35px;
+    font-size: 15.5px;
     border: none;
     border-radius: 0;
     min-height: 0;
 }
+
 @import "colors.css";
 
-
 window#waybar {
-    background-color: alpha(@base, 0.90);
+    background-color: alpha(@base, 0.80);
     color: @text;
     transition: background-color 0.3s ease;
 }
@@ -27,7 +27,6 @@ window#waybar.hidden {
 
 #workspaces,
 #clock,
-#battery,
 #cpu,
 #memory,
 #temperature,
@@ -39,7 +38,7 @@ window#waybar.hidden {
 #custom-weather,
 #custom-spotify,
 #custom-steam {
-    padding: 0 3px;
+    padding: 0 2px;
     color: @text;
     background-color: transparent;
 }
@@ -48,7 +47,7 @@ window#waybar.hidden {
 #custom-separator-open,
 #custom-separator-close {
     color: alpha(@secondary, 0.80);
-    padding: 1 2px;
+    padding: 0 3px 0 3px;
 }
 
 
@@ -65,12 +64,17 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    color: @text;
-    background-color: alpha(@text, 0.08);
+    background: linear-gradient(to right,@primary, @tertiary);
+    color: @base;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin: 4 0px;
 }
 
 #workspaces button.active {
     background: linear-gradient(to right,@primary, @tertiary);
+    border-radius: 8px;
+    padding: 0 10px;
     margin: 4 0px;
     color: @base;
 }
@@ -92,7 +96,10 @@ window#waybar.hidden {
 
 
 #battery {
-    padding: 0 8px;
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
+    margin: 4px 0;
+    padding: 0 10px;
 }
 
 #battery.charging,
@@ -110,11 +117,11 @@ window#waybar.hidden {
 }
 
 #cpu {
-    padding: 0 4px 0 2px;
+    padding: 0 2px;
 }
 
 #temperature {
-    padding: 0 0px 0 2px;
+    padding: 0 2px;
 }
 
 #temperature.critical {
@@ -122,7 +129,7 @@ window#waybar.hidden {
 }
 
 #memory {
-    padding: 0 8px;
+    padding: 0 2px;
 }
 
 #pulseaudio {
@@ -154,12 +161,12 @@ window#waybar.hidden {
 }
 
 #custom-steam {
-    padding: 0 6px;
+    padding: 0 4px;
 }
 
 
 #mpris {
-    padding: 0 6px;
+    padding: 0 2px;
     font-style: normal;
 }
 
@@ -169,10 +176,15 @@ window#waybar.hidden {
 
 
 #custom-weather {
-    padding: 0 6px;
+    padding: 0 2px;
 }
 
-
+#hw {
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
+    padding: 0 6px;
+    margin: 4px 0;
+}
 tooltip {
     background-color: @base;
     border: 1px solid alpha(@text, 0.20);

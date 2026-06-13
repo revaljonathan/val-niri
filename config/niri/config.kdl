@@ -34,7 +34,13 @@ gestures {
 
 
 overview {
-  backdrop-color "#1e1e2e00";
+    workspace-shadow {
+        softness 50
+        spread 5
+        offset x=0 y=10
+        color "#131313"
+    }
+    backdrop-color "#1e1e2e00";
 }
 
 workspace "1" { }
@@ -80,9 +86,9 @@ layout {
         // urgent-color "#9b0000"
         }
     shadow {
-        off
+        on
            softness 30
-           spread 5
+           spread 3
            offset x=0 y=5
           }
 }
@@ -105,6 +111,55 @@ hotkey-overlay {
 screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
 
 animations {
+    on
+
+     slowdown 1
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    }
 }
 
 window-rule {
@@ -122,7 +177,7 @@ window-rule {
   open-maximized true
 }
 window-rule {
-    match title="Zen"
+    match title="Zen Browser"
     open-maximized true
 }
 
@@ -146,6 +201,14 @@ window-rule {
 }
 
 window-rule {
+    match app-id="kittyfloat$"
+    open-floating true
+    default-column-width { fixed 922; }
+    default-window-height { fixed 577; }
+    default-floating-position x=490 y=580
+}
+
+window-rule {
     match app-id="xdg-desktop-portal-gtk"
     
     min-width 900
@@ -162,8 +225,9 @@ layer-rule {
     }
 }
 
-layer-rule {
-    match namespace="Zen-browser"
+window-rule {
+    match app-id="^zen"
+    draw-border-with-background false
     background-effect {
         blur true
     }
@@ -207,11 +271,11 @@ layer-rule {
 binds {
     super+Shift+Slash { show-hotkey-overlay; }
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
     super+D { spawn "rofi" "-show" "drun"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "~/.local/bin/note.sh"; }
-
     super+A { spawn "rofi" "-show" "window"; }
     super+S { spawn "~/.local/bin/browse.sh"; }
     super+E { spawn "rofimoji"; }
@@ -351,19 +415,12 @@ binds {
 
     super+C { center-column; }
 
-    super+Ctrl+C { center-visible-columns; }
+    super+Minus { set-column-width "-5%"; }
+    super+Equal { set-column-width "+5%"; }
 
-    super+Minus { set-column-width "-10%"; }
-    super+Equal { set-column-width "+10%"; }
-
-    super+Shift+Minus { set-window-height "-10%"; }
-    super+Shift+Equal { set-window-height "+10%"; }
+    super+Shift+Minus { set-window-height "-5%"; }
+    super+Shift+Equal { set-window-height "+5%"; }
     
-    "super+Shift+N" { spawn "swaync-client" "-t"; }
-    "super+Shift+D" { spawn "swaync-client" "-d"; }
-
-
-
     super+Shift+V {toggle-window-floating; }
 
     Print { screenshot; }

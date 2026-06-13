@@ -1,43 +1,27 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
+    "height": 34, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
-    "spacing": 3, // Gaps between modules (4px)
-    "margin-top": -4,
-    "margin-bottom": -2,
+    "spacing": 12, // Gaps between modules (4px)
+    "margin-top": 1,
+    "margin-bottom": -1,
 
     "modules-left": [
-        "custom/separator-open",
         "niri/workspaces",
-        "custom/separator-close",
-        "custom/separator-open",
-        "mpris",
-        "custom/separator-close"
+        "mpris"
     ],
 
     "modules-center": [
-        "custom/separator-open",
-        "clock",
-        "custom/separator-close",
-        "custom/separator-open",
-        "custom/weather",
-        "custom/separator-close"
+        "clock"
     ],
 
     "modules-right": [
-        "custom/separator-open",
         "battery",
-        "custom/separator-close",
-        "custom/separator-open",
-        "group/cpu",
-        "custom/separator-close",
-        "custom/separator-open",
+        "cpu",
+        "temperature",
         "memory",
-        "custom/separator-close",
-        "custom/separator-open",
-        "group/hw",
-        "custom/separator-close"
+        "group/hw"
     ],
 
     "custom/separator-open": {
@@ -157,18 +141,6 @@
         "return-type": "json"
     },
 
-    "custom/spotify": {
-        "max-length": 30,
-        "exec": "~/.local/bin/spotify.sh",
-        "exec-if": "pgrep spotify",
-        "interval": 5,
-        "on-click": "playerctl next",
-        "on-click-right": "playerctl previous",
-        "on-click-middle": "playerctl -p spotify play-pause",
-        "on-scroll-up": "playerctl -p spotify volume 0.05+",
-        "on-scroll-down": "playerctl -p spotify volume 0.05-"
-    },
-
     "group/cpu": {
         "orientation": "horizontal",
         "modules": [
@@ -186,12 +158,10 @@
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
         "max-length": 30,
-        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "format-paused": "{status_icon} <i>{title} - {artist}</i>",
         "player-icons": {
             "default": "▶",
-            "spotify": "",
-            "firefox": "",
-            "chromium": ""
+            "spotify": ""
         },
         "status-icons": {
             "paused": "⏸"
@@ -201,8 +171,8 @@
     "group/hw": {
         "orientation": "horizontal",
         "modules": [
-            "pulseaudio#microphone",
             "pulseaudio",
+            "pulseaudio#microphone",
             "backlight",
             "network",
             "custom/steam"

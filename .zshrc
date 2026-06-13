@@ -1,5 +1,4 @@
 gf () {
-  # Info lines (right column)
   info=(
     "\033[1;35mKernel  $(uname -r)\033[0m"
     "\033[1;36m Shell  $SHELL"
@@ -9,33 +8,27 @@ gf () {
     "\033[0;33m  󰮯 \033[0;31m 󰊠 \033[0;32m 󰊠 \033[0;33m 󰊠 \033[0;34m 󰊠 \033[0;35m 󰊠 \033[0;36m 󰊠 \033[0;37m 󰊠  "
     ""
   )
-
   sprite=(
     " \033[33m   /\_/\  \033[0m  "
-    " \033[33m  ( ^.^ ) \033[0m  "
+    " \033[33m  ( •⩊• ) \033[0m  "
     " \033[33m   > \033[31m^ \033[33m<  \033[0m  "
     " \033[33m  /|   |\ \033[0m  "
     " \033[33m (_|   |_)\033[0m  "
     "             "
     "                    "
   )
-
   local max=${#info[@]}
   for (( i=0; i<max; i++ )); do
     printf "${sprite[$i]}  ${info[$i]}\n"
   done
 }
 
-gf
-
-
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
-# BASIC ENV & KEYBIND
+export GTK_THEME=adw-gtk3-dark
 export LS_COLORS=""
 export BAT_THEME="Catppuccin Mocha"
 export "MICRO_TRUECOLOR=1"
@@ -112,12 +105,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-#     ___   ___                
-#    / _ | / (_)__ ____ ___ ___
-#   / __ |/ / / _ `(_-</ -_|_-<
-#  /_/ |_/_/_/\_,_/___/\__/___/
-
-# SYSTEM
 alias up='paru -Syu'
 alias clean='sudo paccache -rk2 && paru -c'
 alias pacnews='arch_news_check'
@@ -128,17 +115,15 @@ alias yay='paru'
 alias pacget='paru -Sl | awk "{print \$2}" | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 alias pw='pass.py'
 
-# POWER
 alias sn='shutdown now'
 alias sp='systemctl suspend'
 alias rb='reboot'
 
-# DISPLAY / GPU
 alias turbon='echo 0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo && sleep 1 && checktur'
 alias turboff='echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo && sleep 1 && checktur'
 alias checktur='echo "Turbo boost: $(if [ $(cat /sys/devices/system/cpu/intel_pstate/no_turbo) -eq 0 ]; then echo "ON"; else echo "OFF"; fi)"'
+alias fan="watch -n 1 'sensors | grep fan'"
 
-# GIT
 alias gs='la && git status'
 gacp() {
   if [ -z "$1" ]; then
@@ -150,15 +135,14 @@ gacp() {
   git push
 }
 
-# EDITORS
 alias nano='micro'
 alias vim='nvim'
 alias nv='nvim'
 alias mic='micro'
 alias code='visual-studio-code-electron'
 
-# FILE VIEWERS
 alias see='bat'
+alias clipwipe='rm ~/.cache/cliphist/db'
 alias view='gwenview'
 alias zat='zathura'
 take() {
@@ -166,7 +150,6 @@ take() {
 }
 
 
-# NAVIGATION
 alias docs='cd Documents'
 alias rice='cd Rice'
 alias uni='cd uniStuff'
@@ -174,8 +157,8 @@ alias dl='cd Downloads'
 alias sz='du -sh * | sort -h'
 alias y='yazi'
 unalias ls
-alias ls='eza -l -h --sort=modified --reverse --color=always --icons --git --group-directories-first'
-alias lss='eza -l -h --sort=modified --reverse --color=always --icons --git --group-directories-first -G'
+alias ls='eza -h --sort=modified --reverse --color=always --icons --git --group-directories-first'
+alias lss='eza -h --sort=modified --reverse --color=always --icons --git --group-directories-first -G'
 alias la='ls -A'
 alias lsa='la -G'
 alias lt='ls -T'
@@ -184,7 +167,7 @@ alias x='exit'
 alias c='clear'
 alias lc='ls -s Extension'
 alias cd='z'
-# SHELL UTILS
+
 alias color='color_check'
 alias grep='rg --color=auto --line-number --smart-case'
 
@@ -208,16 +191,14 @@ extract() {
   fi
 }
 
-
-# FETCH / INFO
 alias morefetch='fastfetch -c ~/.config/fastfetch/morefetch.jsonc'
 alias clock='tty-clock -s -c -C 5'
 alias ff='fastfetch'
 alias ffm='fastfetch -c examples/13.jsonc'
 alias dw='dysk'
 
-# FUN
 alias aq='asciiquarium'
+alias poke='krabby random | sed '1d''
 alias pipes='pipes.sh'
 alias q='fortune | cowsay -r'
 alias plis='sudo'
@@ -229,9 +210,4 @@ alias udanraksu='weather semarang'
 eval "$(zoxide init zsh)"
 f() { eval $(thefuck $(fc -ln -1)); }
 
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-
-export PATH=$PATH:/home/reval/.spicetify

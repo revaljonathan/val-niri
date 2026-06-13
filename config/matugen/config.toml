@@ -33,6 +33,8 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR1 btop'
+
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/matugen-gtk.css'
@@ -56,11 +58,6 @@ output_path = '~/.config/waybar/colors.css'
 input_path  = '~/.config/matugen/templates/root.css'
 output_path = '~/code/tab-v3/color.css'
 
-[templates.spotify]
-input_path = '~/.config/matugen/templates/spicetify.ini'
-output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
-post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
-
 [templates.zathura]
 input_path = '~/.config/matugen/templates/zathurarc'
 output_path = '~/.config/zathura/zathurarc'
@@ -72,3 +69,12 @@ output_path = '~/.cache/wal/colors.sh'
 [templates.swaylock]
 input_path  = '~/.config/matugen/templates/swaylock.conf'
 output_path = '~/.config/swaylock/config'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'
+
+[templates.lualine]
+input_path  = '~/.config/matugen/templates/colors_lualine.lua'
+output_path = '~/.config/nvim/after/plugin/matugen_colors.lua'
