@@ -1,11 +1,10 @@
 gf () {
   info=(
-    "\033[1;35mKernel  $(uname -r)\033[0m"
-    "\033[1;36m Shell  $SHELL"
-    "\033[1;34m  Disk  $(df -B1G --output=size,used / | awk 'NR==2 {print $2 " GiB | " $1 " GiB"}')"
+    "\033[1;32mKernel  $(uname -r)\033[0m"
+    "\033[1;32m Shell  $SHELL"
+    "\033[1;32m  Disk  $(df -B1G --output=size,used / | awk 'NR==2 {print $2 " GiB | " $1 " GiB"}')"
     "\033[0;32m   Upt  $(uptime -p | sed 's/^up //')"
-    "\033[0;33m  Host  $(hostname)"
-    "\033[0;33m  󰮯 \033[0;31m 󰊠 \033[0;32m 󰊠 \033[0;33m 󰊠 \033[0;34m 󰊠 \033[0;35m 󰊠 \033[0;36m 󰊠 \033[0;37m 󰊠  "
+    "\033[0;32m  Host  $(hostname)"
     ""
   )
   sprite=(
@@ -36,8 +35,6 @@ export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=kitty
-export CLIPHIST_MAX_ITEMS=100
-
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH=$HOME/.go

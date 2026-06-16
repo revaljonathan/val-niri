@@ -36,7 +36,7 @@ gestures {
 overview {
     workspace-shadow {
         softness 50
-        spread 5
+        spread 10
         offset x=0 y=10
         color "#131313"
     }
@@ -97,13 +97,14 @@ layout {
 
 
 spawn-at-startup "/home/reval/.local/bin/defbar.sh"
-spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
+spawn-at-startup "awww-daemon"
+spawn-at-startup "sh" "-c" "awww-daemon \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "dunst"
 spawn-at-startup "clipse" "-listen"
 spawn-at-startup "/home/reval/.local/bin/gamma.sh"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/home/reval/.local/bin/sleep.sh"
-spawn-at-startup "/home/reval/.local/bin/todo-daemon"
+// spawn-at-startup "/home/reval/.local/bin/todo-daemon"
 
 hotkey-overlay {
     skip-at-startup
@@ -113,7 +114,7 @@ screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
 animations {
     on
 
-     slowdown 1
+     // slowdown 1.2
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -263,7 +264,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^wallpaper$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 
@@ -284,6 +285,7 @@ binds {
     super+P { spawn "~/.local/bin/power.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }
+    super+shift+f23 { spawn-sh "rofi -show drun"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }

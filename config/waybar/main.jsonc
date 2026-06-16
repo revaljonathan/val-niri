@@ -86,6 +86,7 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
+        "format-discharging": "{icon} {capacity}% - {time}",
         "format-full": "{capacity}% {icon}",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",

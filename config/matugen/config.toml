@@ -1,6 +1,6 @@
 [config]
 fidelity = false 
-contrast = 0.2
+contrast = 0.0
 high_contrast = false 
 theme = "dark" 
 scheme_type = "scheme-tonal-type"

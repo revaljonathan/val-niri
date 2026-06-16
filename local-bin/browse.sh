@@ -9,6 +9,7 @@ PREDEFINED=(
     "GPT"
     "Claude"
     "Gemini"
+    "Dodgers"
 )
 
 CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
@@ -31,13 +32,14 @@ urlencode() {
 }
 
 case "$CHOICE" in
-*github*) brave "https://github.com" ;;
-"Wikipedia"*) brave "https://en.wikipedia.org/wiki/Main_Page" ;;
-"Youtube"*) brave "https://www.youtube.com/" ;;
-"Arch Wiki"*) brave "https://wiki.archlinux.org/title/Main_page" ;;
-"Deepseek"*) brave "https://chat.deepseek.com/" ;;
-"GPT"*) brave "https://chatgpt.com/" ;;
-"Claude"*) brave "https://claude.ai/new" ;;
-"Gemini"*) brave "https://gemini.google.com/app" ;;
-*) brave "https://www.google.com/search?q=$(urlencode "$CHOICE")" ;;
+*github*) helium-browser "https://github.com" ;;
+"Wikipedia"*) helium-browser "https://en.wikipedia.org/wiki/Main_Page" ;;
+"Youtube"*) helium-browser "https://www.youtube.com/" ;;
+"Arch Wiki"*) helium-browser "https://wiki.archlinux.org/title/Main_page" ;;
+"Deepseek"*) helium-browser "https://chat.deepseek.com/" ;;
+"GPT"*) helium-browser "https://chatgpt.com/" ;;
+"Claude"*) helium-browser "https://claude.ai/new" ;;
+"Gemini"*) helium-browser "https://gemini.google.com/app" ;;
+"Dodgers"*) helium-browser "https://www.google.com/search?q=dodgers" ;;
+*) helium-browser "https://www.google.com/search?q=$(urlencode "$CHOICE")" ;;
 esac

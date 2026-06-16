@@ -1,243 +1,154 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# ┏━━━┳━━┳━┓┏━┳━━━┳┓╋╋┏━━┳━┓┏━┓
-# ┗┓┏┓┣┫┣┫┃┗┛┃┃┏━━┫┃╋╋┗┫┣┻┓┗┛┏┛
-# ╋┃┃┃┃┃┃┃┏┓┏┓┃┗━━┫┃╋╋╋┃┃╋┗┓┏┛
-# ╋┃┃┃┃┃┃┃┃┃┃┃┃┏━━┫┃╋┏┓┃┃╋┏┛┗┓
-# ┏┛┗┛┣┫┣┫┃┃┃┃┃┃╋╋┃┗━┛┣┫┣┳┛┏┓┗┓
-# ┗━━━┻━━┻┛┗┛┗┻┛╋╋┗━━━┻━━┻━┛┗━┛
-# The program was created by DIMFLIX
-# Github: https://github.com/DIMFLIX-OFFICIAL
+ROFI_CMD="rofi -dmenu -i -theme-str 'window {width: 350;} listview {lines: 10;}'"
 
-SESSION_TYPE="$XDG_SESSION_TYPE"
-ENABLED_COLOR="#A3BE8C"
-DISABLED_COLOR="#D35F5E"
-SIGNAL_ICONS=("󰤟 " "󰤢 " "󰤥 " "󰤨 ")
-SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
-WIFI_CONNECTED_ICON=" "
-ETHERNET_CONNECTED_ICON=" "
-
-get_status() {
-    if nmcli -t -f TYPE,STATE device status | grep 'ethernet:connected' >/dev/null; then
-        local status_icon="󰈀"
-        local status_color=$ENABLED_COLOR
-    elif nmcli -t -f TYPE,STATE device status | grep 'wifi:connected' >/dev/null; then
-        local wifi_info=$(nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list --rescan no | grep '\*')
-        if [ -n "$wifi_info" ]; then
-            IFS=: read -r in_use signal security ssid <<<"$wifi_info"
-            local signal_icon="${SIGNAL_ICONS[3]}"
-            local signal_level=$((signal / 25))
-            if [[ "$signal_level" -lt "${#SIGNAL_ICONS[@]}" ]]; then
-                signal_icon="${SIGNAL_ICONS[$signal_level]}"
-            fi
-            if [[ "$security" =~ WPA || "$security" =~ WEP ]]; then
-                signal_icon="${SECURED_SIGNAL_ICONS[$signal_level]}"
-            fi
-            status_icon="$signal_icon"
-            local status_color=$ENABLED_COLOR
-        else
-            status_icon=" "
-            local status_color=$DISABLED_COLOR
-        fi
-    else
-        local status_icon=" "
-        local status_color=$DISABLED_COLOR
-    fi
-
-    if [[ "$SESSION_TYPE" == "wayland" ]]; then
-        echo "<span color=\"$status_color\">$status_icon</span>"
-    elif [[ "$SESSION_TYPE" == "x11" ]]; then
-        echo "%{F$status_color}$status_icon%{F-}"
-    fi
+scan_networks() {
+    nmcli --fields SSID,SECURITY,SIGNAL,IN-USE dev wifi list 2>/dev/null |
+        tail -n +2 |
+        sed 's/  */ /g' |
+        sort -t' ' -k3 -rn
 }
 
-manage_wifi() {
-    nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list >/tmp/wifi_list.txt
-
-    local ssids=()
-    local formatted_ssids=()
-    local active_ssid=""
-
-    while IFS=: read -r in_use signal security ssid; do
-        if [ -z "$ssid" ]; then continue; fi # Пропускаем сети без SSID
-
-        local signal_icon="${SIGNAL_ICONS[3]}"
-        local signal_level=$((signal / 25))
-        if [[ "$signal_level" -lt "${#SIGNAL_ICONS[@]}" ]]; then
-            signal_icon="${SIGNAL_ICONS[$signal_level]}"
-        fi
-
-        if [[ "$security" =~ WPA || "$security" =~ WEP ]]; then
-            signal_icon="${SECURED_SIGNAL_ICONS[$signal_level]}"
-        fi
-
-        # Добавляем иконку подключения, если сеть активна
-        local formatted="$signal_icon $ssid"
-        if [[ "$in_use" =~ \* ]]; then
-            active_ssid="$ssid"
-            formatted="$WIFI_CONNECTED_ICON $formatted"
-        fi
-        ssids+=("$ssid")
-        formatted_ssids+=("$formatted")
-    done </tmp/wifi_list.txt
-
-    local formatted_list=""
-    for formatted_ssid in "${formatted_ssids[@]}"; do
-        formatted_list+="$formatted_ssid\n"
-    done
-
-    formatted_list=$(printf "%s" "$formatted_list")
-
-    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -i -selected-row 1 -p "Wi-Fi SSID: ")
-    local ssid_index=-1
-    for i in "${!formatted_ssids[@]}"; do
-        if [[ "${formatted_ssids[$i]}" == "$chosen_network" ]]; then
-            ssid_index=$i
-            break
-        fi
-    done
-
-    local chosen_id="${ssids[$ssid_index]}"
-
-    if [ -z "$chosen_network" ]; then
-        rm /tmp/wifi_list.txt
-        return
-    else
-        # Проверяем состояние выбранной сети
-        local device_status=$(nmcli -t -f STATE device show wlan0 | grep STATE | cut -d: -f2)
-
-        # Определяем действие в зависимости от состояния сети
-        local action
-        if [[ "$chosen_id" == "$active_ssid" ]]; then
-            action="  Disconnect"
-        else
-            action="󰸋  Connect"
-        fi
-
-        action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: ")
-        case $action in
-        "󰸋  Connect")
-            local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
-            local saved_connections=$(nmcli -g NAME connection show)
-            if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
-                nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
-            else
-                local wifi_password=$(rofi -dmenu -p "Password: " -password)
-                nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
-            fi
-            ;;
-        "  Disconnect")
-            nmcli device disconnect wlan0 && notify-send "Disconnected" "You have been disconnected from $chosen_id."
-            ;;
-        "  Forget")
-            nmcli connection delete id "$chosen_id" && notify-send "Forgotten" "The network $chosen_id has been forgotten."
-            ;;
-        esac
-    fi
-
-    rm /tmp/wifi_list.txt
+active_connections() {
+    nmcli -t -f NAME,TYPE,DEVICE con show --active 2>/dev/null |
+        grep -v ":loopback"
 }
 
-manage_ethernet() {
-    local eth_devices=$(nmcli device status | grep ethernet | awk '{print $1}')
-    if [ -z "$eth_devices" ]; then
-        notify-send "Error" "Ethernet device not found."
+do_connect() {
+    nmcli dev wifi rescan 2>/dev/null &
+
+    local networks
+    networks=$(scan_networks)
+
+    local chosen
+    chosen=$(echo "$networks" |
+        eval "$ROFI_CMD -p 'Connect to network'" |
+        awk '{print $1}')
+
+    [[ -z "$chosen" ]] && return
+
+    if nmcli -t -f NAME con show | grep -qx "$chosen"; then
+        if nmcli con up "$chosen" &>/dev/null; then
+            notify "Connected to $chosen"
+        else
+            notify "Failed to connect to $chosen"
+        fi
         return
     fi
 
-    local eth_list=""
-    for dev in $eth_devices; do
-        local dev_status=$(nmcli device status | grep "$dev" | awk '{print $3}')
-        if [ "$dev_status" = "connected" ]; then
-            eth_list+="$ETHERNET_CONNECTED_ICON$dev\n"
-        else
-            eth_list+="$dev\n"
-        fi
-    done
+    local security
+    security=$(echo "$networks" | awk -v ssid="$chosen" '$1==ssid {print $2}')
 
-    local chosen_device=$(echo -e "$eth_list" | rofi -dmenu -i -p "Select Ethernet device: ")
+    local password=""
+    if [[ "$security" != "--" && "$security" != "" ]]; then
+        password=$(echo "" |
+            rofi -dmenu -password \
+                -theme-str 'window {width: 30%;}' \
+                -p "Password for $chosen")
+        [[ -z "$password" ]] && return
+    fi
 
-    if [ -z "$chosen_device" ]; then
+    if [[ -n "$password" ]]; then
+        nmcli dev wifi connect "$chosen" password "$password" &>/dev/null &&
+            notify "Connected to $chosen" ||
+            notify "Failed to connect to $chosen"
+    else
+        nmcli dev wifi connect "$chosen" &>/dev/null &&
+            notify "Connected to $chosen" ||
+            notify "Failed to connect to $chosen"
+    fi
+}
+
+do_disconnect() {
+    local connections
+    connections=$(active_connections)
+
+    if [[ -z "$connections" ]]; then
+        notify "No active connections"
         return
     fi
 
-    chosen_device=$(echo $chosen_device | sed "s/$ETHERNET_CONNECTED_ICON//")
-    local device_status=$(nmcli device status | grep "$chosen_device" | awk '{print $3}')
+    local chosen
+    chosen=$(echo "$connections" |
+        eval "$ROFI_CMD -p 'Disconnect'" |
+        cut -d: -f1)
 
-    if [ "$device_status" = "connected" ]; then
-        nmcli device disconnect "$chosen_device" && notify-send "Disconnected" "You have been disconnected from $chosen_device."
-    elif [ "$device_status" = "disconnected" ]; then
-        nmcli device connect "$chosen_device" && notify-send "Connected" "You are now connected to $chosen_device."
+    [[ -z "$chosen" ]] && return
+
+    if nmcli con down "$chosen" &>/dev/null; then
+        notify "Disconnected from $chosen"
     else
-        notify-send "Error" "Unable to determine the action for $chosen_device."
+        notify "Failed to disconnect $chosen"
     fi
 }
 
-# Главное меню
-main_menu() {
-    ##==> Получаем необходимые аргументы
-    ###############################################
-    while [[ $# -gt 0 ]]; do
-        case $1 in
-        --status)
-            status_mode=true
-            shift
-            ;;
-        --enabled-color)
-            ENABLED_COLOR="$2"
-            shift 2
-            ;;
-        --disabled-color)
-            DISABLED_COLOR="$2"
-            shift 2
-            ;;
-        *)
-            shift
-            ;;
-        esac
-    done
+do_status() {
+    local status wifi_status
+    status=$(nmcli general status 2>/dev/null | tail -n +2 | head -1)
+    wifi_status=$(nmcli radio wifi 2>/dev/null | tail -n +2 | head -1)
 
-    if [[ $status_mode == true ]]; then
-        get_status
-        exit 1
-    fi
+    local active
+    active=$(active_connections | awk -F: 'NR==1{print $1}')
+    [[ -z "$active" ]] && active="none"
 
-    ##==> Если служба не запущена
-    ###############################################
-    if ! pgrep -x "NetworkManager" >/dev/null; then
-        echo -n "Root Password: "
-        read -s password
-        echo "$password" | sudo -S systemctl start NetworkManager
-    fi
-
-    ##==> Получаем кнопки действий и функцианал для них
-    #######################################################
-    local wifi_status=$(nmcli -fields WIFI g)
-    local wifi_toggle
-    if [[ "$wifi_status" =~ "enabled" ]]; then
-        wifi_toggle="󱛅  Disable Wi-Fi"
-        wifi_toggle_command="off"
-        manage_wifi_btn="\n󱓥 Manage Wi-Fi"
-    else
-        wifi_toggle="󱚽  Enable Wi-Fi"
-        wifi_toggle_command="on"
-        manage_wifi_btn=""
-    fi
-
-    ##==> Выводим Rofi меню
-    #######################################################
-    local chosen_option=$(echo -e "$wifi_toggle$manage_wifi_btn\n󱓥 Manage Ethernet" | rofi -dmenu -p " Network Management: ")
-    case $chosen_option in
-    "$wifi_toggle")
-        nmcli radio wifi $wifi_toggle_command
-        ;;
-    "󱓥 Manage Wi-Fi")
-        manage_wifi
-        ;;
-    "󱓥 Manage Ethernet")
-        manage_ethernet
-        ;;
-    esac
+    printf "Connected:  %s\nWiFi radio: %s\nStatus:     %s\n" \
+        "$active" "$wifi_status" "$status" |
+        rofi -dmenu -p "Network status" \
+            -theme-str 'window {width: 35%;} entry {enabled: false;}' \
+            >/dev/null
 }
 
-main_menu "$@"
+do_toggle_wifi() {
+    local current
+    current=$(nmcli radio wifi 2>/dev/null | tail -n +2 | awk '{print $1}')
+
+    if [[ "$current" == "enabled" ]]; then
+        nmcli radio wifi off && notify "WiFi disabled"
+    else
+        nmcli radio wifi on && notify "WiFi enabled"
+    fi
+}
+
+do_vpn() {
+    local vpns
+    vpns=$(nmcli -t -f NAME,TYPE con show |
+        awk -F: '$2~/vpn/{print $1}')
+
+    if [[ -z "$vpns" ]]; then
+        notify "No VPN connections configured"
+        return
+    fi
+
+    local chosen
+    chosen=$(echo "$vpns" |
+        eval "$ROFI_CMD -p 'Toggle VPN'")
+
+    [[ -z "$chosen" ]] && return
+
+    if nmcli -t -f NAME,TYPE con show --active | grep -q "^$chosen:"; then
+        nmcli con down "$chosen" && notify "VPN $chosen disconnected"
+    else
+        nmcli con up "$chosen" && notify "VPN $chosen connected" ||
+            notify "Failed to start VPN $chosen"
+    fi
+}
+
+notify() {
+    if command -v notify-send &>/dev/null; then
+        notify-send -i network-wireless "Network: $1"
+    fi
+}
+
+MENU="  Connect\n  Disconnect\n  Status\n  Toggle WiFi\n  VPN"
+
+choice=$(printf "$MENU" |
+    eval "$ROFI_CMD -p 'Network'")
+
+case "$choice" in
+*"Connect") do_connect ;;
+*"Disconnect") do_disconnect ;;
+*"Status") do_status ;;
+*"Toggle WiFi") do_toggle_wifi ;;
+*"VPN") do_vpn ;;
+*) exit 0 ;;
+esac
