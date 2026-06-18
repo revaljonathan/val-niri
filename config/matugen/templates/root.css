@@ -1,5 +1,5 @@
 :root {
-    --color-base: {{colors.background.default.hex}};
+    --color-base: {{colors.background.default.rgba}};
     --color-surface: {{colors.surface.default.hex}};
     --color-overlay: {{colors.surface_variant.default.hex}};
     --color-text: {{colors.on_background.default.hex}};

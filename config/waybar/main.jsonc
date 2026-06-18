@@ -36,6 +36,13 @@
         "tooltip": false
     },
 
+    "custom/pacman": {
+        "format": "{}",
+        "exec": "~/.local/bin/pacman.sh",
+        "tooltip": false,
+        "interval": 360
+    },
+
     "niri/window": {
         "format": " {title:.40}",
         "max-length": 40,
@@ -106,7 +113,7 @@
         // "format-wifi": " {essid} ({signalStrength}%)",
         "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
         "format-linked": "{ifname} (No IP) 󰊗",
         "format-disconnected": "󱛅",
         "on-click": "~/.local/bin/wifi.sh"

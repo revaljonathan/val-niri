@@ -28,6 +28,8 @@ window {
     border-color:     @on-surface-variant;
     border-radius:    0px;
     padding:          0;
+    fade: true;
+    fade-time: 0.2;
 }
 /* ── Main box ─────────────────────────────────────────────────────────── */
 mainbox {
@@ -119,7 +121,7 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color: @secondary;
+    background-color: @secondary-fixed-dim;
     text-color:       @surface;
     border-color:     @on-surface;
 }

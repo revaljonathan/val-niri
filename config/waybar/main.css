@@ -28,6 +28,7 @@ window#waybar.hidden {
 #workspaces,
 #clock,
 #cpu,
+#custom-pacman,
 #memory,
 #temperature,
 #network,
@@ -164,6 +165,9 @@ window#waybar.hidden {
     padding: 0 4px;
 }
 
+#custom-pacman {
+    padding: 0 4px;
+}
 
 #mpris {
     padding: 0 2px;

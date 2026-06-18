@@ -108,6 +108,7 @@ alias pacnews='arch_news_check'
 alias upgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias zshnew='source ~/.zshrc'
 alias gmn='npx @google/gemini-cli'
+alias locai='ollama serve && ollama'
 alias yay='paru'
 alias pacget='paru -Sl | awk "{print \$2}" | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 alias pw='pass.py'
@@ -155,14 +156,13 @@ alias sz='du -sh * | sort -h'
 alias y='yazi'
 unalias ls
 alias ls='eza -h --sort=modified --reverse --color=always --icons --git --group-directories-first'
-alias lss='eza -h --sort=modified --reverse --color=always --icons --git --group-directories-first -G'
+alias lc='eza -l -h --sort=modified --reverse --color=always --icons --git --group-directories-first'
 alias la='ls -A'
 alias lsa='la -G'
 alias lt='ls -T'
 alias rm='rm -I'
 alias x='exit'
 alias c='clear'
-alias lc='ls -s Extension'
 alias cd='z'
 
 alias color='color_check'
@@ -208,3 +208,7 @@ eval "$(zoxide init zsh)"
 f() { eval $(thefuck $(fc -ln -1)); }
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/reval/.local/bin:$PATH"

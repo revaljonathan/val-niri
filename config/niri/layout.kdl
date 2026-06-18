@@ -1,0 +1,103 @@
+overview {
+    workspace-shadow {
+        softness 50
+        spread 10
+        offset x=0 y=10
+        color "#131313"
+    }
+    backdrop-color "#1e1e2e00";
+}
+
+cursor {
+    xcursor-theme "Bibata-Original-Ice"
+    xcursor-size 35
+}
+
+layout {
+    gaps 5
+    background-color "transparent"
+
+    center-focused-column "never"
+
+       preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+    }
+       preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+       default-column-width { proportion 0.5; }
+       focus-ring {
+          on
+          width 1.5
+          // active-color "#cba6f7"
+        }
+        border {
+        off
+        // width 2
+        // active-color "#cba6f7"
+        // inactive-color "11111b"
+        // urgent-color "#9b0000"
+        }
+    shadow {
+        on
+           softness 30
+           spread 3
+           offset x=0 y=5
+          }
+}
+
+animations {
+    on
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    }
+}

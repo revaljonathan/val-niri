@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 WALLPAPER_DIR="$HOME/pics/walls/"
-COLUMNS=4
+COLUMNS=6
 THUMB_SIZE=175
 TMPFILE=$(mktemp)
 
 find "$WALLPAPER_DIR" -maxdepth 1 -type f \
-    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) |
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" -o -iname "*.mp4" \) |
     sort >"$TMPFILE"
 
 INDEX=$(
@@ -20,16 +20,17 @@ INDEX=$(
             -format i \
             -theme-str "
             window {
-                width: 900px;
+                width: 1250px;
+                height: 1100px;
                 location: west;
-                x-offset: 4;
+                x-offset: 5;
             }
             inputbar {
                 enabled: false;
             }
             listview {
                 columns: $COLUMNS;
-                lines: 5;
+                lines: 6;
                 fixed-height: false;
                 flow: horizontal;
                 spacing: 8px;
@@ -37,7 +38,7 @@ INDEX=$(
             element {
                 orientation: vertical;
                 padding: 4px;
-                border-radius: 10px;
+                border-radius: 8px;
                 spacing: 0px;
             }
             element-icon {

@@ -1,0 +1,141 @@
+window-rule {
+    draw-border-with-background false
+}
+
+window-rule {
+  match title="Brave"
+  open-on-workspace "3"
+  open-maximized true
+}
+
+window-rule {
+  match title="Helium"
+  open-maximized true
+}
+window-rule {
+    match title="Zen Browser"
+    open-maximized true
+}
+
+window-rule {
+  match title="LimbusCompany"
+  open-maximized true
+}
+
+window-rule {
+    match app-id="clipse$"
+    open-floating true
+    default-column-width { fixed 922; }
+    default-window-height { fixed 652; }
+    background-effect {
+        blur true
+        saturation 0.8
+    }
+}
+
+window-rule {
+    match app-id="kitty"
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="nwg-look"
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="note$"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 800; }
+}
+
+window-rule {
+    match app-id="kittyfloat$"
+    open-floating true
+    default-column-width { fixed 922; }
+    default-window-height { fixed 577; }
+    default-floating-position x=490 y=580
+}
+
+window-rule {
+    match app-id="xdg-desktop-portal-gtk"
+    background-effect {
+        blur true
+    }
+   
+    min-width 900
+    min-height 500 
+    max-width 1200
+    max-height 800
+    
+    open-floating true
+}
+layer-rule {
+    match namespace="waybar"
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    background-effect {
+        blur true
+    }
+}
+
+
+window-rule {
+    match app-id="thunar"
+    background-effect {
+        blur true
+    }
+}
+
+
+window-rule {
+    match app-id="^zen"
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+
+layer-rule {
+    match namespace="^rofi$"
+    background-effect {
+        blur true
+        saturation 0.6
+    }
+}
+
+layer-rule {
+    match namespace="^notifications$"
+    background-effect {
+        blur true
+        saturation 0.8
+    }
+}
+
+
+window-rule {
+  match title="Spotify"
+  open-maximized true
+  open-on-workspace "4"
+}
+
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^awww-daemon$"
+    place-within-backdrop true
+}

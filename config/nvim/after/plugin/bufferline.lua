@@ -3,20 +3,22 @@ local matugen_ok, matugen = pcall(dofile, vim.fn.stdpath("config") .. "/after/pl
 local highlights = {}
 if matugen_ok then
     highlights = {
-        fill = { bg = "NONE" },
-        background = { bg = "NONE", fg = matugen.fg },
+        fill = { bg = matugen.bg },
+        background = { bg = matugen.bg, fg = matugen.fg },
         buffer_selected = {
             fg = matugen.primary,
-            bg = "NONE",
+            bg = matugen.cursorline_bg,
             bold = true,
             italic = true,
         },
-        buffer_visible = { bg = "NONE", fg = matugen.secondary },
-        separator = { fg = matugen.bg, bg = "NONE" },
-        separator_selected = { fg = matugen.bg, bg = "NONE" },
-        separator_visible = { fg = matugen.bg, bg = "NONE" },
-        indicator_selected = { fg = matugen.primary, bg = "NONE" },
-        modified_selected = { fg = matugen.primary, bg = "NONE" },
+        buffer_visible = { bg = matugen.bg, fg = matugen.secondary },
+        separator = { fg = matugen.bg, bg = matugen.bg },
+        separator_selected = { fg = matugen.bg, bg = matugen.cursorline_bg },
+        separator_visible = { fg = matugen.bg, bg = matugen.bg },
+        indicator_selected = { fg = matugen.primary, bg = matugen.cursorline_bg },
+        modified = { fg = matugen.primary, bg = matugen.bg },
+        modified_visible = { fg = matugen.primary, bg = matugen.bg },
+        modified_selected = { fg = matugen.primary, bg = matugen.cursorline_bg },
     }
 else
     highlights = {
