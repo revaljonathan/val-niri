@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTIONS="verbose\nisland\nminimal\nnone"
+OPTIONS="main\nminimalist\nvertical\nnone"
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -p "Waybar Mode" \
     -theme-str 'window {width: 250px;}')
@@ -10,14 +10,14 @@ CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -p "Waybar Mode" \
 pkill waybar
 
 case "$CHOICE" in
-verbose)
-    waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &
+main)
+    waybar -c ~/.config/waybar/main.jsonc -s ~/.config/waybar/main.css &
     ;;
-island)
-    waybar -c ~/.config/waybar/island.jsonc -s ~/.config/waybar/island.css &
+minimalist)
+    waybar -c ~/.config/waybar/minimal.jsonc -s ~/.config/waybar/minimal.css &
     ;;
-minimal)
-    waybar -c ~/.config/waybar/min.jsonc -s ~/.config/waybar/min.css &
+vertical)
+    waybar -c ~/.config/waybar/vertical.jsonc -s ~/.config/waybar/vertical.css &
     ;;
 none) ;;
 esac
