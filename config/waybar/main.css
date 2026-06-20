@@ -9,7 +9,7 @@
 @import "colors.css";
 
 window#waybar {
-    background-color: alpha(@base, 0.80);
+    background-color: alpha(@base, 0.85);
     color: @text;
     transition: background-color 0.3s ease;
 }
@@ -91,8 +91,8 @@ window#waybar.hidden {
 }
 
 #clock {
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    /* font-weight: 600; */
+    /* letter-spacing: 0.03em; */
 }
 
 
@@ -118,11 +118,11 @@ window#waybar.hidden {
 }
 
 #cpu {
-    padding: 0 2px;
+    padding: 0 0px;
 }
 
 #temperature {
-    padding: 0 2px;
+    padding: 0 0px;
 }
 
 #temperature.critical {
@@ -130,7 +130,7 @@ window#waybar.hidden {
 }
 
 #memory {
-    padding: 0 2px;
+    padding: 0 0px;
 }
 
 #pulseaudio {

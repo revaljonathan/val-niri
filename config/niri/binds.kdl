@@ -27,16 +27,12 @@ binds {
     XF86MonBrightnessUp   { spawn "~/.local/bin/dunstback.sh" "up"; }
     XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
 
-
     f3  { spawn "~/.local/bin/dunstvol.sh" "up"; }
     f2  { spawn "~/.local/bin/dunstvol.sh" "down"; }
     f6  { spawn "~/.local/bin/dunstback.sh" "up"; }
     f5  { spawn "~/.local/bin/dunstback.sh" "down"; }
 
-
-
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
 
     super+W repeat=false { toggle-overview; }
     super+shift+W { toggle-column-tabbed-display; }

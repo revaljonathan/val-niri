@@ -67,6 +67,7 @@ if [ -n "$SELECTED" ]; then
     pkill swaybg
     sleep 0.8
     echo "$SELECTED" >"$HOME/.config/wallpaper"
+    ln -sf "$SELECTED" "$HOME/.config/wallpaper.lock"
     awww img "$SELECTED" --transition-type center &
     
     MATUGEN_PID=""
