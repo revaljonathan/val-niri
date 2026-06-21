@@ -3,6 +3,7 @@ binds {
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
     super+D { spawn "rofi" "-show" "drun"; }
+    super+c { spawn-sh "kitty --class calcurse zsh -c 'calcurse; exec zsh'"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "~/.local/bin/note.sh"; }
@@ -140,7 +141,6 @@ binds {
 
     super+Ctrl+F { expand-column-to-available-width; }
 
-    super+C { center-column; }
 
     super+Minus { set-column-width "-5%"; }
     super+Equal { set-column-width "+5%"; }

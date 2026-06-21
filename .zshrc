@@ -102,15 +102,14 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-alias up='paru -Syu'
-alias clean='sudo paccache -rk2 && paru -c'
+alias up='yay --diffmenu --answerdiff All --save -Syu'
+alias clean='sudo paccache -rk2 && yay -c'
 alias pacnews='arch_news_check'
 alias upgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias zshnew='source ~/.zshrc'
 alias gmn='npx @google/gemini-cli'
 alias locai='ollama serve && ollama'
-alias yay='paru'
-alias pacget='paru -Sl | awk "{print \$2}" | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
+alias paru= 'yay'
 alias pw='pass.py'
 
 alias sn='shutdown now'

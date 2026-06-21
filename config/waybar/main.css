@@ -180,7 +180,10 @@ window#waybar.hidden {
 
 
 #custom-weather {
-    padding: 0 2px;
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
+    margin: 4px 0;
+    padding: 0 6px;
 }
 
 #hw {

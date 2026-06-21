@@ -13,6 +13,7 @@
     ],
 
     "modules-center": [
+        "custom/weather",
         "clock"
     ],
 
@@ -101,7 +102,7 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click": "kitty -e upower -d"
+        "on-click": "~/.local/bin/bat.sh"
     },
 
     "battery#bat2": {

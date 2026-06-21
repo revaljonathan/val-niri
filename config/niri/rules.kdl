@@ -55,6 +55,18 @@ window-rule {
 }
 
 window-rule {
+    match app-id="calcurse$"
+    open-floating true
+    default-column-width { fixed 922; }
+    default-window-height { fixed 1150; }
+    default-floating-position x=490 y=10
+    background-effect {
+        blur true
+    }
+}
+
+
+window-rule {
     match app-id="kittyfloat$"
     open-floating true
     default-column-width { fixed 922; }
@@ -66,6 +78,13 @@ window-rule {
     match app-id="xdg-desktop-portal-gtk"
     background-effect {
         blur true
+    }
+
+    popups {
+        geometry-corner-radius 8
+        background-effect {
+            blur true
+        }
     }
    
     min-width 900
@@ -89,14 +108,18 @@ window-rule {
     }
 }
 
-
 window-rule {
     match app-id="thunar"
     background-effect {
         blur true
     }
+    popups {
+        geometry-corner-radius 8
+        background-effect {
+            blur true
+        }
+    }
 }
-
 
 window-rule {
     match app-id="^zen"
@@ -119,7 +142,6 @@ layer-rule {
     match namespace="^notifications$"
     background-effect {
         blur true
-        saturation 0.8
     }
 }
 
