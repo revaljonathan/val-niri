@@ -95,4 +95,5 @@ if [ -n "$SELECTED" ]; then
         sleep 0.3
         ~/.local/bin/defbar.sh &
     fi
+    dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"
 fi

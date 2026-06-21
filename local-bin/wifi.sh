@@ -29,9 +29,9 @@ do_connect() {
 
     if nmcli -t -f NAME con show | grep -qx "$chosen"; then
         if nmcli con up "$chosen" &>/dev/null; then
-            notify "Connected to $chosen"
+            notify "Connected to $chosen" connected
         else
-            notify "Failed to connect to $chosen"
+            notify "Failed to connect to $chosen" error
         fi
         return
     fi
@@ -50,12 +50,12 @@ do_connect() {
 
     if [[ -n "$password" ]]; then
         nmcli dev wifi connect "$chosen" password "$password" &>/dev/null &&
-            notify "Connected to $chosen" ||
-            notify "Failed to connect to $chosen"
+            notify "Connected to $chosen" connected ||
+            notify "Failed to connect to $chosen" error
     else
         nmcli dev wifi connect "$chosen" &>/dev/null &&
-            notify "Connected to $chosen" ||
-            notify "Failed to connect to $chosen"
+            notify "Connected to $chosen" connected ||
+            notify "Failed to connect to $chosen" error
     fi
 }
 
@@ -64,7 +64,7 @@ do_disconnect() {
     connections=$(active_connections)
 
     if [[ -z "$connections" ]]; then
-        notify "No active connections"
+        notify "No active connections" info
         return
     fi
 
@@ -76,9 +76,9 @@ do_disconnect() {
     [[ -z "$chosen" ]] && return
 
     if nmcli con down "$chosen" &>/dev/null; then
-        notify "Disconnected from $chosen"
+        notify "Disconnected from $chosen" disconnected
     else
-        notify "Failed to disconnect $chosen"
+        notify "Failed to disconnect $chosen" error
     fi
 }
 
@@ -94,7 +94,7 @@ do_status() {
     printf "Connected:  %s\nWiFi radio: %s\nStatus:     %s\n" \
         "$active" "$wifi_status" "$status" |
         rofi -dmenu -p "Network status" \
-            -theme-str 'window {width: 35%;} entry {enabled: false;}' \
+            -theme-str 'window {width: 60%;} entry {enabled: false;}' \
             >/dev/null
 }
 
@@ -103,9 +103,9 @@ do_toggle_wifi() {
     current=$(nmcli radio wifi 2>/dev/null | tail -n +2 | awk '{print $1}')
 
     if [[ "$current" == "enabled" ]]; then
-        nmcli radio wifi off && notify "WiFi disabled"
+        nmcli radio wifi off && notify "WiFi disabled" disconnected
     else
-        nmcli radio wifi on && notify "WiFi enabled"
+        nmcli radio wifi on && notify "WiFi enabled" connected
     fi
 }
 
@@ -115,7 +115,7 @@ do_vpn() {
         awk -F: '$2~/vpn/{print $1}')
 
     if [[ -z "$vpns" ]]; then
-        notify "No VPN connections configured"
+        notify "No VPN connections configured" info
         return
     fi
 
@@ -126,16 +126,22 @@ do_vpn() {
     [[ -z "$chosen" ]] && return
 
     if nmcli -t -f NAME,TYPE con show --active | grep -q "^$chosen:"; then
-        nmcli con down "$chosen" && notify "VPN $chosen disconnected"
+        nmcli con down "$chosen" && notify "VPN $chosen disconnected" disconnected
     else
-        nmcli con up "$chosen" && notify "VPN $chosen connected" ||
-            notify "Failed to start VPN $chosen"
+        nmcli con up "$chosen" && notify "VPN $chosen connected" connected ||
+            notify "Failed to start VPN $chosen" error
     fi
 }
 
+ICON_DIR="$HOME/.config/dunst/"
+
 notify() {
-    if command -v notify-send &>/dev/null; then
-        notify-send -i network-wireless "Network: $1"
+    local message="$1"
+    local kind="${2:-info}"
+    local icon="$ICON_DIR/${kind}.svg"
+
+    if command -v dunstify &>/dev/null; then
+        dunstify -i "$icon" "Network: $message" -a battery
     fi
 }
 

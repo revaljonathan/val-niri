@@ -7,22 +7,22 @@ timestr=%H:%M:%S
 datestr=%a, %e of %B
 image=/home/reval/pics/walls/11.png
 
-color=0f1416
+color=111318
 bs-hl-color=ffb4ab
 caps-lock-bs-hl-color=ffb4ab
-caps-lock-key-hl-color=c1c4eb
+caps-lock-key-hl-color=dcbce1
 
-inside-color=0f1416
-inside-clear-color=0f1416
-inside-caps-lock-color=0f1416
-inside-ver-color=0f1416
-inside-wrong-color=0f1416
+inside-color=111318
+inside-clear-color=111318
+inside-caps-lock-color=111318
+inside-ver-color=111318
+inside-wrong-color=111318
 
-key-hl-color=c1c4eb
+key-hl-color=dcbce1
 
 layout-bg-color=00000000
 layout-border-color=00000000
-layout-text-color=dee3e6
+layout-text-color=e2e2e9
 
 line-color=00000000
 line-clear-color=00000000
@@ -30,15 +30,15 @@ line-caps-lock-color=00000000
 line-ver-color=00000000
 line-wrong-color=00000000
 
-ring-color=40484b
+ring-color=43474e
 ring-clear-color=ffb4ab
-ring-caps-lock-color=414465
-ring-ver-color=86d1ea
+ring-caps-lock-color=563e5c
+ring-ver-color=a8c8ff
 ring-wrong-color=93000a
 
 separator-color=00000000
 
-text-color=dee3e6
+text-color=e2e2e9
 text-clear-color=ffb4ab
-text-caps-lock-color=414465
-text-ver-color=86d1ea
+text-caps-lock-color=563e5c
+text-ver-color=a8c8ff

@@ -147,7 +147,8 @@
         "tooltip": true,
         "interval": 5400,
         "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
-        "return-type": "json"
+        "return-type": "json",
+        "on-click": "~/.local/bin/weather.sh"
     },
 
     "group/cpu": {
