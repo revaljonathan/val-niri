@@ -18,6 +18,8 @@ i think this is pretty minimalist so you can still add stuff to yourself
 
 + notifications: dunst
 
++ editor: nvim (thanks to tony, btw for the amazing nvim config: https://github.com/tonybanters/nvim)
+
 ![image](assets/ass1.png)
 ![image](assets/ass2.png)
 ![image](assets/ass3.png)
