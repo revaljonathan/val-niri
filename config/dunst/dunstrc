@@ -3,9 +3,9 @@ separator_color= frame
 min_icon_size = 128
 max_icon_size = 128
 transparency = 20
-frame_color = "#8a9297"
+frame_color = "#899296"
 frame_width = 0
-highlight = "#c5c2ea"
+highlight = "#c1c4eb"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -21,12 +21,12 @@ format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
 
 
 [urgency_low]
-    background = "#1b2023BF"
-    foreground = "#dfe3e6"
+    background = "#242b2fBF"
+    foreground = "#dee3e6"
 
 [urgency_normal]
-    background = "#1b2023BF"
-    foreground = "#dfe3e6"
+    background = "#242b2fBF"
+    foreground = "#dee3e6"
 
 [urgency_critical]
     background = "#93000aBF"

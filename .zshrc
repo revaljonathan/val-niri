@@ -136,7 +136,6 @@ alias nano='micro'
 alias vim='nvim'
 alias nv='nvim'
 alias mic='micro'
-alias code='visual-studio-code-electron'
 
 alias see='bat'
 alias clipwipe='rm ~/.cache/cliphist/db'
