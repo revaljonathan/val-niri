@@ -13,6 +13,7 @@ binds {
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     super+P { spawn "~/.local/bin/power.sh"; }
+    super+m {spawn "~/.local/bin/player.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }
     super+shift+f23 { spawn-sh "rofi -show drun"; }
@@ -155,7 +156,7 @@ binds {
     Alt+Print { screenshot-window; }
     super+shift+s { screenshot; }
     super+X { spawn-sh "hyprpicker | wl-copy"; }
-    super+shift+q { screenshot; }
+    super+shift+q { spawn-sh "~/.local/bin/ss.sh"; }
 
     super+Z hotkey-overlay-title="wallpaper" { spawn "/home/reval/.local/bin/wp.sh"; }
     super+B { spawn "/home/reval/.local/bin/barsel.sh"; }

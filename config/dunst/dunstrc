@@ -3,9 +3,9 @@ separator_color= frame
 min_icon_size = 128
 max_icon_size = 128
 transparency = 20
-frame_color = "#8a9297"
+frame_color = "#8f9099"
 frame_width = 0
-highlight = "#c9c1ea"
+highlight = "#dfbbde"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -21,12 +21,12 @@ format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
 
 
 [urgency_low]
-    background = "#252a2eBF"
-    foreground = "#dfe3e7"
+    background = "#272830BF"
+    foreground = "#e2e2e9"
 
 [urgency_normal]
-    background = "#252a2eBF"
-    foreground = "#dfe3e7"
+    background = "#272830BF"
+    foreground = "#e2e2e9"
 
 [urgency_critical]
     background = "#93000aBF"
@@ -80,3 +80,11 @@ format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
     set_stack_tag = walls
     min_icon_size = 64
     max_icon_size = 64
+
+[player]
+    appname = player
+    summary = *
+    history_ignore = true
+    set_stack_tag = 
+    min_icon_size = 48
+    max_icon_size = 48

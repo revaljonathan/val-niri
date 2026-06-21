@@ -72,8 +72,3 @@ post_hook = 'pkill -USR1 cava'
 input_path  = '~/.config/matugen/templates/colors_lualine.lua'
 output_path = '~/.config/nvim/after/plugin/matugen_colors.lua'
 post_hook = 'pkill -SIGUSR1 nvim'
-
-[templates.hyprlock]
-input_path = '~/.config/matugen/templates/hyprlock_colors.conf'
-output_path = '~/.config/hypr/hyprlock.conf'
-
