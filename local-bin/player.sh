@@ -37,6 +37,7 @@ cat "$ORDERED_FILES" |
                 location: east;
                 width: 170px;
                 height: 440px;
+                x-offset: -10;
             }
             inputbar {
                 enabled: false;
@@ -81,9 +82,9 @@ if [[ "$BASENAME" == "pause.svg" ]]; then
     playerctl play-pause
     STATUS=$(playerctl status 2>/dev/null)
     if [[ "$STATUS" == "Playing" ]]; then
-        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Playing" -a player
+        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Paused" -a player
     elif [[ "$STATUS" == "Paused" ]]; then
-        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Paused" -a player 
+        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Playing" -a player 
     else
         dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Toggled play/pause" -a player
     fi

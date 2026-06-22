@@ -75,7 +75,6 @@ if [ "$SELECTED" = "__GAMBLING__" ]; then
 fi
 
 if [ -n "$SELECTED" ]; then
-    pkill swaybg
     sleep 0.8
     echo "$SELECTED" >"$HOME/.config/wallpaper"
     ln -sf "$SELECTED" "$HOME/.config/wallpaper.lock"
@@ -106,6 +105,5 @@ if [ -n "$SELECTED" ]; then
         sleep 0.3
         ~/.local/bin/defbar.sh &
     fi
-
     dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"
 fi

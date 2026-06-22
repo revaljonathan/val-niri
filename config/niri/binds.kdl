@@ -12,7 +12,7 @@ binds {
     super+E { spawn "rofimoji"; }
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
-    super+P { spawn "~/.local/bin/power.sh"; }
+    super+P { spawn "~/.local/bin/powermenu.sh"; }
     super+m {spawn "~/.local/bin/player.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }

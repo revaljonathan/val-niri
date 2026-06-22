@@ -41,6 +41,7 @@ export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:/home/reval/.spicetify
+export PATH=~/.npm-global/bin:$PATH
 
 bindkey '^[[A' up-line-or-history
 bindkey '^[[B' down-line-or-history
@@ -103,7 +104,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 alias up='yay --diffmenu --answerdiff All --save -Syu'
-alias clean='sudo paccache -rk2 && yay -c'
+alias clean='yay -Yc'
 alias pacnews='arch_news_check'
 alias upgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias zshnew='source ~/.zshrc'
