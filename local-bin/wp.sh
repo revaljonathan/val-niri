@@ -23,7 +23,7 @@ INDEX=$(
         rofi             -dmenu             -i             -show-icons             -format i             -theme-str "
             window {
                 width: 65%;
-                height: 95%;
+                height: 94%;
                 location: west;
                 x-offset: 5;
             }
