@@ -158,8 +158,8 @@ binds {
     super+X { spawn-sh "hyprpicker | wl-copy"; }
     super+shift+q { spawn-sh "~/.local/bin/ss.sh"; }
 
-    super+Z hotkey-overlay-title="wallpaper" { spawn "/home/reval/.local/bin/wp.sh"; }
-    super+B { spawn "/home/reval/.local/bin/barsel.sh"; }
+    super+Z hotkey-overlay-title="wallpaper" { spawn "~/.local/bin/wp.sh"; }
+    super+B { spawn "~/.local/bin/barsel.sh"; }
 
     super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 

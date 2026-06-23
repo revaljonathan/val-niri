@@ -22,8 +22,8 @@ INDEX=$(
         done |
         rofi             -dmenu             -i             -show-icons             -format i             -theme-str "
             window {
-                width: 1250px;
-                height: 1100px;
+                width: 65%;
+                height: 95%;
                 location: west;
                 x-offset: 5;
             }

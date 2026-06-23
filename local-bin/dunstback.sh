@@ -19,4 +19,4 @@ dunstify -i ~/.config/dunst/brightness.svg -a "brightness" \
     -h int:value:"$PERCENT" \
     -t 1500 \
     -r 9992 \
-    "Brightness — $PERCENT%"
+    "$PERCENT%"

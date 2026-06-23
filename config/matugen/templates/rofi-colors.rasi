@@ -9,7 +9,7 @@
     on-primary-container: {{colors.on_primary_container.default.hex}};
     secondary: {{colors.secondary.default.hex}};
     secondary-fixed: {{colors.secondary_fixed.default.hex}};
-    secondary-fixed-dim: {{colors.secondary_fixed_dim.default.hex | lighten: -10.0}};
+    secondary-fixed-dim: {{colors.primary.default.rgba | set_alpha: 0.80 | lighten: 10.0}};
     on-secondary: {{colors.on_secondary.default.hex}};
     on-secondary-fixed: {{colors.on_secondary_fixed.default.hex}};
     on-secondary-fixed-variant: {{colors.on_secondary_fixed_variant.default.hex}};

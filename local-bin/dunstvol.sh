@@ -28,4 +28,4 @@ dunstify -i "$ICON" -a "volume" \
     -h int:value:"$VOLUME" \
     -t 1500 \
     -r 9991 \
-    "Volume — $MSG"
+    "$MSG"

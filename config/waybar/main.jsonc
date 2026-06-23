@@ -65,7 +65,7 @@
 
     "memory": {
         "format": " {used:0.1f}GiB",
-        "on-click": "kitty -e btop"
+        "on-click": "~/.local/bin/mem.sh"
     },
 
     "temperature": {
@@ -146,7 +146,7 @@
         "format": "{}°C",
         "tooltip": true,
         "interval": 5400,
-        "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
+        "exec": "~/.local/bin/wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
         "return-type": "json",
         "on-click": "~/.local/bin/weather.sh"
     },
