@@ -7,7 +7,7 @@ cp  ~/.config/clipse/{theme.json,config.json} ~/code/val-niri/config/clipse/
 
 cp ~/.zshrc ~/.p10k.zsh ~/code/val-niri/
 
-cp ~/.local/bin/{wp.sh,tl.sh,filerofi.sh,powermenu.sh,sleep.sh,dynalock.sh,gamma.sh,dunstvol.sh,dunstback.sh,wifi.sh,steam.sh,browse.sh,barsel.sh,bat.sh,system.sh,weather.sh,ss.sh,backup.sh,wttrbar} ~/code/val-niri/local-bin/
+cp ~/.local/bin/{wp.sh,tl.sh,filerofi.sh,powermenu.sh,sleep.sh,dynalock.sh,gamma.sh,dunstvol.sh,dunstback.sh,wifi.sh,steam.sh,browse.sh,barsel.sh,bat.sh,mem.sh,weather.sh,ss.sh,backup.sh,wttrbar,player.sh} ~/code/val-niri/local-bin/
 
 cd ~/code/val-niri/
 
