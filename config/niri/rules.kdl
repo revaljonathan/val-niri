@@ -109,7 +109,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="thunar"
+    match app-id="Thunar"
     background-effect {
         blur true
     }

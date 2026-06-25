@@ -3,9 +3,9 @@ separator_color= frame
 min_icon_size = 128
 max_icon_size = 128
 transparency = 20
-frame_color = "#8b9198"
+frame_color = "#8a9296"
 frame_width = 0
-highlight = "#cec0e8"
+highlight = "#c3c3eb"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -17,16 +17,16 @@ progress_bar_min_width = 300
 progress_bar_max_width = 300
 padding = 6
 origin = top-right
-format = "<span foreground='#9399b2ff'>%a</span>\n<b>%s</b>\n%b"
+format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 
 
 [urgency_low]
-    background = "#252a2fBF"
-    foreground = "#dfe3e8"
+    background = "#242b2fBF"
+    foreground = "#dee3e6"
 
 [urgency_normal]
-    background = "#252a2fBF"
-    foreground = "#dfe3e8"
+    background = "#242b2fBF"
+    foreground = "#dee3e6"
 
 [urgency_critical]
     background = "#93000aBF"
