@@ -23,12 +23,12 @@ i think this is pretty minimalist so you can still add stuff to yourself
 
 if you wanna install:
 
-'''bash
+```bash
 git clone https://github.com/revaljonathan/val-niri \
 cd val-niri \
 cp config/* ~/.config \
 cp local-bin/* ~/.local/bin \ 
-'''
+```
 
 ![image](assets/ass1.png)
 ![image](assets/ass2.png)
