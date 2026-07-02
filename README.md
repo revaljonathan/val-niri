@@ -22,6 +22,7 @@ i think this is pretty minimalist so you can still add stuff to yourself
 
 
 if you wanna install:
+
 '''bash
 git clone https://github.com/revaljonathan/val-niri \
 cd val-niri \
