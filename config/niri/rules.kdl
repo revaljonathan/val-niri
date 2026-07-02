@@ -2,6 +2,13 @@ window-rule {
     draw-border-with-background false
 }
 
+// window-rule {
+//     background-effect {
+//         blur true
+//         xray false 
+//     }
+// }
+
 window-rule {
   match title="Brave"
   open-on-workspace "3"
@@ -59,9 +66,9 @@ window-rule {
     open-floating true
     default-column-width { fixed 922; }
     default-window-height { fixed 1150; }
-    default-floating-position x=490 y=10
     background-effect {
         blur true
+        saturation 0.7
     }
 }
 
@@ -71,7 +78,7 @@ window-rule {
     open-floating true
     default-column-width { fixed 922; }
     default-window-height { fixed 577; }
-    default-floating-position x=490 y=580
+    default-floating-position x=0 y=13 relative-to="bottom"
 }
 
 window-rule {
@@ -79,7 +86,6 @@ window-rule {
     background-effect {
         blur true
     }
-
     popups {
         geometry-corner-radius 8
         background-effect {
@@ -109,7 +115,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Thunar"
+    match app-id="thunar"
     background-effect {
         blur true
     }

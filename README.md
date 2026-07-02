@@ -20,6 +20,15 @@ i think this is pretty minimalist so you can still add stuff to yourself
 
 + editor: nvim (thanks to tony, btw for the amazing nvim config: https://github.com/tonybanters/nvim)
 
+
+if you wanna install:
+'''bash
+git clone https://github.com/revaljonathan/val-niri \
+cd val-niri \
+cp config/* ~/.config \
+cp local-bin/* ~/.local/bin \ 
+'''
+
 ![image](assets/ass1.png)
 ![image](assets/ass2.png)
 ![image](assets/ass3.png)

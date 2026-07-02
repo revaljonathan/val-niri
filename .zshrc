@@ -108,10 +108,10 @@ alias clean='yay -Yc'
 alias pacnews='arch_news_check'
 alias upgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias zshnew='source ~/.zshrc'
-alias gmn='npx @google/gemini-cli'
 alias locai='ollama serve && ollama'
-alias paru= 'yay'
 alias pw='pass.py'
+alias mount_ssd='sudo mount -t ntfs3 UUID=662C415F2C412B7F ~/media/ssd'
+alias unmount_ssd='sudo umount ~/media/ssd'
 
 alias sn='shutdown now'
 alias sp='systemctl suspend'
@@ -187,27 +187,22 @@ extract() {
   fi
 }
 
-alias morefetch='fastfetch -c ~/.config/fastfetch/morefetch.jsonc'
 alias clock='tty-clock -s -c -C 5'
 alias ff='fastfetch'
-alias ffm='fastfetch -c examples/13.jsonc'
 alias dw='dysk'
 
 alias aq='asciiquarium'
-alias poke='krabby random | sed '1d''
+alias pokrand='krabby random | sed '1d''
 alias pipes='pipes.sh'
 alias q='fortune | cowsay -r'
 alias plis='sudo'
 weather() {
   curl wttr.in/"$1"
 }
-alias udanraksu='weather semarang'
 
 eval "$(zoxide init zsh)"
 f() { eval $(thefuck $(fc -ln -1)); }
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# Added by Antigravity CLI installer
 export PATH="/home/reval/.local/bin:$PATH"

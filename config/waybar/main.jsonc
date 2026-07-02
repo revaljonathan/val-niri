@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
-    "width": 1920, // Waybar width
+    "width": 1914, // Waybar width
     "spacing": 12, // Gaps between modules (4px)
     "margin-top": 1,
     "margin-bottom": -1,
@@ -111,7 +111,6 @@
 
     "network": {
         "max-length": 15,
-        // "format-wifi": " {essid} ({signalStrength}%)",
         "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
@@ -162,7 +161,7 @@
     "custom/steam": {
         "exec": "~/.local/bin/steam.sh",
         "on-click-right": "killall steam",
-        "interval": 10
+        "interval": 30
     },
 
     "mpris": {
@@ -171,7 +170,6 @@
         "format-paused": "{status_icon} <i>{title} - {artist}</i>",
         "player-icons": {
             "default": "▶",
-            "spotify": ""
         },
         "status-icons": {
             "paused": "⏸"

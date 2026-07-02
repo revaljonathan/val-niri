@@ -1,22 +1,22 @@
 local M = {}
 
-M.bg      = "#101418"
-M.fg      = "#e0e2e8"
-M.primary = "#9acbfa"
-M.secondary = "#b9c8da"
+M.bg      = "#121318"
+M.fg      = "#e3e1e9"
+M.primary = "#bac3ff"
+M.secondary = "#c3c5dd"
 M.error   = "#ffb4ab"
-M.cursorline_bg = "#42474e"
-M.cursorline_fg = "#c2c7cf"
+M.cursorline_bg = "#46464f"
+M.cursorline_fg = "#c6c5d0"
 
-M.telescope_border        = "#8c9198"
-M.telescope_prompt_border = "#9acbfa"
-M.telescope_prompt_title  = "#9acbfa"
-M.telescope_selection_bg  = "#0c4a72"
-M.telescope_selection_fg  = "#cde5ff"
+M.telescope_border        = "#90909a"
+M.telescope_prompt_border = "#bac3ff"
+M.telescope_prompt_title  = "#bac3ff"
+M.telescope_selection_bg  = "#394379"
+M.telescope_selection_fg  = "#dee0ff"
 
-M.tree_folder        = "#9acbfa"
-M.tree_folder_open   = "#d2bfe6"
-M.tree_indent_marker = "#42474e"
-M.tree_root          = "#b9c8da"
+M.tree_folder        = "#bac3ff"
+M.tree_folder_open   = "#e5bad8"
+M.tree_indent_marker = "#46464f"
+M.tree_root          = "#c3c5dd"
 
 return M
