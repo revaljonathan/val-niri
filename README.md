@@ -26,7 +26,7 @@ if you wanna install:
 ```bash
 git clone https://github.com/revaljonathan/val-niri \
 cd val-niri \
-cp config/* ~/.config \
+cp -r config/* ~/.config \
 cp local-bin/* ~/.local/bin \ 
 ```
 
