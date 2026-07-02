@@ -30,6 +30,8 @@ cp config/* ~/.config \
 cp local-bin/* ~/.local/bin \ 
 ```
 
+and just manually clone the wallpaper or cherry pick it, though my wallpaper path is ~/pics/walls in scripts so you might want to adjust that
+
 ![image](assets/ass1.png)
 ![image](assets/ass2.png)
 ![image](assets/ass3.png)
