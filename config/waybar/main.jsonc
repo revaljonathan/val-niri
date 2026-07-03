@@ -45,7 +45,7 @@
     },
 
     "niri/window": {
-        "format": " {title:.40}",
+        "format": " {}",
         "max-length": 40,
         "tooltip": true,
         "separate-outputs": true
@@ -166,7 +166,7 @@
 
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
-        "max-length": 30,
+        "max-length": 40,
         "format-paused": "{status_icon} <i>{title} - {artist}</i>",
         "player-icons": {
             "default": "▶",

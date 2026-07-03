@@ -12,7 +12,7 @@ window#waybar {
     background-color: alpha(@base, 0.85);
     color: @text;
     transition: background-color 0.3s ease;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 
 window#waybar.hidden {

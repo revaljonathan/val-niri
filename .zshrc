@@ -35,6 +35,7 @@ export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=kitty
+export MANPAGER="nvim +Man!"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH=$HOME/.go

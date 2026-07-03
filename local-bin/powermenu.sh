@@ -48,12 +48,12 @@ cat "$TMPFILE" |
             element {
                 orientation: vertical;
                 padding: 4px;
-                border-radius: 8px;
+                border-radius: 0px;
                 spacing: 0px;
             }
             element-icon {
                 size: ${THUMB_SIZE}px;
-                border-radius: 8px;
+                border-radius: 0px;
             }
             element-text {
                 font: \"Sans 0\";
@@ -61,7 +61,7 @@ cat "$TMPFILE" |
                 margin: 0;
             }
             element selected {
-                border-radius: 10px;
+                border-radius: 0px;
             }
         "
 )

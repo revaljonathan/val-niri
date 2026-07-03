@@ -36,7 +36,8 @@ mainbox {
     background-color: transparent;
     children:         [ inputbar, message, listview ];
     spacing:          0;
-    padding:          12px;
+    padding:          0px;
+    margin:           4;
 }
 
 /* ── Input bar ────────────────────────────────────────────────────────── */
@@ -68,7 +69,7 @@ entry {
 button {
     background-color: @surface-dim;
     text-color:       @on-surface;
-    border-radius:    1px;
+    border-radius:    0px;
     cursor:           pointer;
 }
 
@@ -145,7 +146,7 @@ element selected.active {
 
 element-icon {
     background-color: transparent;
-    size:             24px;
+    size:             22px;
     cursor:           inherit;
 }
 

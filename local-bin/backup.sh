@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-cp -r ~/.config/matugen/ ~/.config/dunst/ ~/.config/waybar ~/.config/niri ~/.config/rofi/ ~/.config/swaylock/ ~/.config/kitty ~/.config/zathura/ ~/.config/btop ~/code/val-niri/config/
+cp -r ~/.config/matugen/ ~/.config/dunst/ ~/.config/waybar ~/.config/niri ~/.config/rofi/ ~/.config/swaylock/ ~/.config/kitty ~/.config/zathura/ ~/.config/btop ~/.config/fastfetch/ ~/code/val-niri/config/
 cp -r ~/.config/nvim ~/code/val-niri/config/
 
 cp  ~/.config/clipse/{theme.json,config.json} ~/code/val-niri/config/clipse/
