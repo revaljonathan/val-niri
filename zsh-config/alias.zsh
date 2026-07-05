@@ -18,15 +18,7 @@ alias checktur='echo "Turbo boost: $(if [ $(cat /sys/devices/system/cpu/intel_ps
 alias fan="watch -n 1 'sensors | grep fan'"
 
 alias gs='la && git status'
-gacp() {
-  if [ -z "$1" ]; then
-    echo "isi commit message dulu njinggs"
-    return 1
-  fi
-  git add .
-  git commit -m "$1"
-  git push
-}
+
 
 alias nano='micro'
 alias vim='nvim'
@@ -37,9 +29,6 @@ alias see='bat'
 alias clipwipe='rm ~/.cache/cliphist/db'
 alias view='gwenview'
 alias zat='zathura'
-take() {
-  mkdir -p "$1" && cd "$1"
-}
 
 
 alias docs='cd Documents'
@@ -61,26 +50,6 @@ alias cd='z'
 
 alias color='color_check'
 alias grep='rg --color=auto --line-number --smart-case'
-
-fuck() { sudo $(fc -ln -1) }
-extract() {
-  if [ -f "$1" ]; then
-    case "$1" in
-      *.tar.bz2) tar xjf "$1" ;;
-      *.tar.gz)  tar xzf "$1" ;;
-      *.bz2)     bunzip2 "$1" ;;
-      *.rar)     unrar x "$1" ;;
-      *.gz)      gunzip "$1" ;;
-      *.tar)     tar xf "$1" ;;
-      *.tbz2)    tar xjf "$1" ;;
-      *.tgz)     tar xzf "$1" ;;
-      *.zip)     unzip "$1" ;;
-      *) echo "Format tolol." ;;
-    esac
-  else
-    echo "mana filenya su."
-  fi
-}
 
 alias clock='tty-clock -s -c -C 5'
 alias ff='fastfetch'

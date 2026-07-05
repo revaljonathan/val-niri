@@ -14,6 +14,7 @@ binds {
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     super+P { spawn "~/.local/bin/powermenu.sh"; }
     super+m {spawn "~/.local/bin/player.sh"; }
+    super+Escape {spawn "~/.local/bin/control.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }
     super+shift+f23 { spawn-sh "rofi -show drun"; }
@@ -161,6 +162,6 @@ binds {
     super+Z hotkey-overlay-title="wallpaper" { spawn "~/.local/bin/wp.sh"; }
     super+B { spawn "~/.local/bin/barsel.sh"; }
 
-    super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
 }
