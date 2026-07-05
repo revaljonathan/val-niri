@@ -3,7 +3,7 @@ binds {
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
     super+D { spawn "rofi" "-show" "drun"; }
-    super+c { spawn-sh "kitty --class calcurse zsh -c 'calcurse; exec zsh'"; }
+    super+c { spawn-sh "kitty --class calcurse zsh -c 'calcurse'"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "~/.local/bin/note.sh"; }

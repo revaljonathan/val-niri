@@ -54,7 +54,7 @@ window#waybar.hidden {
 
 
 #workspaces button {
-    padding: 0 7px;
+    padding: 0 8px;
     color: @text;
     background-color: transparent;
     box-shadow: none;
@@ -69,14 +69,14 @@ window#waybar.hidden {
     background: linear-gradient(to right,@primary, @tertiary);
     color: @base;
     border-radius: 8px;
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 4 0px;
 }
 
 #workspaces button.active {
     background: linear-gradient(to right,@primary, @tertiary);
     border-radius: 8px;
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 4 0px;
     color: @base;
 }
