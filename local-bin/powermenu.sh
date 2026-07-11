@@ -9,10 +9,10 @@ find "$dir" -maxdepth 1 -type f \
 
 INDEX=$(
 declare -A DESC=(
-    ["shutdown.svg"]="  shutdown"
+    ["shutdown.svg"]="   shutdown"
     ["reboot.svg"]="    reboot"
     ["lock.svg"]="  Lockscreen"
-    ["suspend.svg"]="   suspend"
+    ["suspend.svg"]="    suspend"
     ["allow_suspend.svg"]=" allow suspend"
     ["dont_suspend.svg"]=" dont suspend"
     ["logout.svg"]="    logout"
@@ -32,8 +32,8 @@ cat "$TMPFILE" |
             -format i \
             -theme-str "
             window {
-                width: 700px;
-                height: 320px;
+                width: 650px;
+                height: 285px;
             }
             inputbar {
                 enabled: false;

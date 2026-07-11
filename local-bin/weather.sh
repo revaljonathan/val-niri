@@ -27,7 +27,7 @@ case "${desc,,}" in
         ;;
     *)
         icon_text="󰖕"
-        svg_icon="$ICON_DIR/edge_case.svg"
+        svg_icon="$ICON_DIR/edgecase.svg"
         ;;
 esac
 

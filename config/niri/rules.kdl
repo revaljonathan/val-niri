@@ -16,9 +16,22 @@ window-rule {
 }
 
 window-rule {
+    match app-id="quickshell$"
+    open-floating true
+    default-column-width { fixed 952; }
+    default-window-height { fixed 459; }
+    background-effect {
+        blur true
+        saturation 0.8
+    }
+    default-floating-position x=7 y=7 relative-to="top-right"
+}
+
+window-rule {
   match title="Helium"
   open-maximized true
 }
+
 window-rule {
     match title="Zen Browser"
     open-maximized true
@@ -87,7 +100,7 @@ window-rule {
         blur true
     }
     popups {
-        geometry-corner-radius 8
+        geometry-corner-radius 0
         background-effect {
             blur true
         }
@@ -153,15 +166,24 @@ layer-rule {
 
 
 window-rule {
-  match title="Spotify"
+  match app-id="Spotify$"
+  opacity 0.85
   open-maximized true
   open-on-workspace "4"
+  background-effect {
+      blur true
+  }
+}
+window-rule {
+  match app-id="spotify$"
+  opacity 0.85
+  open-maximized true
+  open-on-workspace "4"
+  background-effect {
+      blur true
+  }
 }
 
-window-rule {
-    geometry-corner-radius 0
-    clip-to-geometry true
-}
 
 layer-rule {
     match namespace="^awww-daemon$"

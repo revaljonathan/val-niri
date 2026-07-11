@@ -1,4 +1,4 @@
-export GTK_THEME=adw-gtk3-dark
+export GTK_THEME=adw-gtk3
 export LS_COLORS=""
 export BAT_THEME="Catppuccin Mocha"
 export "MICRO_TRUECOLOR=1"

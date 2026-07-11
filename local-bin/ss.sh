@@ -10,7 +10,7 @@ find "$dir" -maxdepth 1 -type f \
 INDEX=$(
 declare -A DESC=(
     ["window.svg"]="  Screenshot Window"
-    ["screen.svg"]="  Screenshot Screen"
+    ["screen.svg"]="  Screenshot whole"
     ["selection.svg"]=" Screenshot Selection"
 )
 
@@ -28,7 +28,7 @@ cat "$TMPFILE" |
             -theme-str "
             window {
                 width: 700px;
-                height: 160px;
+                height: 150px;
                 location: north;
                 y-offset: 10;
             }
@@ -45,12 +45,12 @@ cat "$TMPFILE" |
             element {
                 orientation: vertical;
                 padding: 4px;
-                border-radius: 8px;
+                border-radius: 0px;
                 spacing: 0px;
             }
             element-icon {
                 size: ${THUMB_SIZE}px;
-                border-radius: 8px;
+                border-radius: 0px;
             }
             element-text {
                 font: \"Sans 0\";
@@ -58,7 +58,7 @@ cat "$TMPFILE" |
                 margin: 0;
             }
             element selected {
-                border-radius: 10px;
+                border-radius: 0px;
             }
         "
 )

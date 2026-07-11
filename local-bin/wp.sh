@@ -102,7 +102,7 @@ if [ -n "$SELECTED" ]; then
             pkill waybar
         fi
         sleep 0.3
-        ~/.local/bin/defbar.sh &
+        waybar -c ~/.config/waybar/main.jsonc -s ~/.config/waybar/main.css
     fi
     dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"
 fi

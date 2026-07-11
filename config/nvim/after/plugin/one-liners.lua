@@ -4,25 +4,34 @@ if matugen_ok then
     local theme = {
         normal = {
             a = { fg = matugen.bg, bg = matugen.primary, gui = "bold" },
-            b = { fg = matugen.primary, bg = "NONE" },
+            b = { fg = matugen.fg, bg = "NONE" },
             c = { fg = matugen.fg, bg = "NONE" },
+            x = { fg = matugen.fg, bg = "NONE" },
+
         },
         insert = {
             a = { fg = matugen.bg, bg = matugen.secondary, gui = "bold" },
             b = { fg = matugen.secondary, bg = "NONE" },
+               c = { fg = matugen.bg, bg = "NONE" },
+            x = { fg = matugen.fg, bg = "NONE" },
         },
         visual = {
             a = { fg = matugen.bg, bg = matugen.fg, gui = "bold" },
             b = { fg = matugen.fg, bg = "NONE" },
+               c = { fg = matugen.bg, bg = "NONE" },
+            x = { fg = matugen.fg, bg = "NONE" },
         },
         replace = {
             a = { fg = matugen.bg, bg = matugen.error, gui = "bold" },
             b = { fg = matugen.error, bg = "NONE" },
+               c = { fg = matugen.bg, bg = "NONE" },
+            x = { fg = matugen.fg, bg = "NONE" },
         },
         inactive = {
             a = { fg = matugen.fg, bg = matugen.bg },
             b = { fg = matugen.fg, bg = matugen.bg },
-            c = { fg = matugen.fg, bg = "NONE" },
+               c = { fg = matugen.bg, bg = "NONE" },
+            x = { fg = matugen.fg, bg = "NONE" },
         },
     }
 
@@ -30,8 +39,26 @@ if matugen_ok then
         options = {
             theme = theme,
             component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
         },
+        sections = {
+lualine_c = {
+    {
+        "filename",
+        path = 0,       
+        symbols = {
+            modified = "●",
+            readonly = "",
+            unnamed = "[No Name]",
+        },
+    },
+},
+    lualine_a = { "mode" },
+    lualine_b = { "" },
+    lualine_x = { "fileformat", "filetype" },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
+    }
     })
 else
     require("lualine").setup({ options = { theme = "auto" } })

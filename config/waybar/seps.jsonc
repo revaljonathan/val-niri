@@ -12,17 +12,23 @@
         "mpris"
     ],
 
-    "modules-center": [
-        "custom/weather",
-        "clock"
-    ],
-
     "modules-right": [
+        "custom/right",
+        "clock",
+        "custom/right",
         "battery",
+        "custom/right",
         "cpu",
+        "custom/right",
         "temperature",
+        "custom/right",
         "memory",
-        "group/hw"
+        "custom/right",
+        "pulseaudio",
+        "custom/right",
+        "backlight",
+        "custom/right",
+        "network"
     ],
 
    "custom/right": {
@@ -30,7 +36,11 @@
     "interval": "once",
     "tooltip": false
    },
-
+   "custom/left": {
+    "format": "", 
+    "interval": "once",
+    "tooltip": false
+   },
     "custom/pacman": {
         "format": "{}",
         "exec": "~/.local/bin/pacman.sh",
@@ -47,8 +57,7 @@
 
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%A, %d %B %H:%M}",
-        "format-alt": " {:%H:%M}"
+        "format": " {:%H:%M}"
     },
 
     "cpu": {
@@ -74,7 +83,7 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon}",
+        "format": "{icon} {percent}%",
         "format-icons": ["", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
@@ -105,7 +114,7 @@
 
     "network": {
         "max-length": 15,
-        "format-wifi": "",
+        "format-wifi": " {essid} {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -121,7 +130,7 @@
         "format-muted": "󰅶", //{format_source}",
         //"format-source": " {volume}%",
         //"format-source-muted": " ",
-        "on-click": "pkill -x quickshell; QT_QPA_PLATFORMTHEME=gtk3 quickshell &"
+        "on-click": "pavucontrol"
     },
 
     "pulseaudio#microphone": {

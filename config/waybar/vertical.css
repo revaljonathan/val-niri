@@ -182,3 +182,10 @@ tooltip {
 tooltip label {
     color: @text;
 }
+
+#hw {
+    background-color: alpha(@secondary, 0.20);
+    border-radius: 0px;
+    padding: 0 6px;
+    margin: 4px 0;
+}

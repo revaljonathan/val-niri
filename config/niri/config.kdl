@@ -8,10 +8,10 @@ include "~/.config/niri/binds.kdl"
 
 prefer-no-csd
 
-debug {
-    render-drm-device "/dev/dri/renderD129"
-    ignore-drm-device "/dev/dri/renderD128"
-}
+// debug {
+//     render-drm-device "/dev/dri/renderD129"
+//     ignore-drm-device "/dev/dri/renderD128"
+// }
 
 hotkey-overlay {
     skip-at-startup

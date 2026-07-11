@@ -12,7 +12,7 @@ window#waybar {
     background-color: alpha(@base, 0.85);
     color: @text;
     transition: background-color 0.3s ease;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 
 window#waybar.hidden {
@@ -68,17 +68,17 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: linear-gradient(to right,@primary, @secondary);
+    background: linear-gradient(to right,@primary, @tertiary);
     color: @base;
-    border-radius: 0px;
-    padding: 0 10px;
+    border-radius: 8px;
+    padding: 0 8px;
     margin: 4 0px;
 }
 
 #workspaces button.active {
-    background: linear-gradient(to right,@primary, @secondary);
-    border-radius: 0px;
-    padding: 0 10px;
+    background: linear-gradient(to right,@primary, @tertiary);
+    border-radius: 8px;
+    padding: 0 8px;
     margin: 4 0px;
     color: @base;
 }
@@ -100,8 +100,8 @@ window#waybar.hidden {
 
 
 #battery {
-    background-color: alpha(@secondary, 0.20);
-    border-radius: 0px;
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
     margin: 4px 0;
     padding: 0 10px;
 }
@@ -183,15 +183,15 @@ window#waybar.hidden {
 
 
 #custom-weather {
-    background-color: alpha(@secondary, 0.20);
-    border-radius: 0px;
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
     margin: 4px 0;
     padding: 0 6px;
 }
 
 #hw {
-    background-color: alpha(@secondary, 0.20);
-    border-radius: 0px;
+    background-color: alpha(@secondary, 0.15);
+    border-radius: 8px;
     padding: 0 6px;
     margin: 4px 0;
 }
