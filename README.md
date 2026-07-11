@@ -20,6 +20,8 @@ i think this is pretty minimalist so you can still add stuff to yourself
 
 + editor: nvim (thanks to tony, btw for the amazing nvim config: https://github.com/tonybanters/nvim)
 
++ spicetify theme: text: https://github.com/darkthemer/spicetify-themes
+
 
 if you wanna install:
 
