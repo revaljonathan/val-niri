@@ -1,10 +1,11 @@
 #!/bin/bash
 
 swayidle -w \
-    timeout 120 'brightnessctl -s set 5%' \
+    timeout 90 'brightnessctl -s set 5%' \
     resume 'brightnessctl -r' \
     timeout 300 'niri msg action power-off-monitors' \
     resume 'niri msg action power-on-monitors' \
-    timeout 360 "$HOME/.local/bin/dynalock.sh" \
-    timeout 600 'systemctl suspend' \
+    timeout 305 'powerprofilesctl set power-saver' \
+    resume 'powerprofilesctl set balanced' \
+    timeout 900 'systemctl suspend' \
     before-sleep "$HOME/.local/bin/dynalock.sh"

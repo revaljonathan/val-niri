@@ -6,10 +6,10 @@ if matugen_ok then
         fill = { bg = matugen.bg },
         background = { bg = matugen.bg, fg = matugen.fg },
         buffer_selected = {
-            fg = matugen.primary,
-            bg = matugen.cursorline_bg,
+            fg = matugen.bg,
+            bg = matugen.primary,
             bold = true,
-            italic = true,
+            italic = false,
         },
         buffer_visible = { bg = matugen.bg, fg = matugen.secondary },
         separator = { fg = matugen.bg, bg = matugen.bg },
@@ -41,6 +41,7 @@ end
 
 require("bufferline").setup({
     options = {
+        themable = false,
         mode = "buffers",
         offsets = {
             {

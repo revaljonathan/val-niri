@@ -5,33 +5,38 @@ if matugen_ok then
         normal = {
             a = { fg = matugen.bg, bg = matugen.primary, gui = "bold" },
             b = { fg = matugen.fg, bg = "NONE" },
-            c = { fg = matugen.fg, bg = "NONE" },
-            x = { fg = matugen.fg, bg = "NONE" },
+            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            y = { fg = matugen.fg, bg = matugen.cursorline_bg },
 
         },
         insert = {
             a = { fg = matugen.bg, bg = matugen.secondary, gui = "bold" },
             b = { fg = matugen.secondary, bg = "NONE" },
-               c = { fg = matugen.bg, bg = "NONE" },
-            x = { fg = matugen.fg, bg = "NONE" },
+            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            y = { fg = matugen.fg, bg = matugen.cursorline_bg },
         },
         visual = {
             a = { fg = matugen.bg, bg = matugen.fg, gui = "bold" },
             b = { fg = matugen.fg, bg = "NONE" },
-               c = { fg = matugen.bg, bg = "NONE" },
-            x = { fg = matugen.fg, bg = "NONE" },
+            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            y = { fg = matugen.fg, bg = matugen.cursorline_bg },
         },
         replace = {
             a = { fg = matugen.bg, bg = matugen.error, gui = "bold" },
             b = { fg = matugen.error, bg = "NONE" },
-               c = { fg = matugen.bg, bg = "NONE" },
-            x = { fg = matugen.fg, bg = "NONE" },
+            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            y = { fg = matugen.fg, bg = matugen.cursorline_bg },
         },
         inactive = {
             a = { fg = matugen.fg, bg = matugen.bg },
             b = { fg = matugen.fg, bg = matugen.bg },
-               c = { fg = matugen.bg, bg = "NONE" },
-            x = { fg = matugen.fg, bg = "NONE" },
+            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            y = { fg = matugen.fg, bg = matugen.cursorline_bg },
         },
     }
 

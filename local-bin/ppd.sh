@@ -3,7 +3,7 @@
 PROFILES=(
     "󰒲a Power Saver"
     "  Balanced"
-    "  Custom"
+    # "  Custom"
     "  Performance"
 )
 
@@ -19,13 +19,13 @@ CHOICE=$(
 
 case "$CHOICE" in
 *"Performance"*)
-    echo "performance" | sudo tee /sys/firmware/acpi/platform_profile
+    powerprofilesctl set performance
     ;;
 *"  Balanced"*)
-    echo "balanced" | sudo tee /sys/firmware/acpi/platform_profile
+    powerprofilesctl set balanced
     ;;
-*"󰒲  Power Saver"*)
-    echo "low-power" |sudo tee /sys/firmware/acpi/platform_profile
+*"Power Saver"*)
+    powerprofilesctl set power-saver
     ;;
 *"  Custom"*)
     echo "max-power" | sudo tee /sys/firmware/acpi/platform_profile
