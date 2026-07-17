@@ -33,6 +33,7 @@ cp local-bin/* ~/.local/bin \
 ```
 
 and just manually clone the wallpaper or cherry pick it, though my wallpaper path is ~/pics/walls in scripts so you might want to adjust that
+
 NOTE: packs.txt is mostly used by me, you can safely delete or ignore it
 
 ![image](assets/ass1.png)
