@@ -4,8 +4,11 @@ COLUMNS=4
 THUMB_SIZE=100
 TMPFILE=$(mktemp)
 
-find "$dir" -maxdepth 1 -type f \
-    \( -iname "*.jpg" -o -iname "*.svg"  \) >"$TMPFILE"
+fd . "$dir" \
+    --max-depth 1 \
+    --type f \
+    --extension jpg \
+    --extension svg > "$TMPFILE"
 
 INDEX=$(
 declare -A DESC=(

@@ -133,7 +133,7 @@ window-rule {
         blur true
     }
     popups {
-        geometry-corner-radius 8
+        geometry-corner-radius 0
         background-effect {
             blur true
         }
@@ -163,7 +163,6 @@ layer-rule {
         blur true
     }
 }
-
 
 window-rule {
   match app-id="Spotify$"

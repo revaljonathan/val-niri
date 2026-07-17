@@ -1,183 +1,60 @@
-# ============================================================
-#  val-niri package list — for fresh Arch installs
-#  Install all at once with yay (see bottom of file)
-#
-#  Lines starting with # are comments (ignored by pacman/yay)
-#  [AUR] = not in official repos, needs yay / paru
-# ============================================================
-
-
-# --- Window Manager & Compositor ---
-niri
-xwayland-satellite
-
-
-# --- Wallpaper ---
-awww                        # [AUR] wayland wallpaper daemon (awww-daemon + awww)
-
-
-# --- Status Bar ---
-waybar
-
-
-# --- Notification Daemon ---
-dunst
-
-
-# --- App Launcher / Menu ---
-rofi-wayland
-rofimoji
-
-
-# --- Clipboard ---
-clipse                      # [AUR]
-
-
-# --- Terminal ---
-kitty
-
-
-# --- Shell ---
-zsh
-oh-my-zsh-git               # [AUR]
-zsh-autosuggestions
-zsh-syntax-highlighting
-fzf
-
-
-# --- Shell Utilities ---
-zoxide
-thefuck                     # [AUR]
-eza
+adw-gtk-theme
+awww
 bat
-ripgrep
-micro
-yazi
-dysk
-tty-clock                   # [AUR]
-fortune-mod
-cowsay
-asciiquarium                # [AUR]
-krabby                      # [AUR]
-pipes.sh                    # [AUR]
-fastfetch
-
-
-# --- Editor ---
-neovim
-
-
-# --- Audio ---
-pipewire
-pipewire-alsa
-pipewire-pulse
-wireplumber
-playerctl
-
-
-# --- Volume / Brightness ---
+bibata-cursor-theme-bin
+bottom
 brightnessctl
-
-
-# --- Display / Color Temperature ---
+btop
+cava
+cbonsai
+chafa
+clipse-wayland-bin
+dunst
+eza
+fastfetch
+fzf
+fd
 gammastep
-
-
-# --- Theming & Appearance ---
-matugen                     # [AUR]
-adw-gtk3-git                # [AUR]
-nwg-look
-
-
-# --- Lock Screen ---
-swaylock
-
-
-# --- Idle Daemon ---
-swayidle
-
-
-# --- Power Management ---
-power-profiles-daemon
-
-
-# --- Network ---
-networkmanager
-
-
-# --- File Manager ---
-thunar
-
-
-# --- Image Viewer ---
-gwenview
-
-
-# --- PDF Viewer ---
-zathura
-zathura-pdf-mupdf
-
-
-# --- Fonts & Icons ---
-ttf-nerd-fonts-symbols-mono
-
-
-# --- Color Picker ---
-hyprpicker                  # [AUR]
-wl-clipboard
-
-
-# --- Music / Streaming ---
-spotify                     # [AUR]
-spicetify-cli               # [AUR]
-
-
-# --- Browser ---
-zen-browser-bin             # [AUR]
-brave-bin                   # [AUR]
-
-
-
-
-
-# --- Calendar / Productivity ---
-calcurse
-
-
-# --- Misc CLI Tools ---
 git
-curl
-unrar
-unzip
-lm_sensors
-
-
-# --- XDG Portals ---
-xdg-desktop-portal
+gowall
+greetd
+greetd-tuigreet
+helium-browser-bin
+imv
+inter-font
+iwd
+jq
+kitty
+lavat-git
+matugen
+mpv
+neovim
+niri
+nwg-look
+opendoas
+openssh
+papirus-folders-catppuccin-git
+papirus-icon-theme-git
+pipes.sh
+quickshell
+ripgrep
+rofi
+rofi-calc
+rofimoji
+swayidle
+swaylock-effects
+terminus-font
+trashy
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+ufw
+vlc-plugins-all
+waybar
+wl-clipboard
+yazi
+zathura
+zathura-pdf-poppler
+zen-browser-bin
+zoxide
+zsh
 xdg-desktop-portal-gtk
-
-
-# --- Audio GUI ---
-pavucontrol
-
-
-# --- Quickshell ---
-quickshell                  # [AUR]
-
-
-# ============================================================
-#  ONE-LINER INSTALL (yay handles both official + AUR):
-#
-  yay -S niri xwayland-satellite awww waybar dunst rofi-wayland \
-    rofimoji clipse kitty zsh zsh-autosuggestions \
-    zsh-syntax-highlighting fzf zoxide thefuck eza bat ripgrep \
-    neovim yazi dysk tty-clock fortune-mod cowsay asciiquarium \
-    krabby pipes.sh fastfetch neovim pipewire pipewire-alsa \
-    pipewire-pulse wireplumber playerctl brightnessctl gammastep \
-    matugen adw-gtk3-git nwg-look swaylock swayidle \
-    power-profiles-daemon networkmanager thunar gwenview zathura \
-    zathura-pdf-mupdf ttf-jetbrains-mono ttf-jetbrains-mono-nerd hyprpicker \
-    wl-clipboard spotify spicetify-cli zen-browser-bin brave-bin \
-    helium-browser-bin calcurse git curl unrar unzip lm_sensors \
-    xdg-desktop-portal xdg-desktop-portal-gtk pavucontrol quickshell
-# ============================================================

@@ -168,5 +168,5 @@ message {
 textbox {
     background-color: transparent;
     text-color:       @on-surface;
-    font:             "JetBrains Mono 1i";
+    font:             "JetBrains Mono 11";
 }

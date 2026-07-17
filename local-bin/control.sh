@@ -30,7 +30,7 @@ case "$CHOICE" in
     kitty -e nvim ~/.config/niri
     ;;
 *"zsh"*)
-    kitty -e nvim ~/.zsh/config
+    kitty -e nvim ~/.config/zsh
     ;;
 *"nvim"*)
     kitty -e nvim ~/.config/nvim

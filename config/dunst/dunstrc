@@ -1,17 +1,19 @@
 [global]
+separator_height = 0
 separator_color= frame
 min_icon_size = 128
-max_icon_size = 128
+max_icon_size = 256
+gap_size = 10
 transparency = 20
-frame_color = "#90909a"
-frame_width = 0
+frame_color = "#c3c5dd"
+frame_width = 1
 highlight = "#e5bad8"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
 progress_bar = true
 progress_bar_height = 10
-progress_bar_corner_radius = 4
+progress_bar_corner_radius = 0
 progress_bar_frame_width = 1
 progress_bar_min_width = 300
 progress_bar_max_width = 300

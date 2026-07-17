@@ -6,9 +6,9 @@ TMPFILE=$(mktemp)
 
 {
     echo "__GAMBLING__"
-    find "$WALLPAPER_DIR" -maxdepth 1 -type f \
-        \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" -o -iname "*.mp4" \) |
-        sort
+    # find "$WALLPAPER_DIR" -maxdepth 1 -type f \
+    fd --max-depth 1 --type f -e jpg -e jpeg -e png -e webp -e gif . "$WALLPAPER_DIR" |
+    sort
 } >"$TMPFILE"
 
 INDEX=$(
@@ -68,16 +68,15 @@ rm "$TMPFILE"
 
 if [ "$SELECTED" = "__GAMBLING__" ]; then
     SELECTED=$(
-        find "$WALLPAPER_DIR" -maxdepth 1 -type f \
-            \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" -o -iname "*.mp4" \) |
+            fd --max-depth 1 --type f -e jpg -e jpeg -e png -e webp -e gif . "$WALLPAPER_DIR" |
             shuf -n 1
     )
 fi
 
 if [ -n "$SELECTED" ]; then
-    sleep 0.8
+    sleep 0.4
     echo "$SELECTED" >"$HOME/.config/wallpaper"
-    awww img "$SELECTED" --transition-type center &
+    awww img "$SELECTED" --transition-type center --transition-fps 165 &
 
     MATUGEN_PID=""
 
@@ -86,22 +85,22 @@ if [ -n "$SELECTED" ]; then
 
         matugen image "$SELECTED" --source-color-index 0 -t scheme-tonal-spot
 
-        sleep 0.5
+        sleep 0.3
 
         if grep -q 'dunst = true' "$HOME/.config/matugen/config.toml" 2>/dev/null; then
             pkill dunst 2>/dev/null
-            sleep 0.3
+            sleep 0.1
             dunst &
         fi
 
         pkill -SIGUSR1 kitty 2>/dev/null
         systemctl --user restart xdg-desktop-portal-gtk
 
-        sleep 0.3
+        sleep 0.1
         if pgrep waybar >/dev/null; then
             pkill waybar
         fi
-        sleep 0.3
+        sleep 0.1
         waybar -c ~/.config/waybar/main.jsonc -s ~/.config/waybar/main.css
     fi
     dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"

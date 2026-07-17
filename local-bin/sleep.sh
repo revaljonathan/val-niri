@@ -7,5 +7,5 @@ swayidle -w \
     resume 'niri msg action power-on-monitors' \
     timeout 305 'powerprofilesctl set power-saver' \
     resume 'powerprofilesctl set balanced' \
-    timeout 900 'systemctl suspend' \
+    timeout 1020 'systemctl suspend' \
     before-sleep "$HOME/.local/bin/dynalock.sh"

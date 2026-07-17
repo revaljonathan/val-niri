@@ -68,11 +68,8 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: linear-gradient(to right,@primary, @secondary);
-    color: @base;
-    border-radius: 0px;
-    padding: 0 10px;
-    margin: 4 0px;
+    color: @primary;
+    opacity: 1;
 }
 
 #workspaces button.active {

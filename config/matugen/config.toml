@@ -27,7 +27,7 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
-post_hook = 'pkill -USR1 btop'
+post_hook = 'pkill -USR2 btop'
 
 
 [templates.gtk3]
