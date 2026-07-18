@@ -1,12 +1,12 @@
-gacp() {
-  if [ -z "$1" ]; then
-    echo "isi commit message dulu njinggs"
-    return 1
-  fi
-  git add .
-  git commit -m "$1"
-  git push
-}
+# gacp() {
+#   if [ -z "$1" ]; then
+#     echo "pls comment bro"
+#     return 1
+#   fi
+#   git add .
+#   git commit -m "$1"
+#   git push
+# }
 
 fuck() { sudo $(fc -ln -1) }
 
@@ -26,10 +26,10 @@ extract() {
       *.tbz2)    tar xjf "$1" ;;
       *.tgz)     tar xzf "$1" ;;
       *.zip)     unzip "$1" ;;
-      *) echo "Format tolol." ;;
+      *) echo "me not know format" ;;
     esac
   else
-    echo "mana filenya su."
+    echo "where file"
   fi
 }
 

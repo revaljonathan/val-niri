@@ -2,13 +2,6 @@ window-rule {
     draw-border-with-background false
 }
 
-// window-rule {
-//     background-effect {
-//         blur true
-//         xray false 
-//     }
-// }
-
 window-rule {
   match title="Brave"
   open-on-workspace "3"
@@ -32,10 +25,6 @@ window-rule {
   open-maximized true
 }
 
-window-rule {
-    match title="Zen Browser"
-    open-maximized true
-}
 
 window-rule {
   match title="LimbusCompany"
@@ -56,10 +45,17 @@ window-rule {
 window-rule {
     match app-id="kitty"
     background-effect {
+        saturation 0.95
         blur true
     }
 }
 
+window-rule {
+    match app-id="org.pwmt.zathura"
+    background-effect {
+        blur true
+    }
+}
 window-rule {
     match app-id="nwg-look"
     background-effect {
@@ -165,7 +161,7 @@ layer-rule {
 }
 
 window-rule {
-  match app-id="Spotify$"
+  match app-id="[Ss]potify$"
   opacity 0.85
   open-maximized true
   open-on-workspace "4"
@@ -173,16 +169,6 @@ window-rule {
       blur true
   }
 }
-window-rule {
-  match app-id="spotify$"
-  opacity 0.85
-  open-maximized true
-  open-on-workspace "4"
-  background-effect {
-      blur true
-  }
-}
-
 
 layer-rule {
     match namespace="^awww-daemon$"

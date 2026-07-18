@@ -3,7 +3,7 @@ separator_height = 0
 separator_color= frame
 min_icon_size = 128
 max_icon_size = 256
-gap_size = 10
+gap_size = 5
 transparency = 20
 frame_color = "#c3c5dd"
 frame_width = 1
@@ -23,16 +23,16 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 
 
 [urgency_low]
-    background = "#282830BF"
-    foreground = "#e3e1e9"
+    background = "#2b2b33BF"
+    foreground = "#e8e6ed"
 
 [urgency_normal]
-    background = "#282830BF"
-    foreground = "#e3e1e9"
+    background = "#2b2b33BF"
+    foreground = "#e8e6ed"
 
 [urgency_critical]
-    background = "#93000aBF"
-    foreground = "#ffdad6"
+    background = "#c32220BF"
+    foreground = "#ffffff"
 
 [volume_notifications]
     appname = volume

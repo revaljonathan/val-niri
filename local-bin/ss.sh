@@ -55,7 +55,6 @@ cat "$TMPFILE" |
                 border-radius: 0px;
             }
             element-text {
-                font: \"Sans 0\";
                 padding: 0;
                 margin: 0;
             }

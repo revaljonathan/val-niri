@@ -3,12 +3,12 @@ layout {
 
     focus-ring {
         active-color "#c3c5dd"
-        inactive-color "#90909a"
+        inactive-color "#96959f"
         urgent-color   "#ffb4ab"
     }
     tab-indicator {
         active-color   "#bac3ff"
-        inactive-color "#90909a"
+        inactive-color "#96959f"
         urgent-color   "#ffb4ab"
     }
 

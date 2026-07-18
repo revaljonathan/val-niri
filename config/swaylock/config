@@ -22,7 +22,7 @@ key-hl-color=e5bad8
 
 layout-bg-color=00000000
 layout-border-color=00000000
-layout-text-color=e3e1e9
+layout-text-color=e8e6ed
 
 line-color=00000000
 line-clear-color=00000000
@@ -32,13 +32,13 @@ line-wrong-color=00000000
 
 ring-color=46464f
 ring-clear-color=ffb4ab
-ring-caps-lock-color=5d3c55
+ring-caps-lock-color=7d5973
 ring-ver-color=bac3ff
-ring-wrong-color=93000a
+ring-wrong-color=c32220
 
 separator-color=00000000
 
-text-color=e3e1e9
+text-color=e8e6ed
 text-clear-color=ffb4ab
-text-caps-lock-color=5d3c55
+text-caps-lock-color=7d5973
 text-ver-color=bac3ff

@@ -14,7 +14,7 @@ INDEX=$(
 declare -A DESC=(
     ["shutdown.svg"]="   shutdown"
     ["reboot.svg"]="    reboot"
-    ["lock.svg"]="  Lockscreen"
+    ["lock.svg"]="  lockscreen"
     ["suspend.svg"]="    suspend"
     ["allow_suspend.svg"]=" allow suspend"
     ["dont_suspend.svg"]=" dont suspend"
@@ -59,7 +59,6 @@ cat "$TMPFILE" |
                 border-radius: 0px;
             }
             element-text {
-                font: \"Sans 0\";
                 padding: 0;
                 margin: 0;
             }

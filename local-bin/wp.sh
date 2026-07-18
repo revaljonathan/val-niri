@@ -74,34 +74,24 @@ if [ "$SELECTED" = "__GAMBLING__" ]; then
 fi
 
 if [ -n "$SELECTED" ]; then
-    sleep 0.4
     echo "$SELECTED" >"$HOME/.config/wallpaper"
     awww img "$SELECTED" --transition-type center --transition-fps 165 &
 
     MATUGEN_PID=""
 
     if command -v matugen &>/dev/null; then
-        pkill waybar 2>/dev/null
-
         matugen image "$SELECTED" --source-color-index 0 -t scheme-tonal-spot
 
-        sleep 0.3
-
-        if grep -q 'dunst = true' "$HOME/.config/matugen/config.toml" 2>/dev/null; then
-            pkill dunst 2>/dev/null
-            sleep 0.1
-            dunst &
-        fi
+        pkill dunst 2>/dev/null
+        dunst &
 
         pkill -SIGUSR1 kitty 2>/dev/null
         systemctl --user restart xdg-desktop-portal-gtk
 
-        sleep 0.1
-        if pgrep waybar >/dev/null; then
-            pkill waybar
-        fi
-        sleep 0.1
-        waybar -c ~/.config/waybar/main.jsonc -s ~/.config/waybar/main.css
+        killall -SIGUSR2 waybar
+        pkill -USR2 btop
+        pkill -USR1 cava
+        spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"
     fi
     dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"
 fi

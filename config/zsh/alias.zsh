@@ -31,6 +31,7 @@ alias see='bat'
 alias clipwipe='rm ~/.cache/cliphist/db'
 alias view='gwenview'
 alias zat='zathura'
+alias find='fd'
 
 
 alias docs='cd Documents'

@@ -29,12 +29,17 @@ if you wanna install:
 git clone https://github.com/revaljonathan/val-niri \
 cd val-niri \
 cp -r config/* ~/.config \
+mkdir -p ~/.local/bin \
 cp local-bin/* ~/.local/bin \ 
+chmod +x ~/.local/bin/*
 ```
 
 and just manually clone the wallpaper or cherry pick it, though my wallpaper path is ~/pics/walls in scripts so you might want to adjust that
 
+wallpapers: https://github.com/revaljonathan/wallpapers
+
 NOTE: packs.txt is mostly used by me, you can safely delete or ignore it
+
 
 ![image](assets/ass1.png)
 ![image](assets/ass2.png)

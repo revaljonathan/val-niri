@@ -1,5 +1,5 @@
 [config]
-contrast = 0.0
+contrast = 0.2
 theme = "dark" 
 
 [templates.niri]
@@ -9,16 +9,10 @@ output_path = '~/.config/niri/colors.kdl'
 [templates.kitty]
 input_path  = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
-# post_hook   = 'sleep 1.2; pkill -SIGUSR1 kitty'
-
-[config.reload_apps_list]
-dunst = true
-spotify = true
 
 [templates.dunst]
 input_path = '~/.config/matugen/templates/dunst.conf'
 output_path = '~/.config/dunst/dunstrc'
-# post_hook = 'sleep 0.8; pkill dunst; sleep 1; dunst'
 
 [templates.rofi]
 input_path  = '~/.config/matugen/templates/rofi-colors.rasi'
@@ -27,13 +21,11 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
-post_hook = 'pkill -USR2 btop'
-
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/matugen-gtk.css'
 output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/matugen-gtk.css'
@@ -46,7 +38,6 @@ output_path = "~/.config/clipse/theme.json"
 [templates.waybar]
 input_path  = '~/.config/matugen/templates/waybar-colors.css'
 output_path = '~/.config/waybar/colors.css'
-# post_hook   = 'sleep 1.5; pkill waybar; sleep 1; ~/.local/bin/defbar.sh &'
 
 [templates.chromium]
 input_path  = '~/.config/matugen/templates/root.css'
@@ -63,15 +54,12 @@ output_path = '~/.config/swaylock/config'
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/matugen'
-post_hook = 'pkill -USR1 cava'
 
 [templates.lualine]
 input_path  = '~/.config/matugen/templates/colors_lualine.lua'
 output_path = '~/.config/nvim/after/plugin/matugen_colors.lua'
-post_hook = 'pkill -SIGUSR1 nvim'
 
 [templates.spotify]
 input_path = '~/.config/matugen/templates/spice-color.ini'
 output_path = '~/.config/spicetify/Themes/text/color.ini'
-post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
 
