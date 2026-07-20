@@ -2,7 +2,6 @@ adw-gtk-theme
 awww
 bat
 bibata-cursor-theme-bin
-bottom
 brightnessctl
 btop
 cava
@@ -16,16 +15,14 @@ fzf
 fd
 gammastep
 git
-gowall
+gowall-bin
 greetd
 greetd-tuigreet
-helium-browser-bin
 imv
 inter-font
 iwd
 jq
 kitty
-lavat-git
 matugen
 mpv
 neovim
@@ -54,7 +51,6 @@ wl-clipboard
 yazi
 zathura
 zathura-pdf-poppler
-zen-browser-bin
 zoxide
 zsh
 xdg-desktop-portal-gtk

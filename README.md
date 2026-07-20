@@ -38,6 +38,8 @@ and just manually clone the wallpaper or cherry pick it, though my wallpaper pat
 
 wallpapers: https://github.com/revaljonathan/wallpapers
 
+wttrbar binary from here: https://github.com/bjesus/wttrbar
+
 NOTE: packs.txt is mostly used by me, you can safely delete or ignore it. That said if you decide to use it, beware that some packs is from the AUR, so be safe 🙃
 
 
