@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-dir="$HOME/.config/rofi/player"
+dir="$HOME/.icons/icon_scripts/rofi/player"
 COLUMNS=1
 THUMB_SIZE=100
 TMPFILE=$(mktemp)
@@ -87,11 +87,11 @@ if [[ "$BASENAME" == "pause.svg" ]]; then
     playerctl play-pause
     STATUS=$(playerctl status 2>/dev/null)
     if [[ "$STATUS" == "Playing" ]]; then
-        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Paused" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/rofi/player/pause.svg" -t 5000 "Player" "Paused" -a player
     elif [[ "$STATUS" == "Paused" ]]; then
-        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Playing" -a player 
+        dunstify -i "$HOME/.icons/icon_scripts/rofi/player/pause.svg" -t 5000 "Player" "Playing" -a player 
     else
-        dunstify -i "$HOME/.config/rofi/player/pause.svg" -t 5000 "Player" "Toggled play/pause" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/rofi/player/pause.svg" -t 5000 "Player" "Toggled play/pause" -a player
     fi
 elif [[ "$BASENAME" == "next.svg" ]]; then
     OLD_TITLE=$(playerctl metadata title 2>/dev/null)
@@ -109,11 +109,11 @@ elif [[ "$BASENAME" == "next.svg" ]]; then
     done
 
     if [[ -n "$ARTIST" && -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.config/dunst/next.svg" -t 5000 "Next Track" "$ARTIST - $TITLE" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/next.svg" -t 5000 "Next Track" "$ARTIST - $TITLE" -a player
     elif [[ -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.config/dunst/next.svg" -t 5000 "Next Track" "$TITLE" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/next.svg" -t 5000 "Next Track" "$TITLE" -a player
     else
-        dunstify -i "$HOME/.config/dunst/next.svg" -t 5000 "Player" "Skipped to next track" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/playerdunst/next.svg" -t 5000 "Player" "Skipped to next track" -a player
     fi
 elif [[ "$BASENAME" == "back.svg" ]]; then
     OLD_TITLE=$(playerctl metadata title 2>/dev/null)
@@ -131,11 +131,11 @@ elif [[ "$BASENAME" == "back.svg" ]]; then
     done
 
     if [[ -n "$ARTIST" && -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.config/dunst/back.svg" -t 5000 "Previous Track" "$ARTIST - $TITLE" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Previous Track" "$ARTIST - $TITLE" -a player
     elif [[ -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.config/dunst/back.svg" -t 5000 "Previous Track" "$TITLE" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Previous Track" "$TITLE" -a player
     else
-        dunstify -i "$HOME/.config/dunst/back.svg" -t 5000 "Player" "Went to previous track" -a player
+        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Player" "Went to previous track" -a player
     fi
 else
     echo "Unknown option selected"

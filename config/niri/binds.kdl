@@ -17,11 +17,13 @@ binds {
     super+D { spawn "rofi" "-show" "drun"; }
     super+shift+f23 { spawn-sh "rofi -show drun"; }
     super+g { spawn-sh "rofi -show calc"; }
-    super+A { spawn "rofi" "-show" "window"; }
+    super+A { spawn-sh "~/.local/bin/record.sh"; }
     super+E { spawn "rofimoji"; }
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "~/.local/bin/note.sh"; }
+    super+shift+n { spawn-sh "~/.local/bin/dunst.sh"; }
+    super+shift+d { spawn-sh "~/.local/bin/dnd-toggle.sh"; }
     super+S { spawn "~/.local/bin/browse.sh"; }
     super+P { spawn "~/.local/bin/powermenu.sh"; }
     super+m { spawn "~/.local/bin/player.sh"; }

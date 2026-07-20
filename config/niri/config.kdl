@@ -17,4 +17,4 @@ hotkey-overlay {
     skip-at-startup
 }
 
-screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pics/ss/%d-%m-%Y_%H:%M.png"

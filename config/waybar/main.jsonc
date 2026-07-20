@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
-    "width": 1914, // Waybar width
+    "width": 1920, // Waybar width
     "spacing": 12, // Gaps between modules (4px)
     "margin-top": 1,
     "margin-bottom": -1,
@@ -18,11 +18,13 @@
     ],
 
     "modules-right": [
+        "custom/recorder",
         "battery",
         "cpu",
         "temperature",
         "memory",
-        "group/hw"
+        "group/hw",
+        "custom/dunst"
     ],
 
    "custom/right": {
@@ -168,6 +170,18 @@
         "status-icons": {
             "paused": "⏸"
         }
+    },
+
+    "custom/dunst": {
+    "format": "{}",
+    "exec": "dunstctl is-paused | grep -q true && echo 'DND' || echo ''",
+    "signal": 8
+    },
+
+    "custom/recorder": {
+    "format": "Rec 󰑊",
+    "exec": "pgrep -x wf-recorder",
+    "signal": 9
     },
 
     "group/hw": {

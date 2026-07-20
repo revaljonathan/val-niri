@@ -133,7 +133,7 @@ do_vpn() {
     fi
 }
 
-ICON_DIR="$HOME/.config/dunst/"
+ICON_DIR="$HOME/.icons/icon_scripts/dunst/wifi"
 
 notify() {
     local message="$1"

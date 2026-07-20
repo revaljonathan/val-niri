@@ -2,7 +2,7 @@
 desc=$(curl -s -m 5 "wttr.in/semarang?format=%C")
 temp=$(curl -s -m 5 "wttr.in/semarang?format=%t" | sed 's/+//')
 
-ICON_DIR="$HOME/.config/dunst"  # Change this to your actual icon directory
+ICON_DIR="$HOME/.icons/icon_scripts/dunst/weather/"  # Change this to your actual icon directory
 
 case "${desc,,}" in
     *sun*|*clear*)

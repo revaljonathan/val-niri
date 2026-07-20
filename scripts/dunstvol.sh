@@ -17,10 +17,10 @@ MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -c MUTED)
 
 if [ "$MUTED" -gt 0 ]; then
     MSG="Muted"
-    ICON=~/.config/dunst/mute.svg
+    ICON=~/.icons/icon_scripts/dunst/vol_osd/mute.svg
 else
     MSG="$VOLUME%"
-    ICON=~/.config/dunst/sound.svg
+    ICON=~/.icons/icon_scripts/dunst/vol_osd/sound.svg
 fi
 
 dunstify -i "$ICON" -a "volume" \

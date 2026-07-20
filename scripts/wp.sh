@@ -6,7 +6,6 @@ TMPFILE=$(mktemp)
 
 {
     echo "__GAMBLING__"
-    # find "$WALLPAPER_DIR" -maxdepth 1 -type f \
     fd --max-depth 1 --type f -e jpg -e jpeg -e png -e webp -e gif . "$WALLPAPER_DIR" |
     sort
 } >"$TMPFILE"
@@ -80,7 +79,8 @@ if [ -n "$SELECTED" ]; then
     MATUGEN_PID=""
 
     if command -v matugen &>/dev/null; then
-        matugen image "$SELECTED" --source-color-index 0 -t scheme-tonal-spot
+        matugen image "$SELECTED" --source-color-index 0 -t scheme-tonal-spot 
+        sleep 1.5
 
         pkill dunst 2>/dev/null
         dunst &
@@ -93,5 +93,5 @@ if [ -n "$SELECTED" ]; then
         pkill -USR1 cava
         spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"
     fi
-    dunstify -i ~/.config/dunst/walls.svg -a walls "wallpaper changed" "congrats"
+    dunstify -i ~/.icons/icon_scripts/dunst/misc/walls.svg -a walls "wallpaper changed" "congrats"
 fi

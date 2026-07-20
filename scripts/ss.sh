@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-dir="$HOME/.config/rofi/power"
-COLUMNS=4
+dir="$HOME/.icons/icon_scripts/rofi/screenshot"
+COLUMNS=3
 THUMB_SIZE=100
 TMPFILE=$(mktemp)
 
@@ -9,17 +9,11 @@ fd . "$dir" \
     --type f \
     --extension jpg \
     --extension svg > "$TMPFILE"
-
 INDEX=$(
 declare -A DESC=(
-    ["shutdown.svg"]="   shutdown"
-    ["reboot.svg"]="    reboot"
-    ["lock.svg"]="  lockscreen"
-    ["suspend.svg"]="    suspend"
-    ["allow_suspend.svg"]=" allow suspend"
-    ["dont_suspend.svg"]=" dont suspend"
-    ["logout.svg"]="    logout"
-
+    ["window.svg"]="  Screenshot Window"
+    ["screen.svg"]="  Screenshot whole"
+    ["selection.svg"]=" Screenshot Selection"
 )
 
 cat "$TMPFILE" |
@@ -35,15 +29,17 @@ cat "$TMPFILE" |
             -format i \
             -theme-str "
             window {
-                width: 650px;
-                height: 285px;
+                width: 700px;
+                height: 150px;
+                location: north;
+                y-offset: 10;
             }
             inputbar {
                 enabled: false;
             }
             listview {
                 columns: $COLUMNS;
-                lines: 2;
+                lines: 1;
                 fixed-height: true;
                 flow: horizontal;
                 spacing: 8px;
@@ -76,22 +72,12 @@ fi
 SELECTED_FILE=$(sed -n "$((INDEX+1))p" "$TMPFILE" 2>/dev/null)
 BASENAME=$(basename "$SELECTED_FILE" 2>/dev/null)
 
-if [[ "$BASENAME" == "shutdown.svg" ]]; then
-    systemctl poweroff
-elif [[ "$BASENAME" == "reboot.svg" ]]; then
-    systemctl reboot
-elif [[ "$BASENAME" == "dont_suspend.svg" ]]; then
-    pkill swayidle
-    dunstify "you just disable automatic suspend" || true
-elif [[ "$BASENAME" == "allow_suspend.svg" ]]; then
-    pkill swayidle 2>/dev/null
-    ~/.local/bin/sleep.sh
-elif [[ "$BASENAME" == "logout.svg" ]]; then
-    niri msg action quit --skip-confirmation
-elif [[ "$BASENAME" == "suspend.svg" ]]; then
-    systemctl suspend
-elif [[ "$BASENAME" == "lock.svg" ]]; then
-    ~/.local/bin/dynalock.sh
+if [[ "$BASENAME" == "window.svg" ]]; then
+    niri msg action screenshot-window
+elif [[ "$BASENAME" == "screen.svg" ]]; then
+    niri msg action screenshot-screen
+elif [[ "$BASENAME" == "selection.svg" ]]; then
+    niri msg action screenshot
 else
     echo "Unknown option selected"
 fi

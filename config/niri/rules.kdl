@@ -43,6 +43,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="note"
+    background-effect {
+        saturation 0.95
+        blur true
+    }
+}
+window-rule {
     match app-id="kitty"
     background-effect {
         saturation 0.95

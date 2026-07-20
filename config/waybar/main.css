@@ -29,7 +29,6 @@ window#waybar.hidden {
 #workspaces,
 #clock,
 #cpu,
-#custom-pacman,
 #memory,
 #temperature,
 #network,
@@ -162,6 +161,10 @@ window#waybar.hidden {
 }
 
 #custom-steam {
+    padding: 0 4px;
+}
+
+#custom-dunst {
     padding: 0 4px;
 }
 

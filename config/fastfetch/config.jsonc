@@ -35,44 +35,44 @@
      {
 			"type": "os",
 			"key": "╭─󰣇",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "kernel",
 			"key": "├─",
 			"format": "{1} {2}",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "packages",
 			"key": "├─󰮯",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "de",
 			"key": "├─",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "wm",
 			"key": "├─",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "lm",
 			"key": "├─󰧨",
-			"keyColor": "magenta"
+			"keyColor": "red"
 		},
 		{
 			"type": "theme",
 			"key": "├─󰉼",
-			"keyColor": "magenta",
+			"keyColor": "red",
       "format": "{theme2}"
 		},
 		{
 			"type": "icons",
 			"key": "╰─󰀻",
-			"keyColor": "magenta",
+			"keyColor": "red",
       "format": "{icons2}"
 		},
 		"break",
@@ -80,100 +80,100 @@
 		{
 			"type": "disk",
 			"key": "╭─",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		{
 			"type": "brightness",
 			"key": "├─󰃞",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		{
 			"type": "battery",
 			"key": "├─",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		// {
 		// 	"type": "poweradapter",
 		// 	"key": "├─",
-		// 	"keyColor": "green"
+		// 	"keyColor": "blue"
 		// },
 		// {
 		// 	"type": "gamepad",
 		// 	"key": "├─",
-		// 	"keyColor": "green"
+		// 	"keyColor": "blue"
 		// },
 		// {
 		// 	"type": "bluetooth",
 		// 	"key": "├─",
-		// 	"keyColor": "green"
+		// 	"keyColor": "blue"
 		// },
 		// {
 		// 	"type": "sound",
 		// 	"key": "╰─",
-		// 	"keyColor": "green"
+		// 	"keyColor": "blue"
 		// },
 		{
 			"type": "terminal",
 			"key": "├─",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		{
 			"type": "terminalfont",
 			"key": "├─",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		{
 			"type": "shell",
 			"key": "╰─",
-			"keyColor": "green"
+			"keyColor": "blue"
 		},
 		"break",
 		{
 			"type": "host",
 			"key": "╭─",
-			"keyColor": "yellow"
+			"keyColor": "cyan"
 		},
 		{
 			"type": "cpu",
 			"key": "├─󰍛",
-			"keyColor": "yellow",
+			"keyColor": "cyan",
       "format": "{name}"
 		},
 		{
 			"type": "gpu",
 			"key": "├─󰘚",
-			"keyColor": "yellow",
+			"keyColor": "cyan",
       "format": "{vendor} {name}"
 		},
 		{
 			"type": "display",
 			"key": "├─󰍹",
-			"keyColor": "yellow"
+			"keyColor": "cyan"
 		},
 		// {
 		// 	"type": "wallpaper",
 		// 	"key": "╰─󰸉",
-		// 	"keyColor": "yellow"
+		// 	"keyColor": "cyan"
 		// },
 		{
 			"type": "memory",
 			"key": "├─󰑭",
-			"keyColor": "yellow"
+			"keyColor": "cyan"
 		},
 		// {
 		// 	"type": "swap",
 		// 	"key": "├─󰓡",
-		// 	"keyColor": "yellow"
+		// 	"keyColor": "cyan"
 		// },
 		{
 			"type": "uptime",
 			"key": "├─󰅐",
-			"keyColor": "yellow"
+			"keyColor": "cyan"
 		},
         {
     "type": "command",
     "key": "╰─󱦟",
-    "keyColor": "yellow",
+    "keyColor": "cyan",
     "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
 },
 		// {

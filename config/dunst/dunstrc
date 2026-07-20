@@ -5,9 +5,9 @@ min_icon_size = 128
 max_icon_size = 256
 gap_size = 5
 transparency = 20
-frame_color = "#c3c5dd"
+frame_color = "#b7c9d9"
 frame_width = 1
-highlight = "#e5bad8"
+highlight = "#cec0e8"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -20,19 +20,22 @@ progress_bar_max_width = 300
 padding = 6
 origin = top-right
 format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
-
+history_ignore = false
 
 [urgency_low]
-    background = "#2b2b33BF"
-    foreground = "#e8e6ed"
+    background = "#272c30BF"
+    foreground = "#dfe3e8"
+    highlight = "#cec0e8"
 
 [urgency_normal]
-    background = "#2b2b33BF"
-    foreground = "#e8e6ed"
+    background = "#272c30BF"
+    foreground = "#dfe3e8"
+    highlight = "#cec0e8"
 
 [urgency_critical]
-    background = "#c32220BF"
+    background = "#a7060fBF"
     foreground = "#ffffff"
+    highlight = "#cec0e8"
 
 [volume_notifications]
     appname = volume
@@ -54,7 +57,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [battery]
     appname = battery
     summary = *
-    history_ignore = true
     set_stack_tag = battery
     min_icon_size = 64
     max_icon_size = 64
@@ -62,7 +64,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [weather]
     appname = weather
     summary = *
-    history_ignore = true
     set_stack_tag = weather
     min_icon_size = 64
     max_icon_size = 64
@@ -70,7 +71,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [wifi]
     appname = wifi
     summary = *
-    history_ignore = true
     set_stack_tag = wifi
     min_icon_size = 64
     max_icon_size = 64
@@ -78,7 +78,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [walls]
     appname = walls
     summary = *
-    history_ignore = true
     set_stack_tag = walls
     min_icon_size = 64
     max_icon_size = 64
@@ -86,7 +85,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [player]
     appname = player
     summary = *
-    history_ignore = true
     set_stack_tag = 
     min_icon_size = 48
     max_icon_size = 48
@@ -94,7 +92,6 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 [system]
     appname = system
     summary = *
-    history_ignore = true
     set_stack_tag = 
     min_icon_size = 48
     max_icon_size = 48
