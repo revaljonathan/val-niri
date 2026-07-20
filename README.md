@@ -31,8 +31,9 @@ git clone https://github.com/revaljonathan/val-niri
 cd val-niri 
 cp -r config/* ~/.config/
 mkdir -p ~/.local/bin 
-cp local-bin/* ~/.local/bin  
+cp scripts/* ~/.local/bin  
 chmod +x ~/.local/bin/*
+cp -r icon_scripts ~/.icons/
 ```
 
 and just manually clone the wallpaper or cherry pick it, though my wallpaper path is ~/pics/walls in scripts so you might want to adjust that
