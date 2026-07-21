@@ -5,9 +5,9 @@ min_icon_size = 128
 max_icon_size = 256
 gap_size = 5
 transparency = 20
-frame_color = "#b7c9d9"
+frame_color = "#c3c5dd"
 frame_width = 1
-highlight = "#cec0e8"
+highlight = "#e5bad8"
 font = JetBrainsMono Nerd font 13
 width = (300, 700)
 height = (50, 500)
@@ -23,19 +23,19 @@ format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
 history_ignore = false
 
 [urgency_low]
-    background = "#272c30BF"
-    foreground = "#dfe3e8"
-    highlight = "#cec0e8"
+    background = "#292b31BF"
+    foreground = "#e3e1e9"
+    highlight = "#e5bad8"
 
 [urgency_normal]
-    background = "#272c30BF"
-    foreground = "#dfe3e8"
-    highlight = "#cec0e8"
+    background = "#292b31BF"
+    foreground = "#e3e1e9"
+    highlight = "#e5bad8"
 
 [urgency_critical]
     background = "#a7060fBF"
     foreground = "#ffffff"
-    highlight = "#cec0e8"
+    highlight = "#e5bad8"
 
 [volume_notifications]
     appname = volume
