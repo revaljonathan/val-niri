@@ -17,7 +17,7 @@ window-rule {
         blur true
         saturation 0.8
     }
-    default-floating-position x=7 y=7 relative-to="top-right"
+    default-floating-position x=10 y=10 relative-to="top-right"
 }
 
 window-rule {

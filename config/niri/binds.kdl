@@ -183,6 +183,7 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     super+shift+s { screenshot; }
-    super+X { spawn-sh "hyprpicker | wl-copy"; }
-    super+shift+q { spawn-sh "~/.local/bin/ss.sh"; }
+    super+X { spawn-sh "~/.local/bin/ss.sh"; }
+    super+shift+X { screenshot; }
+    super+shift+q { spawn-sh "hyprpicker | wl-copy"; }
 }

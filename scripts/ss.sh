@@ -7,7 +7,6 @@ TMPFILE=$(mktemp)
 fd . "$dir" \
     --max-depth 1 \
     --type f \
-    --extension jpg \
     --extension svg > "$TMPFILE"
 INDEX=$(
 declare -A DESC=(

@@ -8,7 +8,7 @@
 #   git push
 # }
 
-fuck() { sudo $(fc -ln -1) }
+fuck() { doas $(fc -ln -1) }
 
 take() {
   mkdir -p "$1" && cd "$1"

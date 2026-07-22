@@ -4,10 +4,43 @@ COLUMNS=1
 THUMB_SIZE=100
 TMPFILE=$(mktemp)
 
+get_cover_path() {
+    local art_url cover_path
+    art_url=$(playerctl metadata mpris:artUrl 2>/dev/null)
+
+    if [ -z "$art_url" ]; then
+        return 0
+    fi
+
+    if [[ "$art_url" == file://* ]]; then
+        cover_path="${art_url#file://}"
+        # URL-decode (mpris art paths can contain %20 etc.)
+        cover_path=$(printf '%b' "${cover_path//%/\\x}")
+        if [ -f "$cover_path" ]; then
+            printf '%s\n' "$cover_path"
+        fi
+    elif [[ "$art_url" == http://* ]] || [[ "$art_url" == https://* ]]; then
+        cover_path=$(mktemp --suffix=.jpg)
+        if curl -s -f "$art_url" -o "$cover_path"; then
+            printf '%s\n' "$cover_path"
+        else
+            rm -f "$cover_path"
+        fi
+    fi
+}
+
+DOWNLOADED_COVERS=()
+cleanup() {
+    rm -f "$TMPFILE" "$ORDERED_FILES"
+    if [ "${#DOWNLOADED_COVERS[@]}" -gt 0 ]; then
+        rm -f "${DOWNLOADED_COVERS[@]}"
+    fi
+}
+trap cleanup EXIT
+
 fd . "$dir" \
     --max-depth 1 \
     --type f \
-    --extension jpg \
     --extension svg > "$TMPFILE"
 
 
@@ -76,7 +109,6 @@ cat "$ORDERED_FILES" |
 )
 
 if [[ -z "$INDEX" ]]; then
-    rm -f "$TMPFILE" "$ORDERED_FILES"
     exit 0
 fi
 
@@ -108,12 +140,16 @@ elif [[ "$BASENAME" == "next.svg" ]]; then
         fi
     done
 
+    COVER_PATH=$(get_cover_path)
+    [ -n "$COVER_PATH" ] && DOWNLOADED_COVERS+=("$COVER_PATH")
+    ICON="${COVER_PATH:-$HOME/.icons/icon_scripts/dunst/player/next.svg}"
+
     if [[ -n "$ARTIST" && -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/next.svg" -t 5000 "Next Track" "$ARTIST - $TITLE" -a player
+        dunstify -i "$ICON" -t 5000 "Next Track" "$ARTIST - $TITLE" -a player
     elif [[ -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/next.svg" -t 5000 "Next Track" "$TITLE" -a player
+        dunstify -i "$ICON" -t 5000 "Next Track" "$TITLE" -a player
     else
-        dunstify -i "$HOME/.icons/icon_scripts/playerdunst/next.svg" -t 5000 "Player" "Skipped to next track" -a player
+        dunstify -i "$ICON" -t 5000 "Player" "Skipped to next track" -a player
     fi
 elif [[ "$BASENAME" == "back.svg" ]]; then
     OLD_TITLE=$(playerctl metadata title 2>/dev/null)
@@ -130,15 +166,17 @@ elif [[ "$BASENAME" == "back.svg" ]]; then
         fi
     done
 
+    COVER_PATH=$(get_cover_path)
+    [ -n "$COVER_PATH" ] && DOWNLOADED_COVERS+=("$COVER_PATH")
+    ICON="${COVER_PATH:-$HOME/.icons/icon_scripts/dunst/player/back.svg}"
+
     if [[ -n "$ARTIST" && -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Previous Track" "$ARTIST - $TITLE" -a player
+        dunstify -i "$ICON" -t 5000 "Previous Track" "$ARTIST - $TITLE" -a player
     elif [[ -n "$TITLE" ]]; then
-        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Previous Track" "$TITLE" -a player
+        dunstify -i "$ICON" -t 5000 "Previous Track" "$TITLE" -a player
     else
-        dunstify -i "$HOME/.icons/icon_scripts/dunst/player/back.svg" -t 5000 "Player" "Went to previous track" -a player
+        dunstify -i "$ICON" -t 5000 "Player" "Went to previous track" -a player
     fi
 else
     echo "Unknown option selected"
 fi
-
-rm -f "$TMPFILE" "$ORDERED_FILES"

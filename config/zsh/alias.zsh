@@ -20,6 +20,9 @@ alias checktur='echo "Turbo boost: $(if [ $(cat /sys/devices/system/cpu/intel_ps
 alias fan="watch -n 1 'sensors | grep fan'"
 
 alias gs='la && git status'
+alias ga='git add'
+alias gc='git commit -m "$1"'
+alias gp='git push'
 
 
 alias nano='micro'

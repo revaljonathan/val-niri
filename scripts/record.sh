@@ -2,6 +2,7 @@
 
 if pgrep -x wf-recorder >/dev/null; then
     killall wf-recorder
+    notify-send "Recording stopped" "Saved to ~/pics/record/"
     exit 0
 fi
 
