@@ -95,3 +95,10 @@ history_ignore = false
     set_stack_tag = 
     min_icon_size = 48
     max_icon_size = 48
+
+[CPU profile]
+    appname = CPU profile
+    summary = *
+    set_stack_tag = 
+    min_icon_size = 64
+    max_icon_size = 64   

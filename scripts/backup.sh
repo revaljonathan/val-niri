@@ -9,7 +9,7 @@ cp ~/.zshrc ~/.p10k.zsh ~/code/val-niri/
 
 cp -r ~/.icons/icon_scripts/ ~/code/val-niri/
 
-cp ~/.local/bin/{wp.sh,tl.sh,filerofi.sh,powermenu.sh,sleep.sh,dynalock.sh,dunstvol.sh,dunstback.sh,wifi.sh,steam.sh,browse.sh,barsel.sh,bat.sh,mem.sh,weather.sh,ss.sh,backup.sh,wttrbar,player.sh,ppd.sh,control.sh,dunst.sh,record.sh} ~/code/val-niri/scripts/
+cp ~/.local/bin/{wp.sh,tl.sh,filerofi.sh,powermenu.sh,sleep.sh,dynalock.sh,dunstvol.sh,dunstback.sh,wifi.sh,steam.sh,browse.sh,barsel.sh,bat.sh,mem.sh,weather.sh,ss.sh,backup.sh,wttrbar,player.sh,ppd.sh,control.sh,dunst.sh,record.sh,dnd-toggle.sh} ~/code/val-niri/scripts/
 
 cd ~/code/val-niri/
 

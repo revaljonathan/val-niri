@@ -165,7 +165,7 @@ window#waybar.hidden {
 }
 
 #custom-dunst {
-    padding: 0 4px;
+    padding: 0 4 0 0px;
 }
 
 #custom-pacman {

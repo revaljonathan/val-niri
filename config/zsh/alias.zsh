@@ -21,7 +21,7 @@ alias fan="watch -n 1 'sensors | grep fan'"
 
 alias gs='la && git status'
 alias ga='git add'
-alias gc='git commit -m "$1"'
+alias gc='git commit -m'
 alias gp='git push'
 
 

@@ -5,40 +5,40 @@ if matugen_ok then
         normal = {
             a = { fg = matugen.bg, bg = matugen.primary, gui = "bold" },
             b = { fg = matugen.fg, bg = "NONE" },
-            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            c = { fg = matugen.primary, bg = matugen.cursorline_bg },
+            x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
             z = { fg = matugen.bg, bg = matugen.primary },
         },
         insert = {
             a = { fg = matugen.bg, bg = matugen.secondary, gui = "bold" },
             b = { fg = matugen.secondary, bg = "NONE" },
-            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            c = { fg = matugen.primary, bg = matugen.cursorline_bg },
+            x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
             z = { fg = matugen.bg, bg = matugen.secondary },
         },
         visual = {
             a = { fg = matugen.bg, bg = matugen.fg, gui = "bold" },
             b = { fg = matugen.fg, bg = "NONE" },
-            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            c = { fg = matugen.primary, bg = matugen.cursorline_bg },
+            x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
             z = { fg = matugen.bg, bg = matugen.fg },
         },
         replace = {
             a = { fg = matugen.bg, bg = matugen.error, gui = "bold" },
             b = { fg = matugen.error, bg = "NONE" },
-            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            c = { fg = matugen.primary, bg = matugen.cursorline_bg },
+            x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
             z = { fg = matugen.bg, bg = matugen.error },
         },
         inactive = {
             a = { fg = matugen.fg, bg = matugen.bg },
             b = { fg = matugen.fg, bg = matugen.bg },
-            c = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            x = { fg = matugen.fg, bg = matugen.cursorline_bg },
+            c = { fg = matugen.primary, bg = matugen.cursorline_bg },
+            x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
             z = { fg = matugen.fg, bg = matugen.bg },
         },
@@ -54,7 +54,8 @@ sections = {
         lualine_c = {
             {
                 "filename",
-                path = 0,       
+                path = 0,
+                color = { fg = matugen.fg },
                 symbols = {
                     modified = "●",
                     readonly = "",
@@ -64,8 +65,11 @@ sections = {
         },
         lualine_a = { "mode" },
         lualine_b = { "" },
-        -- Group fileformat, filetype, and progress together in section X
-        lualine_x = { "fileformat", "filetype", "progress" },
+        lualine_x = {
+            { "fileformat", color = { fg = matugen.fg } },
+            { "filetype", color = { fg = matugen.fg } },
+            { "progress", color = { fg = matugen.fg } },
+        },
         lualine_y = {}, -- Leave this empty or remove it entirely
         lualine_z = { "location" },
     }
