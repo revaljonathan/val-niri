@@ -13,7 +13,7 @@ CHOICE=$(
         -i \
         -p "CPU Prof" \
         -theme-str '
-        window { width: 300px; }
+        window { width: 15%; }
         '
 )
 

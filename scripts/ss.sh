@@ -28,8 +28,8 @@ cat "$TMPFILE" |
             -format i \
             -theme-str "
             window {
-                width: 700px;
-                height: 150px;
+                width: 35%;
+                height: 13%;
                 location: north;
                 y-offset: 10;
             }

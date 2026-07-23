@@ -169,7 +169,7 @@ layer-rule {
 
 window-rule {
   match title="New Tab - Helium"
-  opacity 0.90
+  opacity 0.80
   background-effect {
       blur true
       saturation 0.9

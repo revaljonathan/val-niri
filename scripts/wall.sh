@@ -60,11 +60,39 @@ SELECTED=$(sed -n "$((INDEX + 1))p" "$TMPFILE")
 rm "$TMPFILE"
 
 if [ -n "$SELECTED" ]; then
+    HAS_MATUGEN=0
+    if command -v matugen &>/dev/null; then
+        HAS_MATUGEN=1
+
+        SCHEMES="scheme-tonal-spot
+scheme-expressive
+scheme-fidelity
+scheme-fruit-salad
+scheme-monochrome
+scheme-neutral
+scheme-rainbow
+scheme-content
+scheme-vibrant"
+
+        SCHEME=$(printf '%s\n' "$SCHEMES" | rofi -dmenu -i -p "scheme" -theme-str '
+            window {
+                width: 25%;
+                location: center;
+            }
+            listview {
+                columns: 2;
+                lines: 5;
+            }
+        ')
+
+        [ -z "$SCHEME" ] && exit 0
+    fi
+
     echo "$SELECTED" >"$HOME/.config/wallpaper"
     awww img "$SELECTED" --transition-type center --transition-fps 165 &
 
-    if command -v matugen &>/dev/null; then
-        matugen image "$SELECTED" --source-color-index 0 -t scheme-tonal-spot 
+    if [ "$HAS_MATUGEN" -eq 1 ]; then
+        matugen image "$SELECTED" --source-color-index 0 -t "$SCHEME"
         sleep 1.5
 
         pkill dunst 2>/dev/null

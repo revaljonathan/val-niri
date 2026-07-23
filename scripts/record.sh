@@ -11,9 +11,9 @@ COLUMNS=3
 THUMB_SIZE=100
 
 declare -A DESC=(
-    [fullscreen]="Record screen"
-    [area]="Record area"
-    [mic]="Record with mic"
+    [fullscreen]="   Record screen"
+    [area]="    Record area"
+    [mic]="  Record with mic"
 )
 
 MODE=$(
@@ -27,8 +27,8 @@ MODE=$(
             -format s \
             -theme-str "
             window {
-                width: 700px;
-                height: 150px;
+                width: 35%;
+                height: 13%;
                 location: north;
                 y-offset: 10;
             }

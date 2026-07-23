@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 dir="$HOME/.icons/icon_scripts/rofi/power"
-COLUMNS=4
+COLUMNS=3
 THUMB_SIZE=100
 TMPFILE=$(mktemp)
 
 fd . "$dir" \
     --max-depth 1 \
     --type f \
-    --extension jpg \
     --extension svg > "$TMPFILE"
 
 INDEX=$(
@@ -16,8 +15,7 @@ declare -A DESC=(
     ["reboot.svg"]="    reboot"
     ["lock.svg"]="  lockscreen"
     ["suspend.svg"]="    suspend"
-    ["allow_suspend.svg"]=" allow suspend"
-    ["dont_suspend.svg"]=" dont suspend"
+    ["suspend_toggle.svg"]="toggle suspend"
     ["logout.svg"]="    logout"
 
 )
@@ -35,8 +33,8 @@ cat "$TMPFILE" |
             -format i \
             -theme-str "
             window {
-                width: 650px;
-                height: 285px;
+                width: 27%;
+                height: 25%;
             }
             inputbar {
                 enabled: false;
@@ -45,7 +43,7 @@ cat "$TMPFILE" |
                 columns: $COLUMNS;
                 lines: 2;
                 fixed-height: true;
-                flow: horizontal;
+                flow: vertical;
                 spacing: 8px;
             }
             element {
@@ -76,16 +74,18 @@ fi
 SELECTED_FILE=$(sed -n "$((INDEX+1))p" "$TMPFILE" 2>/dev/null)
 BASENAME=$(basename "$SELECTED_FILE" 2>/dev/null)
 
-if [[ "$BASENAME" == "shutdown.svg" ]]; then
+if [[ "$BASENAME" == "suspend_toggle.svg" ]]; then
+    if pgrep -x "swayidle" > /dev/null; then
+        pkill swayidle
+        dunstify "Automatic suspend: DISABLED" 
+    else
+        pkill swayidle 2>/dev/null
+        ~/.local/bin/sleep.sh
+    fi
+elif [[ "$BASENAME" == "shutdown.svg" ]]; then
     systemctl poweroff
 elif [[ "$BASENAME" == "reboot.svg" ]]; then
     systemctl reboot
-elif [[ "$BASENAME" == "dont_suspend.svg" ]]; then
-    pkill swayidle
-    dunstify "you just disable automatic suspend" || true
-elif [[ "$BASENAME" == "allow_suspend.svg" ]]; then
-    pkill swayidle 2>/dev/null
-    ~/.local/bin/sleep.sh
 elif [[ "$BASENAME" == "logout.svg" ]]; then
     niri msg action quit --skip-confirmation
 elif [[ "$BASENAME" == "suspend.svg" ]]; then

@@ -30,7 +30,8 @@ binds {
     super+Escape { spawn "~/.local/bin/control.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }
-    super+Z hotkey-overlay-title="wallpaper" { spawn "~/.local/bin/wp.sh"; }
+    super+Z hotkey-overlay-title="wallpaper" { spawn "~/.local/bin/wall.sh"; }
+    super+shift+z { spawn-sh "~/.local/bin/rng.sh"; }
     super+B { spawn "~/.local/bin/barsel.sh"; }
 
     // === Window / Column Focus & Navigation ===

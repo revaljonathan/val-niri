@@ -17,7 +17,7 @@ CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
     -p "Search" \
     -i \
     -theme-str '
-    window {width: 350px;}
+    window {width: 17%;}
     listview {
         columns: 2;
         lines: 6;

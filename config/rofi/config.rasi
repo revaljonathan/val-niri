@@ -15,14 +15,14 @@ configuration {
     kb-move-char-back: "Left";
     kb-mode-next: "Alt+Right";
     kb-mode-previous: "Alt+Left";
-  window-format: "{n} {t}";
+   window-format: "{n} {t}"; 
     drun-display-format: "{name}";   
 }
 
 @import "~/.config/rofi/colors.rasi"
 
 window {
-    width:            520px;
+    width:            25%;
     background-color: @surface-dim;
     border:           1px;
     border-color:     @on-surface-variant;
