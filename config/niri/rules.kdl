@@ -168,6 +168,14 @@ layer-rule {
 }
 
 window-rule {
+  match title="New Tab - Helium"
+  opacity 0.90
+  background-effect {
+      blur true
+      saturation 0.9
+  }
+}
+window-rule {
   match app-id="[Ss]potify$"
   opacity 0.85
   open-maximized true
