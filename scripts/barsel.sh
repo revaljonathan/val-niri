@@ -22,4 +22,3 @@ vertical)
 none) ;;
 esac
 
-echo "$CHOICE" >/tmp/waybar_state

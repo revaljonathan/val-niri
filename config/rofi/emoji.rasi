@@ -1,15 +1,11 @@
 configuration {
     modes:              "drun";
     sorting-method:     "normal";
-    show-icons:         true;
+    show-icons:         false;
     terminal:           "kitty";
     editor:             "micro";
     matching:           "regex";
     drun-match-fields:  "name";
-    display-run:        "Window:";
-    display-ssh:        "SSH:";
-    display-drun:       "Apps:";
-        display-emoji:		"Emoji";
      kb-move-char-forward: "Right";
     kb-move-char-back: "Left";
     kb-mode-next: "Alt+Right";

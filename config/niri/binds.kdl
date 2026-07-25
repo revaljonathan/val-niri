@@ -18,7 +18,7 @@ binds {
     super+shift+f23 { spawn-sh "rofi -show drun"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+A { spawn-sh "~/.local/bin/record.sh"; }
-    super+E { spawn "rofimoji"; }
+    super+E { spawn-sh "rofimoji --selector-args='-theme emoji.rasi'"; }
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "~/.local/bin/note.sh"; }
@@ -26,7 +26,7 @@ binds {
     super+shift+d { spawn-sh "~/.local/bin/dnd-toggle.sh"; }
     super+S { spawn "~/.local/bin/browse.sh"; }
     super+P { spawn "~/.local/bin/powermenu.sh"; }
-    super+m { spawn "~/.local/bin/player.sh"; }
+    super+m { spawn "~/.local/bin/playerctl.sh"; }
     super+Escape { spawn "~/.local/bin/control.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
     super+shift+t { spawn "~/.local/bin/tl.sh"; }

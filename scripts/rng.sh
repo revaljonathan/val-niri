@@ -19,8 +19,8 @@ echo "$WALLPAPER" >"$HOME/.config/wallpaper"
 awww img "$WALLPAPER" --transition-type center --transition-fps 165 &
 matugen image "$WALLPAPER" --source-color-index 0 -t scheme-tonal-spot 
 sleep 1.5
-pkill dunst 2>/dev/null
-dunst &
+
+dunstctl reload
 
 pkill -SIGUSR1 kitty 2>/dev/null
 systemctl --user restart xdg-desktop-portal-gtk

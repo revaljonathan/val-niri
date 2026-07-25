@@ -17,7 +17,6 @@ declare -A DESC=(
     ["suspend.svg"]="    suspend"
     ["suspend_toggle.svg"]="toggle suspend"
     ["logout.svg"]="    logout"
-
 )
 
 cat "$TMPFILE" |
@@ -74,6 +73,19 @@ fi
 SELECTED_FILE=$(sed -n "$((INDEX+1))p" "$TMPFILE" 2>/dev/null)
 BASENAME=$(basename "$SELECTED_FILE" 2>/dev/null)
 
+# Confirmation function using rofi
+confirm_action() {
+    local action="$1"
+    local response=$(echo -e "No\nYes" | rofi -dmenu -i -p "Confirm?" \
+        -theme-str 'window {width: 10%;}' -no-show-icon)
+    
+    if [[ "$response" == "Yes" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 if [[ "$BASENAME" == "suspend_toggle.svg" ]]; then
     if pgrep -x "swayidle" > /dev/null; then
         pkill swayidle
@@ -83,9 +95,17 @@ if [[ "$BASENAME" == "suspend_toggle.svg" ]]; then
         ~/.local/bin/sleep.sh
     fi
 elif [[ "$BASENAME" == "shutdown.svg" ]]; then
-    systemctl poweroff
+    if confirm_action "Shutdown"; then
+        systemctl poweroff
+    else
+        dunstify "Shutdown cancelled"
+    fi
 elif [[ "$BASENAME" == "reboot.svg" ]]; then
-    systemctl reboot
+    if confirm_action "Reboot"; then
+        systemctl reboot
+    else
+        dunstify "Reboot cancelled"
+    fi
 elif [[ "$BASENAME" == "logout.svg" ]]; then
     niri msg action quit --skip-confirmation
 elif [[ "$BASENAME" == "suspend.svg" ]]; then

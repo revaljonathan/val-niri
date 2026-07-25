@@ -11,12 +11,12 @@ if matugen_ok then
             z = { fg = matugen.bg, bg = matugen.primary },
         },
         insert = {
-            a = { fg = matugen.bg, bg = matugen.secondary, gui = "bold" },
+            a = { fg = matugen.bg, bg = matugen.tertiary, gui = "bold" },
             b = { fg = matugen.secondary, bg = "NONE" },
             c = { fg = matugen.primary, bg = matugen.cursorline_bg },
             x = { fg = matugen.primary, bg = matugen.cursorline_bg },
             y = { fg = matugen.fg, bg = matugen.cursorline_bg },
-            z = { fg = matugen.bg, bg = matugen.secondary },
+            z = { fg = matugen.bg, bg = matugen.tertiary },
         },
         visual = {
             a = { fg = matugen.bg, bg = matugen.fg, gui = "bold" },
@@ -47,8 +47,8 @@ if matugen_ok then
     require("lualine").setup({
         options = {
             theme = theme,
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
+            component_separators = { left = "", right = "|" },
+            section_separators = { left = "", right = "" },
         },
 sections = {
         lualine_c = {

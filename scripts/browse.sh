@@ -14,8 +14,9 @@ PREDEFINED=(
 
 CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
     -dmenu \
-    -p "Search" \
+    -p "Browse" \
     -i \
+    -no-show-icon \
     -theme-str '
     window {width: 17%;}
     listview {

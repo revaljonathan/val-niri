@@ -18,7 +18,7 @@ INDEX=$(
                 width: 65%;
                 height: 94%;
                 location: west;
-                x-offset: 5;
+                x-offset: 10;
             }
             inputbar {
                 enabled: false;
@@ -95,13 +95,15 @@ scheme-vibrant"
         matugen image "$SELECTED" --source-color-index 0 -t "$SCHEME"
         sleep 1.5
 
-        pkill dunst 2>/dev/null
-        dunst &
+        # pkill dunst 2>/dev/null
+        # dunst &
+
+        dunstctl reload
 
         pkill -SIGUSR1 kitty 2>/dev/null
         systemctl --user restart xdg-desktop-portal-gtk
 
-        killall -SIGUSR2 waybar
+        pkill -SIGUSR2 waybar
         pkill -USR2 btop
         pkill -USR1 cava
         spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"

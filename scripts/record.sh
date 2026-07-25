@@ -44,7 +44,7 @@ MODE=$(
             }
             element {
                 orientation: vertical;
-                padding: 4px;
+                padding: 10 0 5 0px;
                 border-radius: 0px;
                 spacing: 0px;
             }

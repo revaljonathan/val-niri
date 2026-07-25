@@ -3,13 +3,13 @@ separator_height = 0
 separator_color= frame
 min_icon_size = 64
 max_icon_size = 256
-gap_size = 5
+gap_size = 2
 transparency = 20
-frame_color = "#c3c5dd"
+frame_color = "#5a5d6b"
 frame_width = 1
 highlight = "#e5bad8"
 font = JetBrainsMono Nerd font 13
-width = (300, 700)
+width = (300, 600)
 height = (50, 500)
 progress_bar = true
 progress_bar_height = 10
@@ -82,12 +82,12 @@ history_ignore = false
     min_icon_size = 64
     max_icon_size = 64
 
-[player]
-    appname = player
+[media]
+    appname = media
     summary = *
     set_stack_tag = 
-    min_icon_size = 48
-    max_icon_size = 48
+    min_icon_size = 72
+    max_icon_size = 72
 
 [system]
     appname = system
