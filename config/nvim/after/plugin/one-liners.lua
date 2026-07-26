@@ -58,7 +58,7 @@ sections = {
                 color = { fg = matugen.fg },
                 symbols = {
                     modified = "●",
-                    readonly = "",
+                    readonly = "✘",
                     unnamed = "[No Name]",
                 },
             },

@@ -4,7 +4,6 @@ COLUMNS=6
 THUMB_SIZE=175
 TMPFILE=$(mktemp)
 
-# Get all image files
 fd --max-depth 1 --type f -e jpg -e jpeg -e png -e webp -e gif . "$WALLPAPER_DIR" |
 sort > "$TMPFILE"
 
@@ -15,9 +14,10 @@ INDEX=$(
         done |
         rofi             -dmenu             -i             -show-icons             -format i             -theme-str "
             window {
-                width: 65%;
-                height: 94%;
-                location: west;
+                width: 62%;
+                height: 92%;
+                location: north west;
+                y-offset: 10;
                 x-offset: 10;
             }
             inputbar {
@@ -25,8 +25,6 @@ INDEX=$(
             }
             listview {
                 columns: $COLUMNS;
-                lines: 6;
-                fixed-height: false;
                 flow: horizontal;
                 spacing: 8px;
             }
@@ -94,9 +92,6 @@ scheme-vibrant"
     if [ "$HAS_MATUGEN" -eq 1 ]; then
         matugen image "$SELECTED" --source-color-index 0 -t "$SCHEME"
         sleep 1.5
-
-        # pkill dunst 2>/dev/null
-        # dunst &
 
         dunstctl reload
 

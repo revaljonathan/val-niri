@@ -85,7 +85,7 @@ window-rule {
     default-window-height { fixed 1150; }
     background-effect {
         blur true
-        saturation 0.7
+        saturation 0.85
     }
 }
 
@@ -110,10 +110,10 @@ window-rule {
         }
     }
    
-    min-width 900
-    min-height 500 
-    max-width 1200
-    max-height 800
+    min-width 952
+    min-height 576 
+    max-width 952
+    max-height 1156
     
     open-floating true
 }
@@ -157,7 +157,7 @@ layer-rule {
     match namespace="^rofi$"
     background-effect {
         blur true
-        saturation 0.6
+        saturation 0.85
     }
 }
 
@@ -165,15 +165,16 @@ layer-rule {
     match namespace="^notifications$"
     background-effect {
         blur true
+        xray false
     }
 }
 
 window-rule {
   match title="New Tab - Helium"
-  opacity 0.85
+  opacity 0.88
   background-effect {
       blur true
-      saturation 0.9
+      saturation 0.85
   }
 }
 window-rule {

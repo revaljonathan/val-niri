@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
-    "width": 1920, // Waybar width
+    "width": 1910, // Waybar width
     "spacing": 12, // Gaps between modules (4px)
     "margin-top": 1,
     "margin-bottom": -1,
@@ -50,7 +50,10 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%A, %d %B %H:%M}",
-        "format-alt": " {:%H:%M}"
+        "format-alt": " {:%H:%M}",
+        "on-click-right": "~/.local/bin/cal.sh curr",
+        "on-scroll-up": "~/.local/bin/cal.sh next",
+        "on-scroll-down": "~/.local/bin/cal.sh prev"
     },
 
     "cpu": {

@@ -2,6 +2,10 @@
 contrast = 0.1
 theme = "dark" 
 
+[templates.cal]
+input_path = '~/.config/matugen/templates/cal-temp.sh'
+output_path = '~/.local/bin/cal.sh'
+
 [templates.niri]
 input_path = '~/.config/matugen/templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
