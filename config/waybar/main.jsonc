@@ -144,7 +144,7 @@
         "format": "{}°C",
         "tooltip": true,
         "interval": 5400,
-        "exec": "~/.local/bin/wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
+        "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
         "return-type": "json",
         "on-click": "~/.local/bin/weather.sh"
     },

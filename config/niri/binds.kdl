@@ -1,5 +1,5 @@
 binds {
-    // === Core & Window Management ===
+    // misc?
     super+Shift+Slash { show-hotkey-overlay; }
     super+W repeat=false { toggle-overview; }
     super+shift+W { toggle-column-tabbed-display; }
@@ -7,7 +7,7 @@ binds {
     super+Shift+V { toggle-window-floating; }
     // super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    // === Applications ===
+    // apps
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
     super+c { spawn-sh "kitty --class calcurse zsh -c 'calcurse'"; }
@@ -34,7 +34,6 @@ binds {
     super+shift+z { spawn-sh "~/.local/bin/rng.sh"; }
     super+B { spawn "~/.local/bin/barsel.sh"; }
 
-    // === Window / Column Focus & Navigation ===
     // Focus navigation
     super+Left  { focus-column-left; }
     super+Down  { focus-window-down; }
@@ -59,7 +58,6 @@ binds {
     super+ctrl+K     { focus-monitor-up; }
     super+ctrl+L     { focus-monitor-right; }
 
-    // === Window / Column Movement ===
     // Move within workspace
     super+shift+Left  { move-column-left; }
     super+shift+Down  { move-window-down; }
@@ -125,7 +123,6 @@ binds {
     super+shift+8 { move-column-to-workspace 8; }
     super+shift+9 { move-column-to-workspace 9; }
 
-    // === Layout & Resizing ===
     // Consume / Expel windows
     super+BracketLeft  { consume-or-expel-window-left; }
     super+BracketRight { consume-or-expel-window-right; }
@@ -179,7 +176,7 @@ binds {
 
     XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    // === Screenshots & Tools ===
+    // tools
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }

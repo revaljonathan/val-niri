@@ -1,7 +1,7 @@
 alias sudo='doas'
 # alias up='yay --diffmenu --answerdiff All --save -Syu'
 alias up='yay -Syu'
-alias clean='paccahe -rk 1 && yay -Yc'
+alias clean='paccache -rk 1 && yay -Yc'
 alias pacnews='arch_news_check'
 alias upgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias zshnew='source ~/.zshrc'

@@ -157,7 +157,7 @@ layer-rule {
     match namespace="^rofi$"
     background-effect {
         blur true
-        saturation 0.85
+        saturation 0.9
     }
 }
 
