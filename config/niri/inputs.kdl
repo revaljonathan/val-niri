@@ -4,8 +4,9 @@ input {
             options "caps:escape"
         }
         numlock
+        repeat-delay 300
+        repeat-rate 50
     }
-
     touchpad {
         tap
         natural-scroll

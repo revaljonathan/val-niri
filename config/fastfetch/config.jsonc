@@ -13,14 +13,14 @@
         "bottom": 0
         }
 },
-    "color": {
-        "1": "#eed49f",
-        "2": "#e5c890",
-        "6": "#f5a97f",
-        "7": "#fab387",
-        "8": "#f9e2af",
-        "9": "#ef9f76"
-    },
+    // "color": {
+    //     "1": "#eed49f",
+    //     "2": "#e5c890",
+    //     "6": "#f5a97f",
+    //     "7": "#fab387",
+    //     "8": "#f9e2af",
+    //     "9": "#ef9f76"
+    // },
     "display": {
     	"stat": false,
         "size": {
@@ -34,145 +34,106 @@
   
      {
 			"type": "os",
-			"key": "╭─󰣇",
+			"key": "OS:     ",
 			"keyColor": "red"
 		},
 		{
 			"type": "kernel",
-			"key": "├─",
+			"key": "Kernel: ",
 			"format": "{1} {2}",
 			"keyColor": "red"
 		},
 		{
 			"type": "packages",
-			"key": "├─󰮯",
-			"keyColor": "red"
-		},
-		{
-			"type": "de",
-			"key": "├─",
+			"key": "Packs:  ",
 			"keyColor": "red"
 		},
 		{
 			"type": "wm",
-			"key": "├─",
+			"key": "WM:     ",
 			"keyColor": "red"
 		},
 		{
 			"type": "lm",
-			"key": "├─󰧨",
+			"key": "Greeter:",
 			"keyColor": "red"
 		},
 		{
-			"type": "theme",
-			"key": "├─󰉼",
-			"keyColor": "red",
-      "format": "{theme2}"
-		},
-		{
 			"type": "icons",
-			"key": "╰─󰀻",
+			"key": "Icons:  ",
 			"keyColor": "red",
       "format": "{icons2}"
 		},
-		"break",
-		// One entry for every partition
 		{
 			"type": "disk",
-			"key": "╭─",
+			"key": "Disk:     ",
 			"keyColor": "blue"
 		},
 		{
 			"type": "brightness",
-			"key": "├─󰃞",
+			"key": "Backlight:",
 			"keyColor": "blue"
 		},
 		{
 			"type": "battery",
-			"key": "├─",
+			"key": "Battery:  ",
 			"keyColor": "blue"
 		},
-		// {
-		// 	"type": "poweradapter",
-		// 	"key": "├─",
-		// 	"keyColor": "blue"
-		// },
-		// {
-		// 	"type": "gamepad",
-		// 	"key": "├─",
-		// 	"keyColor": "blue"
-		// },
-		// {
-		// 	"type": "bluetooth",
-		// 	"key": "├─",
-		// 	"keyColor": "blue"
-		// },
-		// {
-		// 	"type": "sound",
-		// 	"key": "╰─",
-		// 	"keyColor": "blue"
-		// },
 		{
 			"type": "terminal",
-			"key": "├─",
+			"key": "Term:     ",
 			"keyColor": "blue"
 		},
 		{
 			"type": "terminalfont",
-			"key": "├─",
+			"key": "Font:     ",
 			"keyColor": "blue"
 		},
 		{
 			"type": "shell",
-			"key": "╰─",
+			"key": "Shell:    ",
 			"keyColor": "blue"
 		},
-		"break",
 		{
 			"type": "host",
-			"key": "╭─",
+			"key": "Host:   ",
 			"keyColor": "cyan"
 		},
 		{
 			"type": "cpu",
-			"key": "├─󰍛",
+			"key": "CPU:    ",
 			"keyColor": "cyan",
       "format": "{name}"
 		},
 		{
 			"type": "gpu",
-			"key": "├─󰘚",
+			"key": "GPU:    ",
 			"keyColor": "cyan",
       "format": "{vendor} {name}"
 		},
 		{
 			"type": "display",
-			"key": "├─󰍹",
+			"key": "Display:",
 			"keyColor": "cyan"
 		},
-		// {
-		// 	"type": "wallpaper",
-		// 	"key": "╰─󰸉",
-		// 	"keyColor": "cyan"
-		// },
 		{
 			"type": "memory",
-			"key": "├─󰑭",
+			"key": "Memory: ",
 			"keyColor": "cyan"
 		},
-		// {
-		// 	"type": "swap",
-		// 	"key": "├─󰓡",
-		// 	"keyColor": "cyan"
-		// },
+		{
+			"type": "swap",
+			"key": "Swap:   ",
+			"keyColor": "cyan"
+		},
 		{
 			"type": "uptime",
-			"key": "├─󰅐",
+			"key": "Uptime: ",
 			"keyColor": "cyan"
 		},
         {
     "type": "command",
-    "key": "╰─󱦟",
+    "key": "Age:    ",
     "keyColor": "cyan",
     "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
 },
