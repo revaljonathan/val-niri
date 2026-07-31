@@ -7,20 +7,12 @@
     //        "width": 15,
     // "height": 4,
     "padding": {
-        "top": 1,
+        "top": 0,
         "left": 0,
         "right": 2,
         "bottom": 0
         }
 },
-    // "color": {
-    //     "1": "#eed49f",
-    //     "2": "#e5c890",
-    //     "6": "#f5a97f",
-    //     "7": "#fab387",
-    //     "8": "#f9e2af",
-    //     "9": "#ef9f76"
-    // },
     "display": {
     	"stat": false,
         "size": {
@@ -29,7 +21,11 @@
         "separator": " "
     },
     
-"modules": [
+"modules": [	
+    {
+			"type": "title",
+			"format": "{1}@{2}",
+    },
 		{
 			"type": "kernel",
 			"key": "Kernel: ",
@@ -43,7 +39,7 @@
 		},
 		{
 			"type": "shell",
-			"key": "Shells: ",
+			"key": "Shell:  ",
 			"keyColor": "green"
 		},
 		{
