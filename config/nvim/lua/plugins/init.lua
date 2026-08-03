@@ -8,7 +8,7 @@ return {
     "nvim-telescope/telescope.nvim",
     { "ThePrimeagen/harpoon", branch = "harpoon2" },
     "folke/tokyonight.nvim",
-    "catppuccin/nvim",
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     "akinsho/bufferline.nvim",
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-tree.lua",

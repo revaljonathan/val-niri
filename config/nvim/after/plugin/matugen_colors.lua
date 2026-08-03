@@ -1,23 +1,23 @@
 local M = {}
 
-M.bg      = "#1b1c24"
-M.fg      = "#e3e1e9"
-M.primary = "#bac3ff"
-M.secondary = "#c3c5dd"
-M.tertiary = "#e5bad8"
+M.bg      = "#181e24"
+M.fg      = "#e0e2e8"
+M.primary = "#9ccbfb"
+M.secondary = "#b9c8da"
+M.tertiary = "#d4bfe6"
 M.error   = "#ffb4ab"
-M.cursorline_bg = "#3f3f47"
-M.cursorline_fg = "#c6c5d0"
+M.cursorline_bg = "#3b3f46"
+M.cursorline_fg = "#c2c7cf"
 
-M.telescope_border        = "#90909a"
-M.telescope_prompt_border = "#bac3ff"
-M.telescope_prompt_title  = "#bac3ff"
-M.telescope_selection_bg  = "#444e85"
+M.telescope_border        = "#8c9199"
+M.telescope_prompt_border = "#9ccbfb"
+M.telescope_prompt_title  = "#9ccbfb"
+M.telescope_selection_bg  = "#21557f"
 M.telescope_selection_fg  = "#ffffff"
 
-M.tree_folder        = "#bac3ff"
-M.tree_folder_open   = "#e5bad8"
-M.tree_indent_marker = "#51515a"
-M.tree_root          = "#c3c5dd"
+M.tree_folder        = "#9ccbfb"
+M.tree_folder_open   = "#d4bfe6"
+M.tree_indent_marker = "#4d5259"
+M.tree_root          = "#b9c8da"
 
 return M
