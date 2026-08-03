@@ -63,6 +63,7 @@ alias grep='rg --color=auto --line-number --smart-case'
 
 alias clock='tty-clock -s -c -C 4'
 alias ff='fastfetch'
+alias ffs='ff -c ~/.config/fastfetch/min.jsonc'
 alias dw='dysk'
 
 alias aq='asciiquarium'

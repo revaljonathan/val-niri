@@ -158,6 +158,7 @@ layer-rule {
     background-effect {
         blur true
         saturation 0.9
+        xray false
     }
 }
 
