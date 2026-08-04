@@ -4,7 +4,7 @@ send_notification() {
 	HEAD=$(cal "$1" | head -n1)
 	if [ "$DIFF" -eq 0 ]; then
 		TODAY=$(date '+%-d')
-		BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<span background='#c3c5dd' foreground='#121318'><b>$TODAY</b></span>|1")
+		BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<span background='#b9c8da' foreground='#101418'><b>$TODAY</b></span>|1")
 	else
 		BODY=$(cal "$1" | tail -n7)
 	fi
