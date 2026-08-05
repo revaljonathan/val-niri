@@ -7,8 +7,8 @@ return {
     "hrsh7th/cmp-buffer",
     "nvim-telescope/telescope.nvim",
     { "ThePrimeagen/harpoon", branch = "harpoon2" },
-    "folke/tokyonight.nvim",
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
     "akinsho/bufferline.nvim",
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-tree.lua",
@@ -18,4 +18,7 @@ return {
     "ojroques/vim-oscyank",
     "windwp/nvim-autopairs",
     "captbaritone/better-indent-support-for-php-with-html",
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
 }

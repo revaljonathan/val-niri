@@ -14,7 +14,7 @@ cursor {
 }
 
 layout {
-    gaps 5
+    gaps 2
     background-color "transparent"
 
     center-focused-column "never"
@@ -32,15 +32,16 @@ layout {
     }
        default-column-width { proportion 0.5; }
        focus-ring {
-          on
+          off
           width 1.5
         }
         border {
-        off
+        on 
+        width 1.5
         }
     shadow {
         on
-           softness 30
+           softness 20
            spread 3
            offset x=0 y=5
           }
