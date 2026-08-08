@@ -26,6 +26,7 @@ binds {
     super+shift+d { spawn-sh "~/.local/bin/dnd-toggle.sh"; }
     super+S { spawn "~/.local/bin/browse.sh"; }
     super+P { spawn "~/.local/bin/powermenu.sh"; }
+    super+shift+s { spawn-sh "~/.local/bin/caf.sh"; }
     super+m { spawn "~/.local/bin/playerctl.sh"; }
     super+Escape { spawn "~/.local/bin/control.sh"; }
     super+shift+P { spawn "~/.local/bin/ppd.sh"; }
@@ -180,7 +181,6 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    super+shift+s { screenshot; }
     super+X { spawn-sh "~/.local/bin/ss.sh"; }
     super+shift+X { screenshot; }
     super+shift+q { spawn-sh "hyprpicker | wl-copy"; }

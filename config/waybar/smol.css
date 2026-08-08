@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15.5px;
+    font-size: 15px;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -9,10 +9,10 @@
 @import "colors.css";
 
 window#waybar {
-    background-color: alpha(@base, 0.85);
+    background-color: alpha(@base, 0.8);
     color: @text;
     transition: background-color 0.3s ease;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 window#waybar.hidden {
@@ -29,7 +29,6 @@ window#waybar.hidden {
 #workspaces,
 #clock,
 #cpu,
-#custom-pacman,
 #memory,
 #temperature,
 #network,
@@ -46,18 +45,9 @@ window#waybar.hidden {
 }
 
 
-#custom-right {
-    color: alpha(@secondary, 0.80);
-    margin: 0;
-    padding: 0 0;
-}
-
-
-
-
 #workspaces button {
     padding: 0 8px;
-    color: @text;
+    color: @primary;
     background-color: transparent;
     box-shadow: none;
 }
@@ -68,18 +58,13 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: linear-gradient(to right,@primary, @tertiary);
-    color: @base;
-    border-radius: 8px;
-    padding: 0 8px;
-    margin: 4 0px;
+    color: @primary;
+    opacity: 1;
 }
 
 #workspaces button.active {
-    background: linear-gradient(to right,@primary, @tertiary);
-    border-radius: 8px;
-    padding: 0 8px;
-    margin: 4 0px;
+    background :@primary;
+    border-radius: 0px;
     color: @base;
 }
 
@@ -100,8 +85,8 @@ window#waybar.hidden {
 
 
 #battery {
-    background-color: alpha(@secondary, 0.15);
-    border-radius: 8px;
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
     margin: 4px 0;
     padding: 0 10px;
 }
@@ -117,15 +102,16 @@ window#waybar.hidden {
 
 #battery.critical:not(.charging) {
     color: @text;
-    animation: blink 1s step-end infinite;
+    background-color: alpha(@error, 1);
+    color: @base;
 }
 
 #cpu {
-    padding: 0 0px;
+    padding: 0 4px;
 }
 
 #temperature {
-    padding: 0 0px;
+    padding: 0 4px;
 }
 
 #temperature.critical {
@@ -133,7 +119,7 @@ window#waybar.hidden {
 }
 
 #memory {
-    padding: 0 0px;
+    padding: 0 4px;
 }
 
 #pulseaudio {
@@ -143,7 +129,6 @@ window#waybar.hidden {
 #pulseaudio.muted {
     color: alpha(@text, 0.40);
 }
-
 #pulseaudio.microphone {
     padding: 0 4px;
 }
@@ -168,6 +153,21 @@ window#waybar.hidden {
     padding: 0 4px;
 }
 
+#custom-dunst {
+    padding: 0 4px;
+    color: @test;
+
+}
+
+#custom-caf-waybar{
+    padding: 0 4px;
+    border-radius: 0px;
+    margin: 4px 0;
+    background-color: alpha(@tertiary, 1);
+    color: @base;
+
+}
+
 #custom-pacman {
     padding: 0 4px;
 }
@@ -183,22 +183,56 @@ window#waybar.hidden {
 
 
 #custom-weather {
-    background-color: alpha(@secondary, 0.15);
-    border-radius: 8px;
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
     margin: 4px 0;
     padding: 0 6px;
 }
 
 #hw {
-    background-color: alpha(@secondary, 0.15);
-    border-radius: 8px;
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
     padding: 0 6px;
     margin: 4px 0;
 }
+
+#syst {
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
+    padding: 0 6px;
+    margin: 4px 0;
+}
+
+#sounds {
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
+    padding: 0 6px;
+    margin: 4px 0;
+}
+#clock {
+    border-radius: 0px;
+    margin: 4px 0;
+    padding: 0 6px;  
+    background-color: alpha(@secondary, 0.100);
+}
+
+#mpris {
+    border-radius: 0px;
+    margin: 4px 0;
+    padding: 0 6px;  
+    background-color: alpha(@secondary, 0.100);
+}
+#workspaces {
+    border-radius: 0px;
+    margin: 4px 0;
+    padding: 0 6px;  
+    background-color: alpha(@secondary, 0.100);
+}
+
 tooltip {
     background-color: @base;
-    border: 1px solid alpha(@text, 0.20);
-    color: @text;
+    border: 1px solid alpha(@secondary, 0.100);
+    color: @secondary;
 }
 
 tooltip label {

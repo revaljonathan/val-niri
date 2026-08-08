@@ -2,62 +2,53 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
-    "width": 1914, // Waybar width
-    "spacing": 12, // Gaps between modules (4px)
+    "width": 960, // Waybar width
+    "spacing": 6, // Gaps between modules (4px)
     "margin-top": 1,
-    "margin-bottom": -1,
+    "margin-bottom": 1,
 
     "modules-left": [
-        "niri/workspaces",
-        "mpris"
+        "mpris",
+    ],
+
+    "modules-center": [
+        "clock",
+        "niri/workspaces"
     ],
 
     "modules-right": [
-        "custom/right",
-        "clock",
-        "custom/right",
+        "custom/recorder",
         "battery",
-        "custom/right",
-        "cpu",
-        "custom/right",
-        "temperature",
-        "custom/right",
-        "memory",
-        "custom/right",
-        "pulseaudio",
-        "custom/right",
-        "backlight",
-        "custom/right",
-        "network"
+        "group/hw",
+        "custom/caf-waybar"
     ],
 
-   "custom/right": {
-    "format": "", 
-    "interval": "once",
+"custom/caf-waybar": {
+    "exec": "sh -c 'pgrep sleep.sh >/dev/null && echo \"\" || echo \"󰒳\"'",
+    "signal": 13,
+    "format": "{}",
     "tooltip": false
-   },
-   "custom/left": {
-    "format": "", 
-    "interval": "once",
-    "tooltip": false
-   },
-    "custom/pacman": {
-        "format": "{}",
-        "exec": "~/.local/bin/pacman.sh",
-        "tooltip": false,
-        "interval": 360
-    },
+}, 
 
-    "niri/window": {
-        "format": " {}",
-        "max-length": 40,
-        "tooltip": true,
-        "separate-outputs": true
+"niri/workspaces": {
+    "on-click": "activate",
+    "all-outputs": true,
+    "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
     },
+    "format": "{icon}"
+},
 
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%H:%M}"
+        "format": " {:%H:%M}",
+        "on-click-right": "~/.local/bin/cal.sh curr",
+        "on-scroll-up": "~/.local/bin/cal.sh next",
+        "on-scroll-down": "~/.local/bin/cal.sh prev"
     },
 
     "cpu": {
@@ -68,7 +59,6 @@
 
     "memory": {
         "format": " {used:0.1f}GiB",
-        "on-click": "~/.local/bin/mem.sh"
     },
 
     "temperature": {
@@ -83,7 +73,7 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
+        "format": "{icon}",
         "format-icons": ["", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
@@ -105,7 +95,6 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click": "~/.local/bin/bat.sh"
     },
 
     "battery#bat2": {
@@ -114,7 +103,7 @@
 
     "network": {
         "max-length": 15,
-        "format-wifi": " {essid} {signalStrength}%",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -124,18 +113,18 @@
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": " {volume}%",
+        "format": "",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶", //{format_source}",
         //"format-source": " {volume}%",
         //"format-source-muted": " ",
-        "on-click": "pavucontrol"
+        "on-click": "pkill -x quickshell; QT_QPA_PLATFORMTHEME=gtk3 quickshell &"
     },
 
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": " {volume}%",
+        "format-source": "",
         "format-source-muted": "",
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -148,28 +137,13 @@
         "format": "{}°C",
         "tooltip": true,
         "interval": 5400,
-        "exec": "~/.local/bin/wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
+        "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
         "return-type": "json",
-        "on-click": "~/.local/bin/weather.sh"
-    },
-
-    "group/cpu": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "temperature"
-        ]
-    },
-
-    "custom/steam": {
-        "exec": "~/.local/bin/steam.sh",
-        "on-click-right": "killall steam",
-        "interval": 30
     },
 
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
-        "max-length": 40,
+        "max-length": 30,
         "format-paused": "{status_icon} <i>{title} - {artist}</i>",
         "player-icons": {
             "default": "▶",
@@ -179,14 +153,27 @@
         }
     },
 
+    "custom/dunst": {
+    "format": "{}",
+    "exec": "dunstctl is-paused | grep -q true && echo '' || echo ''",
+    "on-click": "~/.local/bin/dunst.sh",
+    "signal": 8
+    },
+
+    "custom/recorder": {
+    "format": "Rec 󰑊",
+    "exec": "pgrep -x wf-recorder",
+    "signal": 9
+    },
+
     "group/hw": {
         "orientation": "horizontal",
         "modules": [
-            "pulseaudio",
-            "pulseaudio#microphone",
             "backlight",
             "network",
-            "custom/steam"
+            "pulseaudio",
+            "pulseaudio#microphone",
+            "custom/dunst"
         ]
-    }
+    },
 }

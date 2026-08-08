@@ -2,14 +2,15 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
-    "width": 1910, // Waybar width
-    "spacing": 12, // Gaps between modules (4px)
+    "width": 1920, // Waybar width
+    "spacing": 6, // Gaps between modules (4px)
     "margin-top": 1,
-    "margin-bottom": -1,
+    "margin-bottom": 1,
 
     "modules-left": [
         "niri/workspaces",
-        "mpris"
+        "mpris",
+        "mango/layout"
     ],
 
     "modules-center": [
@@ -20,32 +21,37 @@
     "modules-right": [
         "custom/recorder",
         "battery",
-        "cpu",
-        "temperature",
-        "memory",
+        "group/syst",
+        "group/sounds",
         "group/hw",
-        "custom/dunst"
+        "custom/dunst",
+        "custom/caf-waybar"
     ],
 
-   "custom/right": {
-    "format": "", 
-    "interval": "once",
+"custom/caf-waybar": {
+    "exec": "sh -c 'pgrep sleep.sh >/dev/null && echo \"\" || echo \" caffeinated\"'",
+    "signal": 13,
+    "format": "{}",
     "tooltip": false
-   },
+}, 
+  "mango/layout": {
+      "format": "{}",
+      // "format-S": "Scroller",
+      // "format-T": "Tile",
+  },
 
-    "custom/pacman": {
-        "format": "{}",
-        "exec": "~/.local/bin/pacman.sh",
-        "tooltip": false,
-        "interval": 360
+"niri/workspaces": {
+    "on-click": "activate",
+    "all-outputs": true,
+    "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
     },
-
-    "niri/window": {
-        "format": " {}",
-        "max-length": 40,
-        "tooltip": true,
-        "separate-outputs": true
-    },
+    "format": "{icon}"
+},
 
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -64,7 +70,6 @@
 
     "memory": {
         "format": " {used:0.1f}GiB",
-        "on-click": "~/.local/bin/mem.sh"
     },
 
     "temperature": {
@@ -101,7 +106,6 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click": "~/.local/bin/bat.sh"
     },
 
     "battery#bat2": {
@@ -146,7 +150,6 @@
         "interval": 5400,
         "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
         "return-type": "json",
-        "on-click": "~/.local/bin/weather.sh"
     },
 
     "group/cpu": {
@@ -190,11 +193,24 @@
     "group/hw": {
         "orientation": "horizontal",
         "modules": [
-            "pulseaudio",
-            "pulseaudio#microphone",
             "backlight",
             "network",
             "custom/steam"
+        ]
+    },
+    "group/sounds": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#microphone",
+        ]
+    },
+        "group/syst": {
+        "orientation": "horizontal",
+        "modules": [
+          "cpu",
+          "temperature",
+          "memory"
         ]
     }
 }

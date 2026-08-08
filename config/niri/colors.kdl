@@ -14,7 +14,7 @@ layout {
 
     border {
         active-color   "#9ccbfb"
-        inactive-color "#8c9199"
+        inactive-color "#101418"
         urgent-color   "#ffb4ab"
     }
     insert-hint {

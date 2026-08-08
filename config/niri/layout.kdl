@@ -9,8 +9,8 @@ overview {
 }
 
 cursor {
-    xcursor-theme "Bibata-Original-Ice"
-    xcursor-size 35
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 26 
 }
 
 layout {

@@ -1,12 +1,8 @@
 adw-gtk-theme
-awww
-bat
 bibata-cursor-theme-bin
 brightnessctl
 btop
-cava
 cbonsai
-chafa
 clipse-wayland-bin
 dunst
 eza
@@ -30,13 +26,8 @@ niri
 nwg-look
 opendoas
 openssh
-papirus-folders-catppuccin-git
-papirus-icon-theme-git
-pipes.sh
-quickshell
 ripgrep
 rofi
-rofi-calc
 rofimoji
 swayidle
 swaylock-effects

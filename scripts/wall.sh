@@ -14,8 +14,8 @@ INDEX=$(
         done |
         rofi             -dmenu             -i             -show-icons             -format i             -theme-str "
             window {
-                width: 62%;
-                height: 92%;
+                width: 63%;
+                height: 93%;
                 location: north west;
                 y-offset: 10;
                 x-offset: 10;
@@ -87,7 +87,7 @@ scheme-vibrant"
     fi
 
     echo "$SELECTED" >"$HOME/.config/wallpaper"
-    awww img "$SELECTED" --transition-type center --transition-fps 165 &
+    awww img "$SELECTED" --transition-type center --transition-fps 120 &
 
     if [ "$HAS_MATUGEN" -eq 1 ]; then
         matugen image "$SELECTED" --source-color-index 0 -t "$SCHEME"

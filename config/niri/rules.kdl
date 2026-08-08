@@ -2,6 +2,13 @@ window-rule {
     draw-border-with-background false
 }
 
+blur {
+    passes 3
+    offset 6
+    noise 0.015
+    saturation 1.5
+}
+
 window-rule {
   match title="Brave"
   open-on-workspace "3"
