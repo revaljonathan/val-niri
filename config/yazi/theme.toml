@@ -1,7 +1,3 @@
-
-# [app]
-# overall = { bg = "#1e1e2e" }
-#
 [mgr]
 cwd             = { fg = "cyan" }
 find_keyword    = { fg = "yellow", italic = true }
@@ -14,30 +10,32 @@ count_copied    = { fg = "black", bg = "green" }
 count_cut       = { fg = "black", bg = "red" }
 count_selected  = { fg = "black", bg = "yellow" }
 border_symbol   = "│"
-border_style    = { fg = "#3b3b3b" }
+border_style    = { fg = "bright_yellow" }
+syntect_theme = "~/.config/yazi/Catppucin-mocha.tmTheme"
 
 [tabs]
-active   = { fg = "black", bg = "white", bold = true }
-inactive = { fg = "white", bg = "black" }
+active   = { fg = "black", bg = "red", bold = true }
+inactive = { fg = "red", bg = "black" }
+padding = { open = "██", close = "" }
 
 [mode]
-normal_main = { fg = "black", bg = "yellow", bold = true }
-normal_alt  = { fg = "yellow", bg = "black" }
-select_main = { fg = "black", bg = "green", bold = true }
-select_alt  = { fg = "green", bg = "black" }
+normal_main = { fg = "black", bg = "blue", bold = true }
+normal_alt  = { fg = "blue", bg = "black" }
+select_main = { fg = "black", bg = "red", bold = true }
+select_alt  = { fg = "red", bg = "black" }
 unset_main  = { fg = "black", bg = "magenta", bold = true }
 unset_alt   = { fg = "magenta", bg = "black" }
 
 
 [indicator]
-parent  = { fg = "black", bg = "bright_blue" }
-current = { fg = "black", bg = "bright_blue" }
-preview = { fg = "black", bg = "bright_blue" }
+parent  = { fg = "black", bg = "blue" }
+preview = { fg = "black", bg = "blue" }
+current = { fg = "black", bg = "blue" }
 padding = { open = "██", close = "" }
 
 [status]
-sep_left        = { open = "", close = " " }
-sep_right       = { open = " ", close = "" }
+sep_left        = { open = "", close = "" }
+sep_right       = { open = " ", close = "" }
 progress_label  = { fg = "yellow", bold = true }
 progress_normal = { fg = "green", bg = "black" }
 progress_error  = { fg = "yellow", bg = "red" }
@@ -121,7 +119,41 @@ border   = { fg = "bright-yellow" }
 title    = { fg = "bright-yellow" }
 tbl_cell = { fg = "bright-yellow", reversed = true }
 tbl_col  = { bold = true }
+
+
 [icon]
+dirs = [
+	{ name = ".config", text = "", fg = "blue" },
+	{ name = ".git", text = "", fg = "blue" },
+	{ name = ".github", text = "", fg = "blue" },
+	{ name = ".npm", text = "", fg = "blue" },
+	{ name = "Desktop", text = "", fg = "blue" },
+	{ name = "Development", text = "", fg = "blue" },
+	{ name = "Documents", text = "", fg = "blue" },
+	{ name = "Downloads", text = "", fg = "blue" },
+	{ name = "Library", text = "", fg = "blue" },
+	{ name = "Movies", text = "", fg = "blue" },
+	{ name = "Music", text = "", fg = "blue" },
+	{ name = "Pictures", text = "", fg = "blue" },
+	{ name = "Public", text = "", fg = "blue" },
+	{ name = "Videos", text = "", fg = "blue" },
+]
+conds = [
+	{ if = "orphan", text = "", fg = "white" },
+	{ if = "link", text = "", fg = "bright_white" },
+	{ if = "block", text = "", fg = "magenta" },
+	{ if = "char", text = "", fg = "magenta" },
+	{ if = "fifo", text = "", fg = "magenta" },
+	{ if = "sock", text = "", fg = "magenta" },
+	{ if = "sticky", text = "", fg = "magenta" },
+	{ if = "dummy", text = "", fg = "red" },
+
+	{ if = "dir", text = "", fg = "blue" },
+	{ if = "exec", text = "", fg = "green" },
+	{ if = "!dir", text = "", fg = "white" },
+]
+
+
 files = [
   { name = "kritadisplayrc", text = "", fg = "#cba6f7" },
   { name = ".gtkrc-2.0", text = "", fg = "#f5e0dc" },

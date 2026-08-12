@@ -109,6 +109,55 @@ do_toggle_wifi() {
     fi
 }
 
+do_toggle_ethernet() {
+    local devices
+    devices=$(nmcli -t -f DEVICE,TYPE,STATE dev status 2>/dev/null |
+        awk -F: '$2=="ethernet"{print $1":"$3}')
+
+    if [[ -z "$devices" ]]; then
+        notify "No ethernet devices found" info
+        return
+    fi
+
+    local dev_count
+    dev_count=$(echo "$devices" | wc -l)
+
+    local chosen_dev chosen_state
+    if [[ "$dev_count" -eq 1 ]]; then
+        chosen_dev=$(echo "$devices" | cut -d: -f1)
+        chosen_state=$(echo "$devices" | cut -d: -f2)
+    else
+        local chosen
+        chosen=$(echo "$devices" |
+            sed 's/:/  (/; s/$/)/' |
+            eval "$ROFI_CMD -p 'Toggle Ethernet'")
+
+        [[ -z "$chosen" ]] && return
+
+        chosen_dev=$(echo "$chosen" | awk '{print $1}')
+        chosen_state=$(echo "$devices" | awk -F: -v d="$chosen_dev" '$1==d{print $2}')
+    fi
+
+    if [[ "$chosen_state" == "unavailable" || "$chosen_state" == "unmanaged" ]]; then
+        notify "Ethernet device $chosen_dev is $chosen_state" error
+        return
+    fi
+
+    if [[ "$chosen_state" == "disconnected" ]]; then
+        if nmcli dev connect "$chosen_dev" &>/dev/null; then
+            notify "Ethernet ($chosen_dev) enabled" connected
+        else
+            notify "Failed to enable ethernet ($chosen_dev)" error
+        fi
+    else
+        if nmcli dev disconnect "$chosen_dev" &>/dev/null; then
+            notify "Ethernet ($chosen_dev) disabled" disconnected
+        else
+            notify "Failed to disable ethernet ($chosen_dev)" error
+        fi
+    fi
+}
+
 do_vpn() {
     local vpns
     vpns=$(nmcli -t -f NAME,TYPE con show |
@@ -145,7 +194,7 @@ notify() {
     fi
 }
 
-MENU="  Connect\n  Disconnect\n  Status\n  Toggle WiFi\n  VPN"
+MENU="  Connect\n  Disconnect\n  Status\n  Toggle WiFi\n  Toggle Ethernet\n  VPN"
 
 choice=$(printf "$MENU" |
     eval "$ROFI_CMD -p 'Network'")
@@ -155,6 +204,7 @@ case "$choice" in
 *"Disconnect") do_disconnect ;;
 *"Status") do_status ;;
 *"Toggle WiFi") do_toggle_wifi ;;
+*"Toggle Ethernet") do_toggle_ethernet ;;
 *"VPN") do_vpn ;;
 *) exit 0 ;;
 esac

@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = 'shell "~/.local/bin/yazi-note.sh" --block --confirm'
+desc = "make note"
