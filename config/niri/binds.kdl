@@ -14,14 +14,14 @@ binds {
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
 
     // === Launchers, Menus & Custom Scripts ===
-    super+D { spawn "rofi" "-show" "drun"; }
-    super+shift+f23 { spawn-sh "rofi -show drun"; }
+    super+D { spawn "rofi" "-show" "drun" "-show-icons"; }
+    super+shift+f23 { spawn-sh "rofi -show drun -show-icons"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+A { spawn-sh "~/.local/bin/record.sh"; }
-    super+E { spawn-sh "rofimoji --selector-args='-theme emoji.rasi'"; }
+    super+E { spawn-sh "rofimoji"; }
     super+Space { spawn "~/.local/bin/filerofi.sh"; }
     super+T { spawn-sh "~/.local/bin/todo.sh"; }
-    super+n { spawn-sh "~/.local/bin/note.sh"; }
+    super+n { spawn-sh "kitty -e yazi ~/note"; }
     super+shift+n { spawn-sh "~/.local/bin/dunst.sh"; }
     super+shift+d { spawn-sh "~/.local/bin/dnd-toggle.sh"; }
     super+S { spawn "~/.local/bin/browse.sh"; }

@@ -41,6 +41,6 @@ case "$CHOICE" in
 "GPT"*) helium-browser "https://chatgpt.com/" ;;
 "Claude"*) helium-browser "https://claude.ai/new" ;;
 "Gemini"*) helium-browser "https://gemini.google.com/app" ;;
-"Dodgers"*) helium-browser "https://www.google.com/search?q=dodgers" ;;
-*) helium-browser "https://www.google.com/search?q=$(urlencode "$CHOICE")" ;;
+"Dodgers"*) helium-browser "https://www.duckduckgo.com/search?q=g! dodgers" ;;
+*) helium-browser "https://www.duckduckgo.com/search?q=$(urlencode "$CHOICE")" ;;
 esac

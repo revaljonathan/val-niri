@@ -67,3 +67,10 @@ output_path = '~/.config/nvim/after/plugin/matugen_colors.lua'
 input_path = '~/.config/matugen/templates/spice-color.ini'
 output_path = '~/.config/spicetify/Themes/text/color.ini'
 
+[templates.kvantum_kvconfig]
+input_path = '~/.config/matugen/templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = '~/.config/matugen/templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'

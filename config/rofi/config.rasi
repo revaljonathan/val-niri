@@ -1,7 +1,7 @@
 configuration {
     modes:              "drun";
     sorting-method:     "normal";
-    show-icons:         true;
+    show-icons:         false;
     terminal:           "kitty";
     editor:             "micro";
     matching:           "regex";

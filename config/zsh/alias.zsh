@@ -35,6 +35,7 @@ alias clipwipe='rm ~/.cache/cliphist/db'
 alias view='gwenview'
 alias zat='zathura'
 alias find='fd'
+alias imv='imv -b 0f0f0f'
 
 
 alias docs='cd Documents'
