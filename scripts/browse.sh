@@ -18,7 +18,10 @@ CHOICE=$(printf '%s\n' "${PREDEFINED[@]}" | rofi \
     -i \
     -no-show-icon \
     -theme-str '
-    window {width: 17%;}
+    window {
+        width: 17%;
+        location: center;
+    }
     listview {
         columns: 2;
         lines: 6;
@@ -41,6 +44,6 @@ case "$CHOICE" in
 "GPT"*) helium-browser "https://chatgpt.com/" ;;
 "Claude"*) helium-browser "https://claude.ai/new" ;;
 "Gemini"*) helium-browser "https://gemini.google.com/app" ;;
-"Dodgers"*) helium-browser "https://www.duckduckgo.com/search?q=g! dodgers" ;;
-*) helium-browser "https://www.duckduckgo.com/search?q=$(urlencode "$CHOICE")" ;;
+"Dodgers"*) helium-browser "https://search.brave.com/search?q=g! dodgers" ;;
+*) helium-browser "https://search.brave.com/search?q=$(urlencode "$CHOICE")" ;;
 esac

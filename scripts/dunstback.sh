@@ -14,6 +14,8 @@ BRIGHTNESS=$(brightnessctl get)
 MAX=$(brightnessctl max)
 PERCENT=$((BRIGHTNESS * 100 / MAX))
 
+pkill -sigrtmin+19 waybar
+
 dunstify -i ~/.icons/icon_scripts/dunst/bright_osd/brightness.svg -a "brightness" \
     -h string:x-dunst-stack-tag:brightness \
     -h int:value:"$PERCENT" \

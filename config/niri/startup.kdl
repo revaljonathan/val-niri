@@ -2,6 +2,7 @@ spawn-sh-at-startup "waybar -c ~/.config/waybar/main.jsonc -s ~/.config/waybar/m
 spawn-at-startup "awww-daemon"
 spawn-at-startup "sh" "-c" "awww-daemon \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "dunst"
+spawn-at-startup "lxpolkit"
 spawn-at-startup "clipse" "-listen"
 spawn-sh-at-startup "gammastep -l -6.2:106.8 -t 5500:3500"
 spawn-at-startup "xwayland-satellite"

@@ -1,0 +1,138 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 34, // Waybar height (to be removed for auto height)
+    "width": 1920, // Waybar width
+    "spacing": 12, // Gaps between modules (4px)
+    "margin-top": 1,
+    "margin-bottom": 1,
+
+    "modules-left": [
+      "niri/workspaces",
+      "network",
+      "pulseaudio#microphone",
+      "custom/caf-waybar",
+      "temperature",
+        "clock"
+    ],
+
+    "modules-center": [
+        "custom/ppd",
+    ],
+
+    "modules-right": [
+        "battery",
+        "custom/light",
+        "custom/volume"
+    ],
+
+"custom/caf-waybar": {
+    "exec": "sh -c 'pgrep sleep.sh >/dev/null && echo \"[ NORMAL ]\" || echo \"[ OVERDRIVE ]\"'",
+    "signal": 13,
+    "format": "{}",
+    "tooltip": false
+}, 
+
+"niri/workspaces": {
+    "on-click": "activate",
+    "all-outputs": true,
+    "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+    },
+    "format": "{icon}"
+},
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "[  {:%H:%M} ]",
+        "on-click-right": "~/.local/bin/cal.sh curr",
+        "on-scroll-up": "~/.local/bin/cal.sh next",
+        "on-scroll-down": "~/.local/bin/cal.sh prev"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "[  {temperatureC}°C ]",
+        "format-icons": ["󰉬", "", "󰉪"]
+    },
+
+    "custom/light": {
+      "exec": "~/.local/bin/wayback.sh",
+      "signal": 19
+    }, 
+
+    "custom/ppd": {
+      "exec": "~/.local/bin/wayppd.sh",
+      "interval": 30,
+      "format": "[ {} ]",
+      "signal": 21
+    },
+
+    "custom/volume": {
+      "exec": "~/.local/bin/wayvol.sh",
+      "signal": 17
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon} {capacity}%",
+        "format-discharging": "{icon} {capacity}% - {time}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        //"format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["[██░░░░░░░░]", "[████░░░░░░]", "[██████░░░░]", "[███████░░]", "[██████████]"],
+    },
+
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+    "network": {
+        "max-length": 15,
+        "format-wifi": "[  ]",
+        "format-ethernet": "[  ]",
+        "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "[ 󱛅 ]",
+        "on-click": "~/.local/bin/wifi.sh"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "[  ]",
+        "format-source-muted": "[  ]",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "tooltip-format": "{source_desc} | {source_volume}%"
+    },
+
+
+    "custom/dunst": {
+    "format": "{}",
+    "exec": "dunstctl is-paused | grep -q true && echo 'DND' || echo ''",
+    "signal": 8
+    },
+
+    "custom/recorder": {
+    "format": "Rec 󰑊",
+    "exec": "pgrep -x wf-recorder",
+    "signal": 9
+    },
+}

@@ -14,7 +14,7 @@ binds {
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
 
     // === Launchers, Menus & Custom Scripts ===
-    super+D { spawn "rofi" "-show" "drun" "-show-icons"; }
+    super+D { spawn-sh "rofi -show drun -show-icons -theme-str 'window {location: north east; x-offset:-10; y-offset:10; height: 91%;}'"; }
     super+shift+f23 { spawn-sh "rofi -show drun -show-icons"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+A { spawn-sh "~/.local/bin/record.sh"; }

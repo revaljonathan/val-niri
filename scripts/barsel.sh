@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTIONS="main\nsmol"
+OPTIONS="main\nsmol\nnuke"
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -p "Waybar Mode" \
     -theme-str 'window {width: 250px;}')
@@ -15,6 +15,9 @@ main)
     ;;
 smol)
     waybar -c ~/.config/waybar/smol.jsonc -s ~/.config/waybar/smol.css &
+    ;;
+nuke)
+    waybar -c ~/.config/waybar/nuke.jsonc -s ~/.config/waybar/nuke.css &
     ;;
 none) ;;
 esac

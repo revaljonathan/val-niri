@@ -3,9 +3,9 @@ window-rule {
 }
 
 blur {
-    passes 3
+    passes 2
     offset 6
-    noise 0.015
+    noise 0.0015
     saturation 1.5
 }
 
@@ -15,6 +15,17 @@ window-rule {
   open-maximized true
 }
 
+
+window-rule {
+    match app-id="steam_app_2719093765"
+    open-floating false
+}
+
+window-rule {
+    match title="[Aa]rknights"
+    open-floating false
+}
+
 window-rule {
     match app-id="quickshell$"
     open-floating true
@@ -22,7 +33,6 @@ window-rule {
     default-window-height { fixed 459; }
     background-effect {
         blur true
-        saturation 0.8
     }
     default-floating-position x=10 y=10 relative-to="top-right"
 }
@@ -45,7 +55,6 @@ window-rule {
     default-window-height { fixed 652; }
     background-effect {
         blur true
-        saturation 0.8
     }
 }
 
@@ -58,7 +67,6 @@ window-rule {
 window-rule {
     match app-id="note"
     background-effect {
-        saturation 0.95
         blur true
     }
 }

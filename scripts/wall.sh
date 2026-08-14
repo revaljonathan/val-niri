@@ -87,7 +87,7 @@ scheme-vibrant"
     fi
 
     echo "$SELECTED" >"$HOME/.config/wallpaper"
-    awww img "$SELECTED" --transition-type random --transition-fps 120 &
+    awww img "$SELECTED" --transition-type center --transition-fps 120 &
 
     if [ "$HAS_MATUGEN" -eq 1 ]; then
         matugen image "$SELECTED" --source-color-index 0 -t "$SCHEME"

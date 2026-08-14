@@ -20,6 +20,8 @@ configuration {
 
 @import "~/.config/rofi/colors.rasi"
 
+
+
 window {
     width:            25%;
     background-color: @surface-dim;
@@ -28,18 +30,18 @@ window {
     border-radius:    0px;
     padding:          0;
     fade: true;
+        location: center;
     fade-time: 0.2;
 }
-/* ── Main box ─────────────────────────────────────────────────────────── */
 mainbox {
     background-color: transparent;
-    children:         [ inputbar, message, listview ];
+    children:         [ inputbar, message, listview];
     spacing:          0;
     padding:          0px;
     margin:           4;
 }
 
-/* ── Input bar ────────────────────────────────────────────────────────── */
+
 inputbar {
     background-color: transparent;
     padding:          1px 10px;

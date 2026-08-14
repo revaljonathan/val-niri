@@ -75,3 +75,8 @@ vim.keymap.set("n", "<leader>t", function()
         vim.opt.showtabline = 0
     end
 end, { desc = "Toggle BufferLine" })
+
+-- Toggle diagnostics
+vim.keymap.set("n", "<leader>dt", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics" })

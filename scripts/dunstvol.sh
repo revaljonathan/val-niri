@@ -23,6 +23,8 @@ else
     ICON=~/.icons/icon_scripts/dunst/vol_osd/sound.svg
 fi
 
+pkill -SIGRTMIN+17 waybar
+
 dunstify -i "$ICON" -a "volume" \
     -h string:x-dunst-stack-tag:volume \
     -h int:value:"$VOLUME" \

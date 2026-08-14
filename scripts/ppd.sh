@@ -34,3 +34,5 @@ case "$CHOICE" in
     echo "max-power" | sudo tee /sys/firmware/acpi/platform_profile
     ;;
 esac
+
+pkill -sigrtmin+21 waybar

@@ -8,7 +8,7 @@
   "SelectedTitle": "{{colors.primary.default.hex}}",
   "NormalDesc": "{{colors.on_surface_variant.default.hex}}",
   "DimmedDesc": "{{colors.on_surface_variant.default.hex}}",
-  "SelectedDesc": "{{colors.primary.default.hex}}",
+  "SelectedDesc": "{{colors.secondary.default.hex}}",
   "StatusMsg": "{{colors.secondary.default.hex}}",
   "PinIndicatorColor": "{{colors.tertiary.default.hex}}",
   "SelectedBorder": "{{colors.tertiary.default.hex}}",

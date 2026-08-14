@@ -25,7 +25,7 @@ message {
 element-text {
     vertical-align: 0.5;
     horizontal-align: 0.5;
-    font: \"JetBrainsMono Nerd Font 60\";
+    font: \"JetBrainsMono Nerd Font 72\";
 }
 ")
 
