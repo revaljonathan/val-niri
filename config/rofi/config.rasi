@@ -10,8 +10,8 @@ configuration {
     display-ssh:        "SSH:";
     display-drun:       "Apps:";
         display-emoji:		"Emoji";
-     kb-move-char-forward: "Right";
-    kb-move-char-back: "Left";
+     kb-row-up: "Up,Control+p";
+    kb-row-down: "Down,Control+n";   
     kb-mode-next: "Alt+Right";
     kb-mode-previous: "Alt+Left";
    window-format: "{n} {t}"; 
@@ -20,6 +20,9 @@ configuration {
 
 @import "~/.config/rofi/colors.rasi"
 
+* {
+    separatorcolor: transparent;
+}
 
 
 window {

@@ -10,7 +10,6 @@
     "modules-left": [
         "niri/workspaces",
         "mpris",
-        "mango/layout"
     ],
 
     "modules-center": [
@@ -34,11 +33,6 @@
     "format": "{}",
     "tooltip": false
 }, 
-  "mango/layout": {
-      "format": "{}",
-      // "format-S": "Scroller",
-      // "format-T": "Tile",
-  },
 
 "niri/workspaces": {
     "on-click": "activate",
@@ -130,7 +124,7 @@
         "format-muted": "󰅶", //{format_source}",
         //"format-source": " {volume}%",
         //"format-source-muted": " ",
-        "on-click": "pkill -x quickshell; QT_QPA_PLATFORMTHEME=gtk3 quickshell &"
+        "on-click": "pavucontrol-qt"
     },
 
     "pulseaudio#microphone": {
@@ -160,15 +154,26 @@
         ]
     },
 
-    "custom/steam": {
-        "exec": "~/.local/bin/steam.sh",
-        "on-click-right": "killall steam",
-        "interval": 30
-    },
+    // "custom/steam": {
+    //     "exec": "sh -c 'pgrep steam >/dev/null && echo \"\" || echo \"\"'",
+    //     "on-click-right": "killall steam",
+    //     "interval": 30
+    // },
+    // "custom/vesktop": {
+    //     "exec": "pgrep vesktop >/dev/null && echo ''",
+    //     "on-click-right": "killall vesktop",
+    //     "interval": 30
+    // },
+    // "custom/spotify": {
+    //     "exec": "pgrep spotify >/dev/null && echo ''",
+    //     "on-click-right": "killall spotify",
+    //     "interval": 30
+    // },
 
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
-        "max-length": 40,
+        "max-length": 30,
+        "tooltip": false,
         "format-paused": "{status_icon} <i>{title} - {artist}</i>",
         "player-icons": {
             "default": "▶",
@@ -195,9 +200,19 @@
         "modules": [
             "backlight",
             "network",
-            "custom/steam"
+
         ]
     },
+
+        "group/bg": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/steam",
+            "custom/vesktop",
+            "custom/spotify"
+        ]
+    },
+
     "group/sounds": {
         "orientation": "horizontal",
         "modules": [

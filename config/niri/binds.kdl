@@ -14,7 +14,7 @@ binds {
     Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
 
     // === Launchers, Menus & Custom Scripts ===
-    super+D { spawn-sh "rofi -show drun -show-icons -theme-str 'window {location: north east; x-offset:-10; y-offset:10; height: 91%;}'"; }
+    super+D { spawn-sh "rofi -show drun -show-icons -theme-str 'window {location: north east; x-offset:-10; y-offset:10;} listview {lines: 20;}'"; }
     super+shift+f23 { spawn-sh "rofi -show drun -show-icons"; }
     super+g { spawn-sh "rofi -show calc"; }
     super+A { spawn-sh "~/.local/bin/record.sh"; }
@@ -102,6 +102,7 @@ binds {
     super+Shift+U         { move-workspace-down; }
     super+Shift+I         { move-workspace-up; }
 
+
     // Direct Workspace Selection (1-9)
     super+1 { focus-workspace 1; }
     super+2 { focus-workspace 2; }
@@ -170,10 +171,10 @@ binds {
     XF86MonBrightnessUp   { spawn "~/.local/bin/dunstback.sh" "up"; }
     XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
 
-    f3 { spawn "~/.local/bin/dunstvol.sh" "up"; }
-    f2 { spawn "~/.local/bin/dunstvol.sh" "down"; }
-    f6 { spawn "~/.local/bin/dunstback.sh" "up"; }
-    f5 { spawn "~/.local/bin/dunstback.sh" "down"; }
+    // f3 { spawn "~/.local/bin/dunstvol.sh" "up"; }
+    // f2 { spawn "~/.local/bin/dunstvol.sh" "down"; }
+    // f6 { spawn "~/.local/bin/dunstback.sh" "up"; }
+    // f5 { spawn "~/.local/bin/dunstback.sh" "down"; }
 
     XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 

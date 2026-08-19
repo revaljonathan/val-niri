@@ -29,7 +29,7 @@ alias gp='git push'
 
 alias nano='micro'
 alias vim='nvim'
-alias nv='nvim'
+alias v='nvim'
 alias mic='micro'
 
 alias see='bat'

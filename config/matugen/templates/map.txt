@@ -1,0 +1,5 @@
+#1e1e2e -> {{colors.surface.default.hex}} 
+#181825 -> {{colors.surface.default.hex | lighten: -5}} 
+#cddnf4 -> {{colors.on_surface.default.hex}}
+#fab387 -> {{colors.primary.default.hex}}
+#45475a -> {{colors.surface_bright.default.hex}}

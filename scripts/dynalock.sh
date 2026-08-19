@@ -1,2 +1,2 @@
 #!/bin/bash
-swaylock -f -i "$(cat ~/.config/wallpaper)" --effect-vignette 0.5:0.5 --effect-blur 32x3 --clock --indicator
+swaylock -f -i "$(cat ~/.config/wallpaper)" --effect-vignette 0.4:0.4 --effect-blur 32x3 --clock --indicator 

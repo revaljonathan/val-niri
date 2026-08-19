@@ -66,7 +66,7 @@ window#waybar.hidden {
     border-radius: 0px;
     margin: 4px 0;
     padding: 2 10px;
-    color: @error;
+    color: @secondary;
     border: 1px solid @primary;
 }
 
@@ -85,6 +85,13 @@ window#waybar.hidden {
     color: @base;
 }
 
+#memory {
+    background-color: alpha(@secondary, 0.10);
+    border-radius: 0px;
+    margin: 2px 0;
+    padding: 4 1px;
+    border: 1px solid @primary;
+}
 #temperature {
     background-color: alpha(@secondary, 0.10);
     border-radius: 0px;

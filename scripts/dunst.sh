@@ -28,10 +28,12 @@ done
 chosen="$(printf '%s\n' "${display_list[@]}" | rofi -dmenu -i -p "History" -no-custom -no-show-icons -theme-str "
     window {
         width: 40%;
-        height: 30%;
         location: north east;
         x-offset: -10;
         y-offset: 10;
+    }
+    listview {
+        lines: 22;
     }
 ")"
 

@@ -80,6 +80,18 @@ for i in {0..255}; do
 done
 }
 
+col() {
+    for i in {0..7}; do
+        printf "\e[48;5;%sm    " "$i"
+    done
+    printf "\e[0m\n"
+    
+    for i in {8..15}; do
+        printf "\e[48;5;%sm    " "$i"
+    done
+    printf "\e[0m\n"
+}
+
 weather() {
   curl wttr.in/"$1"
 }

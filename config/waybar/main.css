@@ -8,17 +8,16 @@
 
 @import "colors.css";
 
+/* ===== BASE ===== */
 window#waybar {
     background-color: alpha(@base, 0.8);
     color: @text;
     transition: background-color 0.3s ease;
-    border-radius: 0px;
 }
 
 window#waybar.hidden {
     opacity: 0.3;
 }
-
 
 .modules-left,
 .modules-center,
@@ -26,6 +25,7 @@ window#waybar.hidden {
     padding: 0 4px;
 }
 
+/* ===== COMMON MODULE STYLES ===== */
 #workspaces,
 #clock,
 #cpu,
@@ -36,14 +36,27 @@ window#waybar.hidden {
 #pulseaudio.microphone,
 #backlight,
 #mpris,
-#custom-weather,
+#custom-vesktop,
 #custom-spotify,
+#custom-weather,
 #custom-steam {
     padding: 0 2px;
     color: @text;
     background-color: transparent;
 }
 
+#custom-spotify,
+#custom-weather,
+#custom-steam {
+    padding: 0 4px;
+}
+/* ===== WORKSPACES ===== */
+#workspaces {
+    border-radius: 0px;
+    margin: 4px 0;
+    padding: 0 6px;
+    background-color: alpha(@secondary, 0.100);
+}
 
 #workspaces button {
     padding: 0 8px;
@@ -63,8 +76,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    background :@primary;
-    border-radius: 0px;
+    background: @primary;
     color: @base;
 }
 
@@ -74,19 +86,14 @@ window#waybar.hidden {
     animation: blink 0.8s step-end infinite;
 }
 
+/* ===== ANIMATIONS ===== */
 @keyframes blink {
     50% { opacity: 0.4; }
 }
 
-#clock {
-    /* font-weight: 600; */
-    /* letter-spacing: 0.03em; */
-}
-
-
+/* ===== BATTERY ===== */
 #battery {
     background-color: alpha(@secondary, 0.10);
-    border-radius: 0px;
     margin: 4px 0;
     padding: 0 10px;
 }
@@ -101,12 +108,17 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-    color: @text;
-    background-color: alpha(@error, 1);
     color: @base;
+    background-color: alpha(@error, 1);
 }
 
-#cpu {
+/* ===== SYSTEM MONITORS ===== */
+#cpu,
+#memory,
+#pulseaudio,
+#pulseaudio.microphone,
+#backlight,
+#network {
     padding: 0 4px;
 }
 
@@ -118,65 +130,43 @@ window#waybar.hidden {
     animation: blink 1s step-end infinite;
 }
 
-#memory {
-    padding: 0 4px;
-}
-
-#pulseaudio {
-    padding: 0 4px;
-}
-
-#pulseaudio.muted {
-    color: alpha(@text, 0.40);
-}
-#pulseaudio.microphone {
-    padding: 0 4px;
-}
-
+#pulseaudio.muted,
 #pulseaudio.microphone.source-muted {
     color: alpha(@text, 0.40);
-}
-
-#backlight {
-    padding: 0 4px;
-}
-
-#network {
-    padding: 0 4px;
 }
 
 #network.disconnected {
     color: alpha(@text, 0.40);
 }
 
-#custom-steam {
+/* ===== CUSTOM MODULES ===== */
+#custom-dunst,
+#custom-caf-waybar {
     padding: 0 4px;
-}
-
-#custom-dunst {
-    padding: 0 4 0 4px;
-    border-radius: 0px;
+    border: 1px solid @primary;
     margin: 4px 0;
-    background-color: alpha(@error, 1);
-    color: @base;
-
+    color: @text;
 }
 
-#custom-caf-waybar{
-    padding: 0 4px;
-    border-radius: 0px;
+/* ===== GROUPED MODULES (with background) ===== */
+#hw,
+#syst,
+#bg,
+#sounds,
+#clock,
+#mpris,
+#custom-weather {
+    background-color: alpha(@secondary, 0.10);
     margin: 4px 0;
-    background-color: alpha(@tertiary, 1);
-    color: @base;
-
+    padding: 0 6px;
 }
 
-#custom-pacman {
-    padding: 0 4px;
+#clock,
+#mpris {
+    background-color: alpha(@secondary, 0.100);
 }
 
 #mpris {
-    padding: 0 2px;
     font-style: normal;
 }
 
@@ -184,54 +174,7 @@ window#waybar.hidden {
     color: @text;
 }
 
-
-#custom-weather {
-    background-color: alpha(@secondary, 0.10);
-    border-radius: 0px;
-    margin: 4px 0;
-    padding: 0 6px;
-}
-
-#hw {
-    background-color: alpha(@secondary, 0.10);
-    border-radius: 0px;
-    padding: 0 6px;
-    margin: 4px 0;
-}
-
-#syst {
-    background-color: alpha(@secondary, 0.10);
-    border-radius: 0px;
-    padding: 0 6px;
-    margin: 4px 0;
-}
-
-#sounds {
-    background-color: alpha(@secondary, 0.10);
-    border-radius: 0px;
-    padding: 0 6px;
-    margin: 4px 0;
-}
-#clock {
-    border-radius: 0px;
-    margin: 4px 0;
-    padding: 0 6px;  
-    background-color: alpha(@secondary, 0.100);
-}
-
-#mpris {
-    border-radius: 0px;
-    margin: 4px 0;
-    padding: 0 6px;  
-    background-color: alpha(@secondary, 0.100);
-}
-#workspaces {
-    border-radius: 0px;
-    margin: 4px 0;
-    padding: 0 6px;  
-    background-color: alpha(@secondary, 0.100);
-}
-
+/* ===== TOOLTIP ===== */
 tooltip {
     background-color: @base;
     border: 1px solid alpha(@secondary, 0.100);

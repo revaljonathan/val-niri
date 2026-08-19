@@ -124,7 +124,8 @@
 		{
 			"type": "swap",
 			"key": "Swap:   ",
-			"keyColor": "cyan"
+			"keyColor": "cyan",
+      "separate": true
 		},
 		{
 			"type": "uptime",

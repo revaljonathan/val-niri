@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 WALLPAPER_DIR="$HOME/pics/walls/"
 COLUMNS=6
-THUMB_SIZE=175
+THUMB_SIZE=190
 TMPFILE=$(mktemp)
 
 fd --max-depth 1 --type f -e jpg -e jpeg -e png -e webp -e gif . "$WALLPAPER_DIR" |
@@ -10,23 +10,22 @@ sort > "$TMPFILE"
 INDEX=$(
     cat "$TMPFILE" |
         while read -r filepath; do
-            printf ' \x00icon\x1f%s\n' "$filepath"
+            filename=$(basename "$filepath")
+            printf '%s\x00icon\x1f%s\n' "$filename" "$filepath"
         done |
-        rofi             -dmenu             -i             -show-icons             -format i             -theme-str "
+        rofi -dmenu -p wallpaper -i -show-icons -format i -theme-str "
             window {
-                width: 63%;
-                height: 93%;
-                location: north west;
-                y-offset: 10;
+                width: 70%;
+                location: south;
+                y-offset: -10;
                 x-offset: 10;
             }
-            inputbar {
-                enabled: false;
-            }
+
             listview {
                 columns: $COLUMNS;
                 flow: horizontal;
                 spacing: 8px;
+                lines: 3;
             }
             element {
                 orientation: vertical;
@@ -39,16 +38,18 @@ INDEX=$(
                 border-radius: 0px;
             }
             element-text {
-                font: \"Sans 0\";
-                padding: 0;
-                margin: 0;
+                padding: 0px 0 0 0;
+                font-size: 14px;
+                width: ${THUMB_SIZE}px;
+                text-align: center;
+                horizontal-align: 0.5;
+                vertical-align: 0.5;
             }
             element selected {
                 border-radius: 0px;
             }
         "
 )
-
 [ -z "$INDEX" ] && {
     rm "$TMPFILE"
     exit 0
@@ -63,23 +64,18 @@ if [ -n "$SELECTED" ]; then
         HAS_MATUGEN=1
 
         SCHEMES="scheme-tonal-spot
-scheme-expressive
-scheme-fidelity
-scheme-fruit-salad
-scheme-monochrome
+scheme-content
 scheme-neutral
 scheme-rainbow
-scheme-content
-scheme-vibrant"
-
+"
         SCHEME=$(printf '%s\n' "$SCHEMES" | rofi -dmenu -i -p "scheme" -theme-str '
             window {
-                width: 25%;
+                width: 15%;
                 location: center;
             }
             listview {
-                columns: 2;
-                lines: 5;
+                columns: 1;
+                lines: 4;
             }
         ')
 

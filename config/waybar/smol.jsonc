@@ -8,7 +8,6 @@
     "margin-bottom": 1,
 
     "modules-left": [
-        "mpris",
     ],
 
     "modules-center": [
@@ -20,6 +19,7 @@
         "custom/recorder",
         "battery",
         "group/hw",
+        "custom/dunst",
         "custom/caf-waybar"
     ],
 
@@ -104,7 +104,7 @@
     "network": {
         "max-length": 15,
         "format-wifi": "",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-ethernet": "",
         "tooltip-format": "Network Information\n\nSSID  : {essid}\nIP    : {ipaddr}\nBand  : {frequency} MHz\nSignal: {signalStrength}%   \nvia   : {ifname}",
         "format-linked": "{ifname} (No IP) 󰊗",
         "format-disconnected": "󱛅",
@@ -169,11 +169,9 @@
     "group/hw": {
         "orientation": "horizontal",
         "modules": [
-            "backlight",
             "network",
             "pulseaudio",
-            "pulseaudio#microphone",
-            "custom/dunst"
+            "pulseaudio#microphone"
         ]
     },
 }

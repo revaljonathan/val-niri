@@ -1,12 +1,19 @@
+recent-windows {
+    binds {
+        Mod+Tab         { next-window  scope="workspace"; }
+        Mod+Shift+Tab   { previous-window scope="workspace"; }
+    }
+}
+
 window-rule {
     draw-border-with-background false
 }
 
 blur {
-    passes 2
-    offset 6
-    noise 0.0015
-    saturation 1.5
+    passes 3
+    offset 3
+    noise 0.03
+    saturation 1.7
 }
 
 window-rule {
@@ -17,6 +24,11 @@ window-rule {
 
 
 window-rule {
+    match app-id="[Ss]team"
+    open-floating false
+}
+
+window-rule {
     match app-id="steam_app_2719093765"
     open-floating false
 }
@@ -24,17 +36,7 @@ window-rule {
 window-rule {
     match title="[Aa]rknights"
     open-floating false
-}
-
-window-rule {
-    match app-id="quickshell$"
-    open-floating true
-    default-column-width { fixed 952; }
-    default-window-height { fixed 459; }
-    background-effect {
-        blur true
-    }
-    default-floating-position x=10 y=10 relative-to="top-right"
+    open-fullscreen true
 }
 
 window-rule {
@@ -51,21 +53,37 @@ window-rule {
 window-rule {
     match app-id="clipse$"
     open-floating true
-    default-column-width { fixed 922; }
-    default-window-height { fixed 652; }
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
     background-effect {
         blur true
     }
 }
+window-rule {
+    match app-id="[Vv]esktop"
+    open-floating false
+    background-effect {
+        blur true
+    } 
+    popups {
+        geometry-corner-radius 0
+        background-effect {
+            blur true
+        }
+    }
+
+}
+
 
 window-rule {
     match app-id="imv$"
     open-floating true
-    default-column-width { fixed 922; }
-    default-window-height { fixed 652; }
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
 }
+
 window-rule {
-    match app-id="note"
+    match app-id="xdg-desktop-portal-gnome"
     background-effect {
         blur true
     }
@@ -93,13 +111,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="note$"
-    open-floating true
-    default-column-width { fixed 900; }
-    default-window-height { fixed 800; }
-}
-
-window-rule {
     match app-id="calcurse$"
     open-floating true
     default-column-width { fixed 922; }
@@ -114,9 +125,9 @@ window-rule {
 window-rule {
     match app-id="kittyfloat$"
     open-floating true
-    default-column-width { fixed 922; }
-    default-window-height { fixed 577; }
-    default-floating-position x=0 y=13 relative-to="bottom"
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
+    default-floating-position x=0 y=10 relative-to="bottom"
 }
 
 window-rule {
@@ -146,10 +157,34 @@ layer-rule {
 }
 
 window-rule {
-    match app-id="pavucontrol-qt"
-    opacity 0.85
+    match app-id="[Ll]xpolkit"
     background-effect {
         blur true
+    }
+}
+
+window-rule {
+    match app-id="pavucontrol-qt"
+    opacity 0.85
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 500; }
+    default-floating-position x=10 y=10 relative-to="top-right"
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="[Nn]autilus"
+    background-effect {
+        blur true
+    }
+    popups {
+        geometry-corner-radius 0
+        background-effect {
+            blur true
+        }
     }
 }
 
