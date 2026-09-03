@@ -1,5 +1,5 @@
 * {
-    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-size: 15px;
     border: none;
     border-radius: 0;
@@ -8,7 +8,6 @@
 
 @import "colors.css";
 
-/* ===== BASE ===== */
 window#waybar {
     background-color: alpha(@base, 0.8);
     color: @text;
@@ -36,10 +35,8 @@ window#waybar.hidden {
 #pulseaudio.microphone,
 #backlight,
 #mpris,
-#custom-vesktop,
-#custom-spotify,
-#custom-weather,
-#custom-steam {
+#custom-weather
+{
     padding: 0 2px;
     color: @text;
     background-color: transparent;
@@ -53,9 +50,6 @@ window#waybar.hidden {
 /* ===== WORKSPACES ===== */
 #workspaces {
     border-radius: 0px;
-    margin: 4px 0;
-    padding: 0 6px;
-    background-color: alpha(@secondary, 0.100);
 }
 
 #workspaces button {
@@ -154,7 +148,9 @@ window#waybar.hidden {
 #bg,
 #sounds,
 #clock,
+#tray,
 #mpris,
+#niri,
 #custom-weather {
     background-color: alpha(@secondary, 0.10);
     margin: 4px 0;

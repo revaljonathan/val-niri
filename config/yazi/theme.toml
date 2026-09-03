@@ -10,7 +10,7 @@ count_copied    = { fg = "black", bg = "green" }
 count_cut       = { fg = "black", bg = "red" }
 count_selected  = { fg = "black", bg = "yellow" }
 border_symbol   = "│"
-border_style    = { fg = "bright_magenta" }
+border_style    = { fg = "bright_cyan" }
 syntect_theme = "~/.config/yazi/Catppucin-mocha.tmTheme"
 
 [tabs]

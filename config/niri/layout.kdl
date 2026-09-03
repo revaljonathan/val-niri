@@ -1,4 +1,5 @@
 overview {
+    zoom 0.4
     workspace-shadow {
         softness 50
         spread 10
@@ -14,7 +15,7 @@ cursor {
 }
 
 layout {
-    gaps 2
+    gaps 5
     background-color "transparent"
 
     center-focused-column "never"
@@ -41,8 +42,8 @@ layout {
         }
     shadow {
         on
-           softness 20
-           spread 3
+           softness 40
+           spread 6
            offset x=0 y=5
           }
 }
@@ -55,12 +56,12 @@ animations {
     }
 
     window-open {
-        duration-ms 150
+        duration-ms 135
         curve "ease-out-expo"
     }
 
     window-close {
-        duration-ms 150
+        duration-ms 125
         curve "ease-out-quad"
     }
 

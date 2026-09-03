@@ -54,10 +54,10 @@ if matugen_ok then
         sections = {
             lualine_a = { "mode" },
             lualine_b = {
-                { "branch", color = { fg = matugen.primary, bg = matugen.cursorline_bg } },
+                { "branch", color = { fg = matugen.branch, bg = matugen.cursorline_bg } },
                 {
                     "filename",
-                    path = 1,
+                    path = 0,
                     color = { fg = matugen.fg, bg = matugen.cursorline_bg },
                     symbols = {
                         modified = "●",
@@ -68,6 +68,14 @@ if matugen_ok then
             },
             lualine_c = {},
             lualine_x = {
+                { "fileformat", 
+                color = { fg = matugen.fg, bg = matugen.cursorline_bg  },
+                symbols = {
+                    unix = "unix",  
+                    dos = "DOS",         
+                    mac = "Mac",    
+                },
+            },
                 { "filetype", color = { fg = matugen.fg, bg = matugen.cursorline_bg  } },
                 { "progress", color = { fg = matugen.fg, bg = matugen.cursorline_bg  } },
             },

@@ -1,15 +1,17 @@
 #! /bin/bash
 
+CALENDAR_FONT="JetBrains Mono 13"  
+
 send_notification() {
 	HEAD=$(cal "$1" | head -n1)
 	if [ "$DIFF" -eq 0 ]; then
 		TODAY=$(date '+%-d')
-		BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<span background='{{colors.secondary.default.hex}}' foreground='{{colors.surface.default.hex}}'><b>$TODAY</b></span>|1")
+		BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<span background='{{colors.secondary.default.hex}}' foreground='{{colors.on_secondary.default.hex}}'><b>$TODAY</b></span>|1")
 	else
 		BODY=$(cal "$1" | tail -n7)
 	fi
 	dunstify -h string:x-canonical-private-synchronous:calendar \
-		"$HEAD" "$BODY" -u NORMAL -a calendar
+		"$HEAD" "<span font='$CALENDAR_FONT'>$BODY</span>" -u NORMAL -a calendar
 }
 
 handle_action() {

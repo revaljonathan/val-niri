@@ -11,9 +11,9 @@ window-rule {
 
 blur {
     passes 3
-    offset 3
-    noise 0.03
-    saturation 1.7
+    offset 4
+    noise 0.01
+    saturation 1.5
 }
 
 window-rule {
@@ -22,6 +22,10 @@ window-rule {
   open-maximized true
 }
 
+window-rule {
+  match app-id="[ll]ibrewolf"
+  open-maximized true
+}
 
 window-rule {
     match app-id="[Ss]team"
@@ -51,15 +55,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="clipse$"
-    open-floating true
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 700; }
-    background-effect {
-        blur true
-    }
-}
-window-rule {
     match app-id="[Vv]esktop"
     open-floating false
     background-effect {
@@ -73,13 +68,26 @@ window-rule {
     }
 
 }
-
-
 window-rule {
     match app-id="imv$"
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 700; }
+}
+
+layer-rule {
+    match namespace="qs-bar"
+    background-effect {
+        blur true
+    } 
+}
+
+layer-rule {
+    match namespace="qs-calculator|qs-dashboard|qs-monitor|qs-emoji|qs-browse|qs-wall|qs-clipboard|qs-launcher"
+    background-effect {
+        blur true
+        xray false
+    } 
 }
 
 window-rule {
@@ -97,30 +105,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id="org.pwmt.zathura"
-    background-effect {
-        blur true
-        saturation 0.8
-    }
-}
-window-rule {
     match app-id="nwg-look"
     background-effect {
         blur true
     }
 }
-
-window-rule {
-    match app-id="calcurse$"
-    open-floating true
-    default-column-width { fixed 922; }
-    default-window-height { fixed 1150; }
-    background-effect {
-        blur true
-        saturation 0.85
-    }
-}
-
 
 window-rule {
     match app-id="kittyfloat$"
@@ -141,35 +130,12 @@ window-rule {
             blur true
         }
     }
-   
-    min-width 952
-    min-height 576 
-    max-width 952
-    max-height 1156
-    
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
     open-floating true
 }
-layer-rule {
-    match namespace="waybar"
-    background-effect {
-        blur true
-    }
-}
-
 window-rule {
     match app-id="[Ll]xpolkit"
-    background-effect {
-        blur true
-    }
-}
-
-window-rule {
-    match app-id="pavucontrol-qt"
-    opacity 0.85
-    open-floating true
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 500; }
-    default-floating-position x=10 y=10 relative-to="top-right"
     background-effect {
         blur true
     }
@@ -200,39 +166,11 @@ window-rule {
         }
     }
 }
-
-window-rule {
-    match app-id="^zen"
-    draw-border-with-background false
-    background-effect {
-        blur true
-    }
-}
-
-
-layer-rule {
-    match namespace="^rofi$"
-    background-effect {
-        blur true
-        saturation 0.9
-        xray false
-    }
-}
-
-layer-rule {
-    match namespace="^notifications$"
-    background-effect {
-        blur true
-        xray false
-    }
-}
-
 window-rule {
   match title="New Tab - Helium"
   opacity 0.88
   background-effect {
       blur true
-      saturation 0.85
   }
 }
 window-rule {

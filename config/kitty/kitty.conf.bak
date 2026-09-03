@@ -5,14 +5,15 @@ scrollbar_width             0
 wheel_scroll_min_lines      1
 enable_audio_bell           no
 hide_window_decorations     yes
-background_opacity          0.8567
+background_opacity          0.8234567
+font_size 13
 
 dynamic_background_opacity  no
 confirm_os_window_close     0
 
 cursor_shape block
 modify_font underline_thickness 70%
-modify_font underline_position 5px
+modify_font underline_position 10px
 
 
 cursor_blink_interval 1.0
@@ -22,10 +23,10 @@ repaint_delay 8
 input_delay 0
 
 
-cursor_trail 10
-cursor_trail_decay 0.1 0.9
-
-cursor_trail_start_threshold 0
+# cursor_trail 10
+# cursor_trail_decay 0.1 0.9
+#
+# cursor_trail_start_threshold 0
 
 
 window_padding_width 2 8 2 8
@@ -50,7 +51,5 @@ font_family      family="JetBrainsMono Nerd Font Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
-font_size 13.0
 # END_KITTY_FONTS
-
 

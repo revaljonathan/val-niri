@@ -2,12 +2,13 @@
 separator_height = 0
 separator_color= frame
 min_icon_size = 64
+markup = full
 max_icon_size = 256
 gap_size = 2
-frame_color = "#56626d"
+frame_color = "#585e6c"
 frame_width = 1
-highlight = "#d4bfe6"
-font = JetBrainsMono Nerd font 13
+highlight = "#d8bde3"
+font = IBM Plex Sans Regular 12
 width = (320, 550)
 height = (50, 700)
 progress_bar = true
@@ -18,66 +19,28 @@ progress_bar_min_width = 300
 progress_bar_max_width = 300
 padding = 6
 origin = top-right
-format = "<span foreground='#8a8a8aff'>%a</span>\n<b>%s</b>\n%b"
+format = "<span foreground='#8d9199'>%a</span>\n<b>%s</b>\n%b"
 history_ignore = false
 
 [urgency_low]
-    background = "#272c31A6"
-    foreground = "#e0e2e8"
-    highlight = "#d4bfe6"
+    background = "#282b31A6"
+    foreground = "#e1e2e8"
+    highlight = "#d8bde3"
 
 [urgency_normal]
-    background = "#272c31A6"
-    foreground = "#e0e2e8"
-    highlight = "#d4bfe6"
+    background = "#282b31A6"
+    foreground = "#e1e2e8"
+    highlight = "#d8bde3"
 
 [urgency_critical]
     background = "#a7060fA6"
     foreground = "#ffffff"
-    highlight = "#d4bfe6"
-
-[volume_notifications]
-    appname = volume
-    summary = *
-    history_ignore = true
-    set_stack_tag = volume
-    appname = volume
-    min_icon_size = 64
-    max_icon_size = 64
-
-[brightness]
-    appname = brightness
-    summary = *
-    history_ignore = true
-    set_stack_tag = brightness
-    min_icon_size = 64
-    max_icon_size = 64
-
-[battery]
-    appname = battery
-    summary = *
-    set_stack_tag = battery
-    min_icon_size = 64
-    max_icon_size = 64
-
-[weather]
-    appname = weather
-    summary = *
-    set_stack_tag = weather
-    min_icon_size = 64
-    max_icon_size = 64
+    highlight = "#d8bde3"
 
 [wifi]
     appname = wifi
     summary = *
     set_stack_tag = wifi
-    min_icon_size = 64
-    max_icon_size = 64
-
-[walls]
-    appname = walls
-    summary = *
-    set_stack_tag = walls
     min_icon_size = 64
     max_icon_size = 64
 
@@ -87,13 +50,6 @@ history_ignore = false
     set_stack_tag = 
     min_icon_size = 72
     max_icon_size = 72
-
-[system]
-    appname = system
-    summary = *
-    set_stack_tag = 
-    min_icon_size = 48
-    max_icon_size = 48
 
 [CPU profile]
     appname = CPU profile

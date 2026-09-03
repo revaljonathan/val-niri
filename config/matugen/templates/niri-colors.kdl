@@ -14,7 +14,7 @@ layout {
 
     border {
         active-color   "{{colors.primary.default.hex}}"
-        inactive-color "{{colors.surface.default.hex}}"
+        inactive-color "{{colors.surface.default.hex}}e6"
         urgent-color   "{{colors.error.default.hex}}"
     }
     insert-hint {

@@ -1,9 +1,9 @@
 #!/bin/bash
-ASSETS="$HOME/.icons/icon_scripts/dunst/misc"
-TEMP_ICON="${XDG_RUNTIME_DIR:-/tmp}/media-art-$$.jpg"
+ASSETS="$HOME/.config/quickshell/notification/assets"
+TEMP_ICON="/tmp/media-art-$$.jpg"
 trap "rm -f '$TEMP_ICON'" EXIT INT TERM
 
-DEBOUNCE=0.4
+DEBOUNCE=0.6
 LAST_TITLE=""
 PENDING_PID=""
 
@@ -18,7 +18,7 @@ show_notification() {
         ICON="$ASSETS/media.svg"
     fi
 
-    dunstify -a "media" -i "$ICON" -t 5000 -r 9994 "$TITLE" "by $ARTIST"
+    notify-send -a "media" -i "$ICON" -t 5000 "$TITLE" "by $ARTIST"
 }
 
 playerctl --follow metadata --format "{{title}}|{{artist}}|{{mpris:artUrl}}" |

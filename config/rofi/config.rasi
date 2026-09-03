@@ -126,8 +126,8 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color: @secondary-fixed-dim;
-    text-color:       @surface;
+    background-color: @secondary;
+    text-color:       @on-secondary;
     border-color:     @on-surface;
 }
 

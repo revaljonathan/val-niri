@@ -15,19 +15,4 @@ esac
 VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')
 MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -c MUTED)
 
-if [ "$MUTED" -gt 0 ]; then
-    MSG="Muted"
-    ICON=~/.icons/icon_scripts/dunst/vol_osd/mute.svg
-else
-    MSG="$VOLUME%"
-    ICON=~/.icons/icon_scripts/dunst/vol_osd/sound.svg
-fi
-
-pkill -SIGRTMIN+17 waybar
-
-dunstify -i "$ICON" -a "volume" \
-    -h string:x-dunst-stack-tag:volume \
-    -h int:value:"$VOLUME" \
-    -t 1500 \
-    -r 9991 \
-    "$MSG"
+quickshell ipc call osd setVolume "$VOLUME" "$MUTED"

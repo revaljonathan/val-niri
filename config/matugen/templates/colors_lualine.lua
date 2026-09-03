@@ -20,4 +20,6 @@ M.tree_folder_open   = "{{ colors.tertiary.default.hex }}"
 M.tree_indent_marker = "{{ colors.outline_variant.default.hex }}"
 M.tree_root          = "{{ colors.secondary.default.hex }}"
 
+M.branch = "{{ colors.primary.default.hex | set_hue: 90 }}"
+
 return M

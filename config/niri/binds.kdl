@@ -1,6 +1,5 @@
 binds {
     // misc?
-    super+Shift+Slash { show-hotkey-overlay; }
     super+W repeat=false { toggle-overview; }
     super+shift+W { toggle-column-tabbed-display; }
     super+Q repeat=false { close-window; }
@@ -10,30 +9,26 @@ binds {
     // apps
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
-    super+c { spawn-sh "kitty --class calcurse zsh -c 'calcurse'"; }
-    Super+V { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
+
+
+    // quickshells
+    Super+V { spawn-sh "quickshell ipc call clipboard toggle"; }
+    super+d { spawn-sh "quickshell ipc call launcher toggle"; }
+    super+shift+f23 { spawn-sh "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
+    Mod+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
+    Mod+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
+    super+E { spawn-sh "quickshell ipc call emoji toggle"; }
+    super+shift+n { spawn-sh "quickshell ipc call notificationcenter toggle"; }
+    super+shift+d { spawn-sh "quickshell ipc call notifications dnd_toggle"; }
+    super+S { spawn-sh "quickshell ipc call browse toggle"; }
+    super+P { spawn-sh "quickshell ipc call powermenu toggle"; }
+    super+Escape { spawn-sh "quickshell ipc call monitor toggle"; }
+    super+Z hotkey-overlay-title="wallpaper" { spawn-sh "quickshell ipc call wall toggle"; }
 
     // === Launchers, Menus & Custom Scripts ===
-    super+D { spawn-sh "rofi -show drun -show-icons -theme-str 'window {location: north east; x-offset:-10; y-offset:10;} listview {lines: 20;}'"; }
-    super+shift+f23 { spawn-sh "rofi -show drun -show-icons"; }
-    super+g { spawn-sh "rofi -show calc"; }
-    super+A { spawn-sh "~/.local/bin/record.sh"; }
-    super+E { spawn-sh "rofimoji"; }
-    super+Space { spawn "~/.local/bin/filerofi.sh"; }
-    super+T { spawn-sh "~/.local/bin/todo.sh"; }
     super+n { spawn-sh "kitty -e yazi ~/note"; }
-    super+shift+n { spawn-sh "~/.local/bin/dunst.sh"; }
-    super+shift+d { spawn-sh "~/.local/bin/dnd-toggle.sh"; }
-    super+S { spawn "~/.local/bin/browse.sh"; }
-    super+P { spawn "~/.local/bin/powermenu.sh"; }
     super+shift+s { spawn-sh "~/.local/bin/caf.sh"; }
-    super+m { spawn "~/.local/bin/playerctl.sh"; }
-    super+Escape { spawn "~/.local/bin/control.sh"; }
-    super+shift+P { spawn "~/.local/bin/ppd.sh"; }
-    super+shift+t { spawn "~/.local/bin/tl.sh"; }
-    super+Z hotkey-overlay-title="wallpaper" { spawn "~/.local/bin/wall.sh"; }
     super+shift+z { spawn-sh "~/.local/bin/rng.sh"; }
-    super+B { spawn "~/.local/bin/barsel.sh"; }
 
     // Focus navigation
     super+Left  { focus-column-left; }
@@ -165,9 +160,9 @@ binds {
     XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86AudioRaiseVolume { spawn "~/.local/bin/dunstvol.sh" "up"; }
-    XF86AudioLowerVolume { spawn "~/.local/bin/dunstvol.sh" "down"; }
-    XF86AudioMute        { spawn "~/.local/bin/dunstvol.sh" "mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true  { spawn "~/.local/bin/dunstvol.sh" "up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "~/.local/bin/dunstvol.sh" "down"; }
+    XF86AudioMute allow-when-locked=true  { spawn "~/.local/bin/dunstvol.sh" "mute"; }
     XF86MonBrightnessUp   { spawn "~/.local/bin/dunstback.sh" "up"; }
     XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
 
@@ -182,7 +177,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    super+X { spawn-sh "~/.local/bin/ss.sh"; }
+    super+X { screenshot; }
     super+shift+X { screenshot; }
     super+shift+q { spawn-sh "hyprpicker | wl-copy"; }
 }

@@ -8,21 +8,18 @@
     "margin-bottom": 1,
 
     "modules-left": [
-        "niri/workspaces",
-        "mpris",
+        "group/niri"
     ],
 
     "modules-center": [
-        "custom/weather",
         "clock"
     ],
 
     "modules-right": [
         "custom/recorder",
         "battery",
-        "group/syst",
-        "group/sounds",
         "group/hw",
+        "tray",
         "custom/dunst",
         "custom/caf-waybar"
     ],
@@ -32,6 +29,15 @@
     "signal": 13,
     "format": "{}",
     "tooltip": false
+},
+
+"tray": {
+  "spacing": 6,
+  "reverse-direction": false,
+  "icons": {
+    "blueman": "bluetooth",
+    "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+  }
 }, 
 
 "niri/workspaces": {
@@ -50,20 +56,17 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%a, %d %b %H:%M}",
-        "format-alt": " {:%H:%M}",
+        "on-click": "quickshell ipc call dashboard toggle",
         "on-click-right": "~/.local/bin/cal.sh curr",
         "on-scroll-up": "~/.local/bin/cal.sh next",
-        "on-scroll-down": "~/.local/bin/cal.sh prev"
-    },
-
-    "cpu": {
-        "format": " {usage}%",
-        "on-click": "kitty -e btop",
+        "on-scroll-down": "~/.local/bin/cal.sh prev",
         "tooltip": false
     },
 
-    "memory": {
-        "format": " {used:0.1f}GiB",
+    "niri/window": {
+    "format": "{}",
+    "max-length": 40,
+    "separate-outputs": true
     },
 
     "temperature": {
@@ -79,7 +82,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
         "tooltip": false
@@ -101,11 +104,6 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
     },
-
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-
     "network": {
         "max-length": 15,
         "format-wifi": "",
@@ -118,7 +116,7 @@
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": " {volume}%",
+        "format": "",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶", //{format_source}",
@@ -129,7 +127,7 @@
 
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": " {volume}%",
+        "format-source": "",
         "format-source-muted": "",
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -145,30 +143,6 @@
         "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
         "return-type": "json",
     },
-
-    "group/cpu": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "temperature"
-        ]
-    },
-
-    // "custom/steam": {
-    //     "exec": "sh -c 'pgrep steam >/dev/null && echo \"\" || echo \"\"'",
-    //     "on-click-right": "killall steam",
-    //     "interval": 30
-    // },
-    // "custom/vesktop": {
-    //     "exec": "pgrep vesktop >/dev/null && echo ''",
-    //     "on-click-right": "killall vesktop",
-    //     "interval": 30
-    // },
-    // "custom/spotify": {
-    //     "exec": "pgrep spotify >/dev/null && echo ''",
-    //     "on-click-right": "killall spotify",
-    //     "interval": 30
-    // },
 
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
@@ -200,24 +174,16 @@
         "modules": [
             "backlight",
             "network",
-
-        ]
-    },
-
-        "group/bg": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/steam",
-            "custom/vesktop",
-            "custom/spotify"
-        ]
-    },
-
-    "group/sounds": {
-        "orientation": "horizontal",
-        "modules": [
             "pulseaudio",
-            "pulseaudio#microphone",
+            "pulseaudio#microphone"
+        ]
+    },
+
+    "group/niri": {
+        "orientation": "horizontal",
+        "modules": [
+            "niri/workspaces",
+            "niri/window",
         ]
     },
         "group/syst": {

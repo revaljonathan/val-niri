@@ -1,9 +1,12 @@
+quickshell
+cliphist
+ttf-ibm-plex
+qml-niri-git
 adw-gtk-theme
 bibata-cursor-theme-bin
 brightnessctl
 btop
 cbonsai
-clipse-wayland-bin
 dunst
 eza
 fastfetch
@@ -30,14 +33,12 @@ ripgrep
 rofi
 rofimoji
 swayidle
-swaylock-effects
 terminus-font
 trashy
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ufw
 vlc-plugins-all
-waybar
 wl-clipboard
 yazi
 zathura
@@ -45,3 +46,4 @@ zathura-pdf-poppler
 zoxide
 zsh
 xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
