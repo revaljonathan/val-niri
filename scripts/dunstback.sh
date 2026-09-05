@@ -15,3 +15,4 @@ MAX=$(brightnessctl max)
 PERCENT=$((BRIGHTNESS * 100 / MAX))
 
 quickshell ipc call osd setBrightness "$PERCENT"
+quickshell ipc call bar updateBrightness

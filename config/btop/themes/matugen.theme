@@ -2,59 +2,59 @@
 
 theme[main_bg]=""
 
-theme[main_fg]="#e1e2e8"
-theme[title]="#9fcafc"
-theme[hi_fg]="#bac8db"
-theme[selected_bg]="#9fcafc"
+theme[main_fg]="#e7e0e8"
+theme[title]="#d1bcfd"
+theme[hi_fg]="#ccc2db"
+theme[selected_bg]="#d1bcfd"
 
 # Foreground color of selected item in processes box
-theme[selected_fg]="#003155"
+theme[selected_fg]="#35245b"
 
 # Color of inactive/disabled text
-theme[inactive_fg]="#c3c7cf"
+theme[inactive_fg]="#cac4cf"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
-theme[proc_misc]="#d6bee5"
+theme[proc_misc]="#f0b8c7"
 
 # Cpu box outline color
-theme[cpu_box]="#465363"
+theme[cpu_box]="#554e63"
 
 # Memory/disks box outline color
-theme[mem_box]="#465363"
+theme[mem_box]="#554e63"
 
 # Net up/down box outline color
-theme[net_box]="#465363"
+theme[net_box]="#554e63"
 
 # Processes box outline color
-theme[proc_box]="#465363"
+theme[proc_box]="#554e63"
 
 # Box divider line and small boxes line color
-theme[div_line]="#4d5259"
+theme[div_line]="#545059"
 
 # Temperature graph colors
-theme[temp_start]="#bac8db"
-theme[temp_mid]="#9fcafc"
+theme[temp_start]="#ccc2db"
+theme[temp_mid]="#d1bcfd"
 theme[temp_end]="#ffb4ab"
 
 # CPU graph colors
-theme[cpu_start]="#bac8db"
-theme[cpu_mid]="#9fcafc"
+theme[cpu_start]="#ccc2db"
+theme[cpu_mid]="#d1bcfd"
 theme[cpu_end]="#ffb4ab"
 
 # Mem/Disk free meter
-theme[free_start]="#bac8db"
+theme[free_start]="#ccc2db"
 theme[free_mid]=""
-theme[free_end]="#465363"
+theme[free_end]="#554e63"
 
 # Mem/Disk cached meter
-theme[cached_start]="#d6bee5"
+theme[cached_start]="#f0b8c7"
 theme[cached_mid]=""
-theme[cached_end]="#5d4b6b"
+theme[cached_end]="#704652"
 
 # Mem/Disk available meter
-theme[available_start]="#9fcafc"
+theme[available_start]="#d1bcfd"
 theme[available_mid]=""
-theme[available_end]="#265480"
+theme[available_end]="#594881"
 
 # Mem/Disk used meter
 theme[used_start]="#ffb4ab"
@@ -62,11 +62,11 @@ theme[used_mid]=""
 theme[used_end]="#a7060f"
 
 # Download graph colors
-theme[download_start]="#bac8db"
-theme[download_mid]="#9fcafc"
-theme[download_end]="#d6bee5"
+theme[download_start]="#ccc2db"
+theme[download_mid]="#d1bcfd"
+theme[download_end]="#f0b8c7"
 
 # Upload graph colors
-theme[upload_start]="#bac8db"
-theme[upload_mid]="#9fcafc"
-theme[upload_end]="#d6bee5"
+theme[upload_start]="#ccc2db"
+theme[upload_mid]="#d1bcfd"
+theme[upload_end]="#f0b8c7"

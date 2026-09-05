@@ -10,6 +10,32 @@
 
 fuck() { doas $(fc -ln -1) }
 
+pf() {
+    pacman -Slq |
+        fzf \
+            --color=base16 \
+            --style=full \
+            --layout=reverse \
+            --preview-border=sharp \
+            --input-border=sharp \
+            --list-border=none \
+            --multi \
+            --preview 'pacman -Si {1}' |
+        xargs -ro sudo pacman -S
+}
+pr() {
+    pacman -Qq |
+        fzf \
+            --color=base16 \
+            --style=full \
+            --layout=reverse \
+            --preview-border=sharp \
+            --input-border=sharp \
+            --list-border=none \
+            --multi \
+            --preview 'pacman -Qi {1}' |
+        xargs -ro sudo pacman -Rns
+}
 take() {
   mkdir -p "$1" && cd "$1"
 }

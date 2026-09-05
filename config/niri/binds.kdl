@@ -18,13 +18,12 @@ binds {
     Mod+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
     Mod+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
     super+E { spawn-sh "quickshell ipc call emoji toggle"; }
-    super+shift+n { spawn-sh "quickshell ipc call notificationcenter toggle"; }
     super+shift+d { spawn-sh "quickshell ipc call notifications dnd_toggle"; }
     super+S { spawn-sh "quickshell ipc call browse toggle"; }
     super+P { spawn-sh "quickshell ipc call powermenu toggle"; }
     super+Escape { spawn-sh "quickshell ipc call monitor toggle"; }
     super+Z hotkey-overlay-title="wallpaper" { spawn-sh "quickshell ipc call wall toggle"; }
-
+    super+b { spawn-sh "quickshell ipc call bar toggleOrientation"; }
     // === Launchers, Menus & Custom Scripts ===
     super+n { spawn-sh "kitty -e yazi ~/note"; }
     super+shift+s { spawn-sh "~/.local/bin/caf.sh"; }
@@ -178,6 +177,6 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     super+X { screenshot; }
-    super+shift+X { screenshot; }
-    super+shift+q { spawn-sh "hyprpicker | wl-copy"; }
+    Super+shift+x { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
+    super+shift+q { spawn-sh "hyprpicker -d | wl-copy"; }
 }

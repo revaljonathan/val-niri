@@ -1,0 +1,5 @@
+{
+    "colors": {
+        "color13": "{{colors.primary.default.hex}}"
+    }
+}

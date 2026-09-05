@@ -35,69 +35,69 @@
      {
 			"type": "os",
 			"key": "OS:     ",
-			"keyColor": "red"
+			"keyColor": "blue"
 		},
 		{
 			"type": "kernel",
 			"key": "Kernel: ",
 			"format": "{1} {2}",
-			"keyColor": "red"
+			"keyColor": "blue"
 		},
 		{
 			"type": "packages",
 			"key": "Packs:  ",
-			"keyColor": "red"
+			"keyColor": "blue"
 		},
 		{
 			"type": "wm",
 			"key": "WM:     ",
-			"keyColor": "red"
+			"keyColor": "blue"
 		},
 		{
 			"type": "lm",
 			"key": "Greeter:",
-			"keyColor": "red"
+			"keyColor": "blue"
 		},
 		{
 			"type": "icons",
 			"key": "Icons:  ",
-			"keyColor": "red",
+			"keyColor": "blue",
       "format": "{icons2}"
 		},
 		{
 			"type": "disk",
 			"key": "Disk:     ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "brightness",
 			"key": "Backlight:",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "battery",
 			"key": "Battery:  ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "terminal",
 			"key": "Term:     ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "terminalfont",
 			"key": "Font:     ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
     {
 			"type": "font",
 			"key": "Font:     ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "shell",
 			"key": "Shell:    ",
-			"keyColor": "blue"
+			"keyColor": "magenta"
 		},
 		{
 			"type": "host",

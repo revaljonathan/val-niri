@@ -76,7 +76,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="qs-bar"
+    match namespace="qs-bar|qs-vert-bar"
     background-effect {
         blur true
     } 
@@ -99,7 +99,6 @@ window-rule {
 window-rule {
     match app-id="kitty"
     background-effect {
-        saturation 0.95
         blur true
     }
 }
@@ -168,7 +167,7 @@ window-rule {
 }
 window-rule {
   match title="New Tab - Helium"
-  opacity 0.88
+  opacity 0.90
   background-effect {
       blur true
   }

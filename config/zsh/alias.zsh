@@ -74,3 +74,4 @@ alias pokrand='krabby random | sed '1d''
 alias plis='sudo'
 alias drizzle='python3 ~/.local/bin/drizzle.py'
 
+alias oc='opencode'

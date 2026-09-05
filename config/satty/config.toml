@@ -1,0 +1,68 @@
+[general]
+fullscreen = false
+resize = { mode = "smart" }
+floating-hack = true
+auto-copy = false
+early-exit = ["save"]
+corner-roundness = 0
+initial-tool = "brush"
+copy-command = "wl-copy"
+annotation-size-factor = 0.75
+output-filename = "~/pics/ss/%m-%d-%Y_%H:%M.png"
+save-after-copy = false
+default-hide-toolbars = false
+focus-toggles-toolbars = false
+default-fill-shapes = false
+default-round-caps = true
+primary-highlighter = "block"
+disable-notifications = false
+actions-on-right-click = []
+actions-on-enter = ["save-to-clipboard"]
+actions-on-escape = ["exit"]
+action-on-enter = "save-to-clipboard"
+right-click-copy = false
+no-window-decoration = true
+brush-smooth-history-size = 10
+pan-step-size = 50.0
+zoom-factor = 1.0
+text-move-length = 10.0
+input-scale = 1.0
+title = "Satty"
+app-id = "org.satty.satty"
+notification-thumbnail = "screenshot"
+
+
+[font]
+family = "IBM Plex Sans"
+style = "Regular"
+fallback = [
+    "Noto Sans CJK SC",
+]
+
+[color-palette]
+palette = [
+    "#f38ba8ff",
+    "#fab387ff",
+    "#cba6f7ff",
+    "#a6e3a1ff",
+    "#89b4faff",
+]
+
+custom = [
+    # "#a52a2a",
+    # "#ffd700",
+    # "#008000",
+]
+
+
+[keybinds]
+brush = "b"
+arrow = "a"
+crop = "c"
+text = "t"
+blur = "x"
+ellipse = "o"
+pointer = "p"
+marker = "n"
+highlight = "h"
+

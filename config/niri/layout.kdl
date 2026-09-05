@@ -1,5 +1,5 @@
 overview {
-    zoom 0.4
+    zoom 0.35
     workspace-shadow {
         softness 50
         spread 10
@@ -10,7 +10,7 @@ overview {
 }
 
 cursor {
-    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-theme "Bibata-Material-Noir-Light"
     xcursor-size 26 
 }
 
@@ -38,7 +38,7 @@ layout {
         }
         border {
         on 
-        width 1.5
+        width 2
         }
     shadow {
         on

@@ -2,11 +2,11 @@
     import QtQuick
   
     QtObject {
-        readonly property real bgAlpha: 0.80
+        readonly property real bgAlpha: 0.9
   
         readonly property color shadow: "{{colors.shadow.default.hex}}"
-        readonly property color crust: Qt.alpha("{{colors.surface.default.hex | lighten: -2.5}}", 0.7)
-        readonly property color base: Qt.alpha("{{colors.surface.default.hex | lighten: 1.5}}", 0.6)
+        readonly property color crust: Qt.alpha("{{colors.surface.default.hex | lighten: -2.5}}", bgAlpha)
+        readonly property color base: Qt.alpha("{{colors.surface.default.hex | lighten: 1.5}}", bgAlpha)
         readonly property color container: Qt.alpha("{{colors.surface_container.default.hex}}", bgAlpha)
         readonly property color containerHigh: Qt.alpha("{{colors.surface_container_high.default.hex}}", bgAlpha)
         readonly property color containerHighest: Qt.alpha("{{colors.surface_container_highest.default.hex}}", bgAlpha)
@@ -30,8 +30,7 @@
         readonly property color graph: "{{colors.secondary_container.default.hex | lighten: -12.5 }}"
         readonly property color headfoot: Qt.alpha("{{colors.surface.default.hex | lighten: -2.5}}", 0.35)
         readonly property color osd: Qt.alpha("{{colors.surface.default.hex | lighten: 2}}", 0.85)
-        readonly property color secondary: Qt.alpha("{{colors.secondary_container.default.hex}}", 0.2)
         readonly property color icons: "{{colors.secondary.default.hex}}"
         readonly property color popupbg: Qt.alpha("{{colors.surface.default.hex | lighten: 1.5}}", 0.95)
-        readonly property color barbg: Qt.alpha("{{colors.surface.default.hex | lighten: 1.5}}", 0.90)
+        readonly property color darkoverlay: Qt.alpha("{{colors.surface.default.hex | lighten: 1.5}}", 0.35)
     }
