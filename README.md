@@ -2,6 +2,8 @@
 
 my niri dotfiles
 
+NOTE: iam working on a custom quickshell in separate private repo so this repo might be a bit outdated and something might not work as usual
+
 i think this is pretty minimalist so you can still add stuff to yourself
 
 + fonts: Jetbrains mono
