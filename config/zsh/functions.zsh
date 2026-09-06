@@ -21,7 +21,7 @@ pf() {
             --list-border=none \
             --multi \
             --preview 'pacman -Si {1}' |
-        xargs -ro sudo pacman -S
+        xargs -ro doas pacman -S
 }
 pr() {
     pacman -Qq |
@@ -34,7 +34,7 @@ pr() {
             --list-border=none \
             --multi \
             --preview 'pacman -Qi {1}' |
-        xargs -ro sudo pacman -Rns
+        xargs -ro doas pacman -Rns
 }
 take() {
   mkdir -p "$1" && cd "$1"

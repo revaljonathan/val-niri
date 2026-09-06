@@ -12,7 +12,7 @@ window-rule {
 blur {
     passes 3
     offset 4
-    noise 0.01
+    noise 0
     saturation 1.5
 }
 
@@ -30,6 +30,7 @@ window-rule {
 window-rule {
     match app-id="[Ss]team"
     open-floating false
+    open-focused false
 }
 
 window-rule {
@@ -118,6 +119,12 @@ window-rule {
     default-floating-position x=0 y=10 relative-to="bottom"
 }
 
+window-rule {
+    match app-id="btopfloat$"
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
+}
 window-rule {
     match app-id="xdg-desktop-portal-gtk"
     background-effect {

@@ -15,7 +15,7 @@ cursor {
 }
 
 layout {
-    gaps 5
+    gaps 6
     background-color "transparent"
 
     center-focused-column "never"
@@ -56,12 +56,12 @@ animations {
     }
 
     window-open {
-        duration-ms 135
-        curve "ease-out-expo"
+        duration-ms 110
+        curve "cubic-bezier" 0.05 0.7 0.1 1
     }
 
     window-close {
-        duration-ms 125
+        duration-ms 110
         curve "ease-out-quad"
     }
 

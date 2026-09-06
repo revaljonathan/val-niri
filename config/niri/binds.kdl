@@ -8,12 +8,13 @@ binds {
 
     // apps
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Super+shift+return { spawn "kitty" "--class" "kittyfloat"; }
+    Super+shift+return { spawn "kitty" "-o" "background_opacity=1.0" "--class" "kittyfloat"; }
 
 
     // quickshells
     Super+V { spawn-sh "quickshell ipc call clipboard toggle"; }
     super+d { spawn-sh "quickshell ipc call launcher toggle"; }
+    super+space { spawn-sh "quickshell ipc call master toggle"; }
     super+shift+f23 { spawn-sh "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
     Mod+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
     Mod+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }

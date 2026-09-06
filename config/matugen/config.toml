@@ -20,7 +20,7 @@ output_path = '~/.config/gtk-3.0/colors.css'
 post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark'
 
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/matugen-gtk.css'
+input_path = '~/.config/matugen/templates/matugen-gtk4.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.chromium]

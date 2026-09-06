@@ -3,7 +3,7 @@ ASSETS="$HOME/.config/quickshell/notification/assets"
 TEMP_ICON="/tmp/media-art-$$.jpg"
 trap "rm -f '$TEMP_ICON'" EXIT INT TERM
 
-DEBOUNCE=0.6
+DEBOUNCE=0.8
 LAST_TITLE=""
 PENDING_PID=""
 
