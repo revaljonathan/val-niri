@@ -27,6 +27,11 @@ output_path = '~/.config/gtk-4.0/colors.css'
 input_path  = '~/.config/matugen/templates/root.css'
 output_path = '~/code/tab-v3/color.css'
 
+[templates.tmux]
+input_path = '~/.config/matugen/templates/tmux-colors.conf'
+output_path = '~/.config/tmux/tmux-colors.conf'
+post_hook = 'tmux source-file ~/.config/tmux/tmux-colors.conf'
+
 [templates.zathura]
 input_path = '~/.config/matugen/templates/zathurarc'
 output_path = '~/.config/zathura/zathurarc'

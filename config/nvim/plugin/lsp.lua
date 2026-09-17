@@ -7,7 +7,7 @@ vim.diagnostic.config({
     severity_sort = true,
     float         = {
         style  = 'minimal',
-        border = 'rounded',
+        border = 'sharp',
         source = 'if_many',
         header = '',
         prefix = '',
@@ -26,7 +26,7 @@ local orig = vim.lsp.util.open_floating_preview
 ---@diagnostic disable-next-line: duplicate-set-field
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts            = opts or {}
-    opts.border     = opts.border or 'rounded'
+    opts.border     = opts.border or 'sharp'
     opts.max_width  = opts.max_width or 80
     opts.max_height = opts.max_height or 24
     opts.wrap       = opts.wrap ~= false
@@ -81,7 +81,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
-local caps = require("cmp_nvim_lsp").default_capabilities()
+local caps = vim.lsp.protocol.make_client_capabilities()
+local ok_blink, blink = pcall(require, "blink.cmp")
+if ok_blink then
+    caps = blink.get_lsp_capabilities(caps)
+end
 vim.lsp.config['luals'] = {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },

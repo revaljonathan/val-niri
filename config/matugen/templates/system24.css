@@ -20,7 +20,7 @@ body {
     font-weight: 400; /* text font weight. 300 is light, 400 is normal. DOES NOT AFFECT BOLD TEXT */
 
     /* sizes */
-    --gap: 12px; /* spacing between panels */
+    --gap: 0px; /* spacing between panels */
     --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
     --border-thickness: 2px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
     --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
@@ -57,8 +57,8 @@ body {
 
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
-    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: on; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: off; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
     --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
@@ -96,7 +96,7 @@ body {
     --bg-1: {{colors.surface_variant.default.hsla | set_alpha: 1}};                     /* dark buttons when clicked */
     --bg-2: {{colors.surface_container_high.default.hsla | set_alpha: 1}};              /* dark buttons */
     --bg-3: {{colors.surface_container_low.default.hsla | set_alpha: 1}};               /* spacing, secondary elements */
-    --bg-4: {{colors.surface.default.hsla | set_alpha: 0.65}};                             /* main background color */
+    --bg-4: {{colors.surface.default.hsla | set_alpha: 0.92}};                             /* main background color */
     --hover: {{colors.surface_bright.default.hex}};                     /* channels and buttons when hovered */
     --active: {{colors.surface_bright.default.hex}};                    /* channels and buttons when clicked or selected */
     --message-hover: {{colors.surface_bright.default.hex}};             /* messages when hovered */

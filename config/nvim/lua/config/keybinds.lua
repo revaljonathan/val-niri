@@ -76,6 +76,17 @@ vim.keymap.set("n", "<leader>t", function()
     end
 end, { desc = "Toggle BufferLine" })
 
+-- Toggle completion (blink.cmp)
+vim.keymap.set("n", "<leader>dc", function()
+    vim.g.blink_cmp_disabled = not vim.g.blink_cmp_disabled
+    if vim.g.blink_cmp_disabled then
+        pcall(function() require("blink.cmp").hide() end)
+        vim.notify("Completion disabled", vim.log.levels.INFO)
+    else
+        vim.notify("Completion enabled", vim.log.levels.INFO)
+    end
+end, { desc = "Toggle completion" })
+
 -- Toggle diagnostics
 vim.keymap.set("n", "<leader>dt", function()
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())

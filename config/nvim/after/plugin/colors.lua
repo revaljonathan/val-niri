@@ -1,6 +1,10 @@
 require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = true,
+    integrations = {
+        cmp = false,
+        blink_cmp = false,
+    },
 })
 
 vim.cmd.colorscheme("catppuccin")
@@ -26,6 +30,12 @@ if matugen_ok then
         vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = matugen.tree_folder_open or matugen.tree_folder, bold = true })
         vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = matugen.tree_indent_marker or matugen.cursorline_bg })
         vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = matugen.tree_root or matugen.error, bold = true })
+    end
+
+    -- render-markdown.nvim: use matugen bg for code blocks
+    if matugen.darker then
+        vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = matugen.darker })
+        vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = matugen.darker })
     end
 end
 

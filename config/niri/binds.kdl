@@ -16,17 +16,18 @@ binds {
     super+d { spawn-sh "quickshell ipc call launcher toggle"; }
     super+space { spawn-sh "quickshell ipc call master toggle"; }
     super+shift+f23 { spawn-sh "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
-    Mod+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
-    Mod+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
+    super+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
+    super+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
     super+E { spawn-sh "quickshell ipc call emoji toggle"; }
     super+shift+d { spawn-sh "quickshell ipc call notifications dnd_toggle"; }
     super+S { spawn-sh "quickshell ipc call browse toggle"; }
     super+P { spawn-sh "quickshell ipc call powermenu toggle"; }
     super+Escape { spawn-sh "quickshell ipc call monitor toggle"; }
-    super+Z hotkey-overlay-title="wallpaper" { spawn-sh "quickshell ipc call wall toggle"; }
+    super+Z { spawn-sh "quickshell ipc call wall toggle"; }
     super+b { spawn-sh "quickshell ipc call bar toggleOrientation"; }
+
     // === Launchers, Menus & Custom Scripts ===
-    super+n { spawn-sh "kitty -e yazi ~/note"; }
+    super+n { spawn-sh "kitty -e yazi ~/Documents/note"; }
     super+shift+s { spawn-sh "~/.local/bin/caf.sh"; }
     super+shift+z { spawn-sh "~/.local/bin/rng.sh"; }
 
@@ -178,6 +179,6 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     super+X { screenshot; }
-    Super+shift+x { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
-    super+shift+q { spawn-sh "hyprpicker -d | wl-copy"; }
+    Super+shift+x { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    super+shift+q { spawn-sh "hyprpicker | wl-copy"; }
 }

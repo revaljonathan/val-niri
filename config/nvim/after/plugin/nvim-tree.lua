@@ -22,3 +22,9 @@ require("nvim-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+
+local matugen_ok, matugen = pcall(dofile, vim.fn.stdpath("config") .. "/after/plugin/matugen_colors.lua")
+if matugen_ok and matugen.bg then
+    vim.api.nvim_set_hl(0, "NvimTreeStatuslineNc", { fg = matugen.bg, bg = matugen.bg })
+    vim.api.nvim_set_hl(0, "NvimTreeStatusLine",   { fg = matugen.bg, bg = matugen.bg })
+end

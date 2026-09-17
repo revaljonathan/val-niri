@@ -1,9 +1,9 @@
 overview {
-    zoom 0.35
+    zoom 0.3
     workspace-shadow {
-        softness 50
-        spread 10
-        offset x=0 y=10
+        softness 15
+        spread 1
+        offset x=0 y=0
         color "#131313"
     }
     backdrop-color "#1e1e2e00";
@@ -34,7 +34,7 @@ layout {
        default-column-width { proportion 0.5; }
        focus-ring {
           off
-          width 1.5
+          width 2
         }
         border {
         on 
@@ -43,8 +43,8 @@ layout {
     shadow {
         on
            softness 40
-           spread 6
-           offset x=0 y=5
+           spread 4
+           offset x=0 y=0
           }
 }
 

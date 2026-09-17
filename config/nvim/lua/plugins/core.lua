@@ -20,6 +20,7 @@ return {
                 "c", "lua", "vim", "vimdoc", "query",
                 "go", "javascript", "nix", "php", "rust",
                 "zig", "java", "python", "bash",
+                "markdown", "markdown_inline",
             },
             sync_install = false,
             auto_install = true,
@@ -53,50 +54,12 @@ return {
 
     -- ── Autocompletion ─────────────────────────────────────────────────────
     {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
+        "saghen/blink.cmp",
+        version = "*",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-            "windwp/nvim-autopairs", -- so autopairs can hook into cmp here
+            "rafamadriz/friendly-snippets",
         },
-        config = function()
-            local cmp = require("cmp")
-
-            cmp.setup({
-                preselect = cmp.PreselectMode.Item,
-                completion = {
-                    completeopt = "menu,menuone,noinsert",
-                    autocomplete = { cmp.TriggerEvent.TextChanged },
-                },
-                window = { documentation = cmp.config.window.bordered() },
-                mapping = cmp.mapping.preset.insert({
-                    ["<CR>"]    = cmp.mapping.confirm({ select = false }),
-                    ["<C-e>"]   = cmp.mapping.abort(),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-n>"]   = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                    ["<C-p>"]   = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-                    ["<C-f>"]   = cmp.mapping.scroll_docs(4),
-                    ["<C-u>"]   = cmp.mapping.scroll_docs(-4),
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then cmp.select_next_item() else fallback() end
-                    end, { "i", "s" }),
-                    ["<S-Tab>"] = cmp.mapping(function()
-                        if cmp.visible() then cmp.select_prev_item() end
-                    end, { "i", "s" }),
-                }),
-                sources = {
-                    { name = "nvim_lsp" },
-                    { name = "path" },
-                    { name = "buffer", keyword_length = 3 },
-                },
-            })
-
-            -- autopairs cmp integration
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
+        -- setup handled in after/plugin/completion.lua
     },
 
     -- ── Autopairs ──────────────────────────────────────────────────────────
@@ -188,15 +151,7 @@ return {
             vim.g.loaded_netrw       = 1
             vim.g.loaded_netrwPlugin = 1
         end,
-        config = function()
-            require("nvim-tree").setup({
-                sort     = { sorter = "case_sensitive" },
-                view     = { width = 30 },
-                renderer = { group_empty = true },
-                filters  = { dotfiles = false },
-            })
-            vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-        end,
+        -- setup handled in after/plugin/nvim-tree.lua
     },
 
     -- ── Utilities ──────────────────────────────────────────────────────────

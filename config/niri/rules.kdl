@@ -30,13 +30,8 @@ window-rule {
 window-rule {
     match app-id="[Ss]team"
     open-floating false
-    open-focused false
 }
 
-window-rule {
-    match app-id="steam_app_2719093765"
-    open-floating false
-}
 
 window-rule {
     match title="[Aa]rknights"
@@ -84,7 +79,7 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="qs-calculator|qs-dashboard|qs-monitor|qs-emoji|qs-browse|qs-wall|qs-clipboard|qs-launcher"
+    match namespace="qs-master|qs-calculator|qs-dashboard|qs-monitor|qs-emoji|qs-browse|qs-wall|qs-clipboard|qs-launcher"
     background-effect {
         blur true
         xray false
@@ -120,10 +115,10 @@ window-rule {
 }
 
 window-rule {
-    match app-id="btopfloat$"
+    match app-id="midfloat$"
     open-floating true
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 700; }
+    default-column-width { fixed 1300; }
+    default-window-height { fixed 950; }
 }
 window-rule {
     match app-id="xdg-desktop-portal-gtk"
@@ -139,12 +134,6 @@ window-rule {
     default-column-width { fixed 1000; }
     default-window-height { fixed 700; }
     open-floating true
-}
-window-rule {
-    match app-id="[Ll]xpolkit"
-    background-effect {
-        blur true
-    }
 }
 
 window-rule {
@@ -179,9 +168,17 @@ window-rule {
       blur true
   }
 }
+
+window-rule {
+  match app-id="localsend"
+  opacity 0.90
+  background-effect {
+      blur true
+  }
+}
 window-rule {
   match app-id="[Ss]potify$"
-  opacity 0.85
+  opacity 0.90
   open-maximized true
   open-on-workspace "4"
   background-effect {

@@ -94,7 +94,7 @@ local function toggle_floating()
         row = math.floor((vim.o.lines - height) / 2),
         col = math.floor((vim.o.columns - width) / 2),
         style = "minimal",
-        border = "rounded",
+        border = "sharp",
     })
 
     if fresh then

@@ -3,7 +3,7 @@ local matugen_ok, matugen = pcall(dofile, vim.fn.stdpath("config") .. "/after/pl
 local highlights = {}
 if matugen_ok then
     highlights = {
-        fill = { bg = matugen.bg },
+        fill = { bg = "NONE" },
         background = { bg = matugen.bg, fg = matugen.fg },
         buffer_selected = {
             fg = matugen.bg,
@@ -13,12 +13,12 @@ if matugen_ok then
         },
         buffer_visible = { bg = matugen.bg, fg = matugen.secondary },
         separator = { fg = matugen.bg, bg = matugen.bg },
-        separator_selected = { fg = matugen.bg, bg = matugen.cursorline_bg },
+        separator_selected = { fg = matugen.bg, bg = matugen.primary },
         separator_visible = { fg = matugen.bg, bg = matugen.bg },
-        indicator_selected = { fg = matugen.primary, bg = matugen.cursorline_bg },
-        modified = { fg = matugen.primary, bg = matugen.bg },
-        modified_visible = { fg = matugen.primary, bg = matugen.bg },
-        modified_selected = { fg = matugen.primary, bg = matugen.cursorline_bg },
+        indicator_selected = { fg = matugen.primary, bg = matugen.primary },
+        modified = { fg = matugen.cursorline_bg, bg = matugen.bg },
+        modified_visible = { fg = matugen.cursorline_bg, bg = matugen.bg },
+        modified_selected = { fg = matugen.cursorline_bg, bg = matugen.primary },
     }
 else
     highlights = {

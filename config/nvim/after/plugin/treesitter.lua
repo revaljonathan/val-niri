@@ -6,8 +6,7 @@ if not status_ok then
 end
 
 configs.setup({
-    -- Added java to ensure_installed!
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "javascript", "nix", "php", "rust", "zig", "java" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "javascript", "nix", "php", "rust", "zig", "java", "markdown", "markdown_inline" },
 
     sync_install = false,
     auto_install = true,
@@ -33,6 +32,6 @@ configs.setup({
 
 require("treesitter-context").setup({
     enable = true,
-    max_lines = 1, -- Matches Tony's minimal one-line context header!
+    max_lines = 1,
     trim_scope = 'outer',
 })
