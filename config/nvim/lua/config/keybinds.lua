@@ -91,3 +91,13 @@ end, { desc = "Toggle completion" })
 vim.keymap.set("n", "<leader>dt", function()
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle diagnostics" })
+
+-- Toggle syntax theme (Matugen vs Catppuccin Mocha)
+vim.keymap.set("n", "<leader>cs", function()
+    if _G.toggle_syntax_theme then
+        _G.toggle_syntax_theme()
+    else
+        vim.notify("Syntax toggle not initialized yet", vim.log.levels.WARN)
+    end
+end, { desc = "Toggle syntax theme (Matugen/Catppuccin)" })
+

@@ -41,7 +41,7 @@ input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/matugen'
 
 [templates.lualine]
-input_path  = '~/.config/matugen/templates/colors_lualine.lua'
+input_path  = '~/.config/matugen/templates/nvim-colors.lua'
 output_path = '~/.config/nvim/after/plugin/matugen_colors.lua'
 
 [templates.spotify]
