@@ -12,19 +12,19 @@ binds {
 
 
     // quickshells
-    Super+V { spawn-sh "quickshell ipc call clipboard toggle"; }
-    super+d { spawn-sh "quickshell ipc call launcher toggle"; }
-    super+space { spawn-sh "quickshell ipc call master toggle"; }
-    super+shift+f23 { spawn-sh "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
+    super+d { spawn "quickshell" "ipc" "call" "launcher" "toggle"; }
+    super+v { spawn "quickshell" "ipc" "call" "clipboard" "toggle"; }
+    super+space { spawn "quickshell" "ipc" "call" "master" "toggle"; }
+    super+shift+f23 { spawn "sh" "-c" "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
     super+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
     super+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
-    super+E { spawn-sh "quickshell ipc call emoji toggle"; }
-    super+shift+d { spawn-sh "quickshell ipc call notifications dnd_toggle"; }
-    super+S { spawn-sh "quickshell ipc call browse toggle"; }
-    super+P { spawn-sh "quickshell ipc call powermenu toggle"; }
-    super+Escape { spawn-sh "quickshell ipc call monitor toggle"; }
-    super+Z { spawn-sh "quickshell ipc call wall toggle"; }
-    super+b { spawn-sh "quickshell ipc call bar toggleOrientation"; }
+    super+e { spawn "quickshell" "ipc" "call" "emoji" "toggle"; }
+    super+shift+d { spawn "quickshell" "ipc" "call" "notifications" "dnd_toggle"; }
+    super+s { spawn "quickshell" "ipc" "call" "browse" "toggle"; }
+    super+p { spawn "quickshell" "ipc" "call" "powermenu" "toggle"; }
+    super+escape { spawn "quickshell" "ipc" "call" "monitor" "toggle"; }
+    super+z { spawn "quickshell" "ipc" "call" "wall" "toggle"; }
+    super+b { spawn "quickshell" "ipc" "call" "bar" "toggleOrientation"; }
 
     // === Launchers, Menus & Custom Scripts ===
     super+n { spawn-sh "kitty -e yazi ~/Documents/note"; }
