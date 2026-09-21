@@ -57,7 +57,6 @@ animations {
 
  window-open {
         duration-ms 260
-        // close to a polished macOS-style ease-out feel
         curve "cubic-bezier" 0.22 1.0 0.36 1.0
 
         custom-shader r"
