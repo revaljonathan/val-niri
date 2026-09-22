@@ -1,0 +1,30 @@
+{
+    "shadow": "{{colors.shadow.default.hex}}",
+    "crust": "{{colors.surface.default.hex | lighten: -2.5}}",
+    "base": "{{colors.surface.default.hex | lighten: 1.5}}",
+    "container": "{{colors.surface_container.default.hex}}",
+    "containerHigh": "{{colors.surface_container_high.default.hex}}",
+    "containerHighest": "{{colors.surface_container_high.default.hex}}",
+
+    "outlinevar": "{{colors.outline_variant.default.hex}}",
+    "tertiary": "{{colors.tertiary.default.hex}}",
+    "outline": "{{colors.outline.default.hex}}",
+    "green": "{{colors.primary.default.hex | set_hue: 90}}",
+    "primary": "{{colors.primary.default.hex}}",
+    "on_primary": "{{colors.on_primary.default.hex}}",
+
+    "fg": "{{colors.on_surface.default.hex}}",
+    "onfg": "{{colors.surface.default.hex}}",
+    "error": "{{colors.error.default.hex}}",
+    "red": "{{colors.primary.default.hex | lighten: -7 | set_hue: 0}}",
+    "yellow": "{{colors.primary.default.hex | lighten: 5 | set_hue: 60}}",
+    "peach": "{{colors.primary.default.hex | lighten: -7 | set_hue: 22}}",
+    "forceblue": "{{colors.primary.default.hex | lighten: -7 | set_hue: 187}}",
+
+    "border": "{{colors.secondary_container.default.hex}}",
+    "graph": "{{colors.secondary_container.default.hex | lighten: -12.5 }}",
+    "osd": "{{colors.surface.default.hex | lighten: 2}}",
+    "icons": "{{colors.secondary.default.hex}}",
+    "popupbg": "{{colors.surface.default.hex | lighten: 1.5}}",
+    "darkoverlay": "{{colors.surface.default.hex | lighten: 1.5}}"
+}
