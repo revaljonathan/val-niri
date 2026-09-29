@@ -1,7 +1,3 @@
--- Terminals: <leader>ft -> persistent bottom-split terminal (~35% height)
---             :Flterm      -> persistent centered floating terminal
--- Shells start in the directory of the file you're editing (falls back to nvim's cwd).
-
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
 local BOTTOM_RATIO = 0.35
@@ -11,7 +7,6 @@ local terminals = {
     floating = { buf = -1, win = -1 },
 }
 
--- Directory of the current file, or nil to use nvim's working directory.
 local function current_file_dir()
     local cur = vim.api.nvim_win_get_buf(0)
     local name = vim.api.nvim_buf_get_name(cur)
@@ -24,7 +19,6 @@ local function current_file_dir()
     return nil
 end
 
--- True if t.buf is a terminal whose shell process is still running.
 local function session_alive(t)
     if not vim.api.nvim_buf_is_valid(t.buf) then
         return false
@@ -37,9 +31,22 @@ local function session_alive(t)
     return chan > 0 and vim.fn.jobwait({ chan }, 0)[1] == -1
 end
 
--- Spawn a fresh interactive shell attached to the current buffer.
-local function spawn_shell(dir)
-    local opts = { term = true }
+local function spawn_shell(dir, t)
+    local opts = {
+        term = true,
+        on_exit = function()
+            vim.schedule(function()
+                if vim.api.nvim_win_is_valid(t.win) then
+                    vim.api.nvim_win_close(t.win, true)
+                end
+                if vim.api.nvim_buf_is_valid(t.buf) then
+                    vim.api.nvim_buf_delete(t.buf, { force = true })
+                end
+                t.win = -1
+                t.buf = -1
+            end)
+        end,
+    }
     if dir then
         opts.cwd = dir
     end
@@ -52,6 +59,7 @@ local function toggle_bottom()
 
     if vim.api.nvim_win_is_valid(terminals.bottom.win) then
         vim.api.nvim_win_close(terminals.bottom.win, false)
+        terminals.bottom.win = -1
         return
     end
 
@@ -66,7 +74,7 @@ local function toggle_bottom()
     vim.api.nvim_win_set_height(0, math.floor(vim.o.lines * BOTTOM_RATIO))
 
     if fresh then
-        spawn_shell(dir)
+        spawn_shell(dir, terminals.bottom)
     else
         vim.cmd("startinsert!")
     end
@@ -77,6 +85,7 @@ local function toggle_floating()
 
     if vim.api.nvim_win_is_valid(terminals.floating.win) then
         vim.api.nvim_win_hide(terminals.floating.win)
+        terminals.floating.win = -1
         return
     end
 
@@ -94,11 +103,11 @@ local function toggle_floating()
         row = math.floor((vim.o.lines - height) / 2),
         col = math.floor((vim.o.columns - width) / 2),
         style = "minimal",
-        border = "sharp",
+        border = "single",
     })
 
     if fresh then
-        spawn_shell(dir)
+        spawn_shell(dir, terminals.floating)
     else
         vim.cmd("startinsert!")
     end

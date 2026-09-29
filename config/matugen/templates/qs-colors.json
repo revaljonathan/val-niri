@@ -16,10 +16,10 @@
     "fg": "{{colors.on_surface.default.hex}}",
     "onfg": "{{colors.surface.default.hex}}",
     "error": "{{colors.error.default.hex}}",
-    "red": "{{colors.primary.default.hex | lighten: -7 | set_hue: 0}}",
+    "red": "{{colors.primary.default.hex | set_hue: 0}}",
     "yellow": "{{colors.primary.default.hex | lighten: 5 | set_hue: 60}}",
-    "peach": "{{colors.primary.default.hex | lighten: -7 | set_hue: 22}}",
-    "forceblue": "{{colors.primary.default.hex | lighten: -7 | set_hue: 187}}",
+    "peach": "{{colors.primary.default.hex | set_hue: 22}}",
+    "forceblue": "{{colors.primary.default.hex | set_hue: 187}}",
 
     "border": "{{colors.secondary_container.default.hex}}",
     "graph": "{{colors.secondary_container.default.hex | lighten: -12.5 }}",

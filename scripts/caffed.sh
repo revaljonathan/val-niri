@@ -7,5 +7,5 @@ swayidle -w \
   resume 'niri msg action power-on-monitors' \
   timeout 910 'powerprofilesctl set power-saver' \
   resume 'powerprofilesctl set balanced' \
-  timeout 1800 '~/.local/bin/dynalock' \
-  before-sleep "quickshell ipc call lockscreen toggle"
+  timeout 1800 'quickshell ipc call lockscreen lock' \
+  before-sleep "quickshell ipc call lockscreen lock"

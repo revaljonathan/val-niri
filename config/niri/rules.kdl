@@ -11,8 +11,8 @@ window-rule {
 
 blur {
     passes 3
-    offset 4
-    noise 0.01
+    offset 3
+    noise 0.013
     saturation 1.3
 }
 
@@ -107,14 +107,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="kittyfloat$"
-    open-floating true
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 700; }
-    default-floating-position x=0 y=10 relative-to="bottom"
-}
-
-window-rule {
     match app-id="midfloat$"
     open-floating true
     default-column-width { fixed 1300; }
@@ -171,7 +163,7 @@ window-rule {
 
 window-rule {
   match app-id="localsend"
-  opacity 0.90
+  opacity 0.88
   background-effect {
       blur true
   }

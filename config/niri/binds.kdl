@@ -8,8 +8,6 @@ binds {
 
     // apps
     super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Super+shift+return { spawn "kitty" "-o" "background_opacity=1.0" "--class" "kittyfloat"; }
-
 
     // quickshells
     super+d { spawn "quickshell" "ipc" "call" "launcher" "toggle"; }
@@ -17,6 +15,7 @@ binds {
     super+space { spawn "quickshell" "ipc" "call" "master" "toggle"; }
     super+shift+f23 { spawn "sh" "-c" "pkill quickshell; QS_NO_RELOAD_POPUP=1 quickshell --daemonize"; }
     super+a { spawn "quickshell" "ipc" "call" "dashboard" "toggle"; }
+    super+alt+l { spawn "quickshell" "ipc" "call" "lockscreen" "lock"; }
     super+g { spawn "quickshell" "ipc" "call" "calculator" "toggle"; }
     super+e { spawn "quickshell" "ipc" "call" "emoji" "toggle"; }
     super+shift+d { spawn "quickshell" "ipc" "call" "notifications" "dnd_toggle"; }
@@ -28,7 +27,7 @@ binds {
 
     // === Launchers, Menus & Custom Scripts ===
     super+n { spawn-sh "kitty -e yazi ~/Documents/note"; }
-    super+shift+s { spawn-sh "~/.local/bin/caf.sh"; }
+    super+shift+s { spawn-sh "~/.config/quickshell/master/scripts/caf.sh"; }
     super+shift+z { spawn-sh "~/.local/bin/rng.sh"; }
 
     // Focus navigation
